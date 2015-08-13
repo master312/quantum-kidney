@@ -8,7 +8,7 @@
 #ifndef CSTINGAME_H
 #define	CSTINGAME_H
 #include "../../storm/engine.h"
-#include "../cCommon.h"
+#include "../sCommon.h"
 
 class cStInGame : public cStormState {
 public:
