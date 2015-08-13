@@ -6,8 +6,10 @@
  */
 
 #include <iostream>
+#include "storm/engine.h"
 
 int main(int argc, char** argv) {
+    S_InitEngine(STORM_API_SDL2);
     
     std::cout << "Test test, test!" << std::endl;
     
