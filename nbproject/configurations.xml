@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/game/cCommon.h</itemPath>
+      <itemPath>src/game/states/cStInGame.h</itemPath>
+      <itemPath>src/game/states/cStMainMenu.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -24,116 +27,121 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="src" displayName="src" projectFiles="true">
-        <logicalFolder name="storm" displayName="storm" projectFiles="true">
-          <logicalFolder name="events" displayName="events" projectFiles="true">
-            <itemPath>src/storm/events/cEventManager.cpp</itemPath>
-            <itemPath>src/storm/events/cEventManager.h</itemPath>
-            <itemPath>src/storm/events/cInput.h</itemPath>
-            <itemPath>src/storm/events/cInputSDL2.cpp</itemPath>
-            <itemPath>src/storm/events/cInputSDL2.h</itemPath>
-            <itemPath>src/storm/events/eKeys.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="graphics" displayName="graphics" projectFiles="true">
-            <itemPath>src/storm/graphics/cAnimation.cpp</itemPath>
-            <itemPath>src/storm/graphics/cAnimation.h</itemPath>
-            <itemPath>src/storm/graphics/cAnimationManager.cpp</itemPath>
-            <itemPath>src/storm/graphics/cAnimationManager.h</itemPath>
-            <itemPath>src/storm/graphics/cFontManager.cpp</itemPath>
-            <itemPath>src/storm/graphics/cFontManager.h</itemPath>
-            <itemPath>src/storm/graphics/cFontManagerOpenGL.cpp</itemPath>
-            <itemPath>src/storm/graphics/cFontManagerOpenGL.h</itemPath>
-            <itemPath>src/storm/graphics/cFontManagerSDL2.cpp</itemPath>
-            <itemPath>src/storm/graphics/cFontManagerSDL2.h</itemPath>
-            <itemPath>src/storm/graphics/cGraphics.cpp</itemPath>
-            <itemPath>src/storm/graphics/cGraphics.h</itemPath>
-            <itemPath>src/storm/graphics/cGraphicsOpenGL.cpp</itemPath>
-            <itemPath>src/storm/graphics/cGraphicsOpenGL.h</itemPath>
-            <itemPath>src/storm/graphics/cGraphicsSDL2.cpp</itemPath>
-            <itemPath>src/storm/graphics/cGraphicsSDL2.h</itemPath>
-            <itemPath>src/storm/graphics/cTextureManager.cpp</itemPath>
-            <itemPath>src/storm/graphics/cTextureManager.h</itemPath>
-            <itemPath>src/storm/graphics/cTextureManagerOpenGL.cpp</itemPath>
-            <itemPath>src/storm/graphics/cTextureManagerOpenGL.h</itemPath>
-            <itemPath>src/storm/graphics/cTextureManagerSDL2.cpp</itemPath>
-            <itemPath>src/storm/graphics/cTextureManagerSDL2.h</itemPath>
-            <itemPath>src/storm/graphics/sFont.h</itemPath>
-            <itemPath>src/storm/graphics/sTexture.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="gui" displayName="gui" projectFiles="true">
-            <logicalFolder name="widgets" displayName="widgets" projectFiles="true">
-              <itemPath>src/storm/gui/widgets/cGuiWidgetButton.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetButton.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetCheckBox.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetCheckBox.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetComboBox.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetComboBox.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetContainer.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetContainer.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetHorizontalSlider.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetHorizontalSlider.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetInput.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetInput.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetLabel.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetLabel.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetList.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetList.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetPictureBox.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetPictureBox.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetRadioGroup.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetRadioGroup.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetTree.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetTree.h</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetVerticalSlider.cpp</itemPath>
-              <itemPath>src/storm/gui/widgets/cGuiWidgetVerticalSlider.h</itemPath>
-            </logicalFolder>
-            <itemPath>src/storm/gui/cGuiManager.cpp</itemPath>
-            <itemPath>src/storm/gui/cGuiManager.h</itemPath>
-            <itemPath>src/storm/gui/cGuiSkin.cpp</itemPath>
-            <itemPath>src/storm/gui/cGuiSkin.h</itemPath>
-            <itemPath>src/storm/gui/cGuiWidget.cpp</itemPath>
-            <itemPath>src/storm/gui/cGuiWidget.h</itemPath>
-            <itemPath>src/storm/gui/guiDefines.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="sound" displayName="sound" projectFiles="true">
-            <itemPath>src/storm/sound/cMusic.cpp</itemPath>
-            <itemPath>src/storm/sound/cMusic.h</itemPath>
-            <itemPath>src/storm/sound/cMusicSDL2.cpp</itemPath>
-            <itemPath>src/storm/sound/cMusicSDL2.h</itemPath>
-            <itemPath>src/storm/sound/cSound.cpp</itemPath>
-            <itemPath>src/storm/sound/cSound.h</itemPath>
-            <itemPath>src/storm/sound/cSoundManager.cpp</itemPath>
-            <itemPath>src/storm/sound/cSoundManager.h</itemPath>
-            <itemPath>src/storm/sound/cSoundManagerSDL2.cpp</itemPath>
-            <itemPath>src/storm/sound/cSoundManagerSDL2.h</itemPath>
-            <itemPath>src/storm/sound/cSoundSDL2.cpp</itemPath>
-            <itemPath>src/storm/sound/cSoundSDL2.h</itemPath>
-          </logicalFolder>
-          <itemPath>src/storm/cBinaryFile.cpp</itemPath>
-          <itemPath>src/storm/cBinaryFile.h</itemPath>
-          <itemPath>src/storm/cData.cpp</itemPath>
-          <itemPath>src/storm/cData.h</itemPath>
-          <itemPath>src/storm/cFileParser.cpp</itemPath>
-          <itemPath>src/storm/cFileParser.h</itemPath>
-          <itemPath>src/storm/cStateManager.cpp</itemPath>
-          <itemPath>src/storm/cStateManager.h</itemPath>
-          <itemPath>src/storm/cStormCallbacker.h</itemPath>
-          <itemPath>src/storm/cStormState.cpp</itemPath>
-          <itemPath>src/storm/cStormState.h</itemPath>
-          <itemPath>src/storm/cTimedCallbackManager.cpp</itemPath>
-          <itemPath>src/storm/cTimedCallbackManager.h</itemPath>
-          <itemPath>src/storm/cTimer.cpp</itemPath>
-          <itemPath>src/storm/cTimer.h</itemPath>
-          <itemPath>src/storm/defines.h</itemPath>
-          <itemPath>src/storm/engine.cpp</itemPath>
-          <itemPath>src/storm/engine.h</itemPath>
-          <itemPath>src/storm/fLogs.cpp</itemPath>
-          <itemPath>src/storm/fLogs.h</itemPath>
-          <itemPath>src/storm/storm.cpp</itemPath>
-          <itemPath>src/storm/storm.h</itemPath>
-        </logicalFolder>
-        <itemPath>src/main.cpp</itemPath>
+      <logicalFolder name="game" displayName="game" projectFiles="true">
+        <itemPath>src/game/cGame.cpp</itemPath>
+        <itemPath>src/game/cGame.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="storm" displayName="storm" projectFiles="true">
+        <logicalFolder name="events" displayName="events" projectFiles="true">
+          <itemPath>src/storm/events/cEventManager.cpp</itemPath>
+          <itemPath>src/storm/events/cEventManager.h</itemPath>
+          <itemPath>src/storm/events/cInput.h</itemPath>
+          <itemPath>src/storm/events/cInputSDL2.cpp</itemPath>
+          <itemPath>src/storm/events/cInputSDL2.h</itemPath>
+          <itemPath>src/storm/events/eKeys.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="graphics" displayName="graphics" projectFiles="true">
+          <itemPath>src/storm/graphics/cAnimation.cpp</itemPath>
+          <itemPath>src/storm/graphics/cAnimation.h</itemPath>
+          <itemPath>src/storm/graphics/cAnimationManager.cpp</itemPath>
+          <itemPath>src/storm/graphics/cAnimationManager.h</itemPath>
+          <itemPath>src/storm/graphics/cFontManager.cpp</itemPath>
+          <itemPath>src/storm/graphics/cFontManager.h</itemPath>
+          <itemPath>src/storm/graphics/cFontManagerOpenGL.cpp</itemPath>
+          <itemPath>src/storm/graphics/cFontManagerOpenGL.h</itemPath>
+          <itemPath>src/storm/graphics/cFontManagerSDL2.cpp</itemPath>
+          <itemPath>src/storm/graphics/cFontManagerSDL2.h</itemPath>
+          <itemPath>src/storm/graphics/cGraphics.cpp</itemPath>
+          <itemPath>src/storm/graphics/cGraphics.h</itemPath>
+          <itemPath>src/storm/graphics/cGraphicsOpenGL.cpp</itemPath>
+          <itemPath>src/storm/graphics/cGraphicsOpenGL.h</itemPath>
+          <itemPath>src/storm/graphics/cGraphicsSDL2.cpp</itemPath>
+          <itemPath>src/storm/graphics/cGraphicsSDL2.h</itemPath>
+          <itemPath>src/storm/graphics/cTextureManager.cpp</itemPath>
+          <itemPath>src/storm/graphics/cTextureManager.h</itemPath>
+          <itemPath>src/storm/graphics/cTextureManagerOpenGL.cpp</itemPath>
+          <itemPath>src/storm/graphics/cTextureManagerOpenGL.h</itemPath>
+          <itemPath>src/storm/graphics/cTextureManagerSDL2.cpp</itemPath>
+          <itemPath>src/storm/graphics/cTextureManagerSDL2.h</itemPath>
+          <itemPath>src/storm/graphics/sFont.h</itemPath>
+          <itemPath>src/storm/graphics/sTexture.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="gui" displayName="gui" projectFiles="true">
+          <logicalFolder name="widgets" displayName="widgets" projectFiles="true">
+            <itemPath>src/storm/gui/widgets/cGuiWidgetButton.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetButton.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetCheckBox.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetCheckBox.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetComboBox.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetComboBox.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetContainer.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetContainer.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetHorizontalSlider.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetHorizontalSlider.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetInput.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetInput.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetLabel.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetLabel.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetList.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetList.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetPictureBox.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetPictureBox.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetRadioGroup.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetRadioGroup.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetTree.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetTree.h</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetVerticalSlider.cpp</itemPath>
+            <itemPath>src/storm/gui/widgets/cGuiWidgetVerticalSlider.h</itemPath>
+          </logicalFolder>
+          <itemPath>src/storm/gui/cGuiManager.cpp</itemPath>
+          <itemPath>src/storm/gui/cGuiManager.h</itemPath>
+          <itemPath>src/storm/gui/cGuiSkin.cpp</itemPath>
+          <itemPath>src/storm/gui/cGuiSkin.h</itemPath>
+          <itemPath>src/storm/gui/cGuiWidget.cpp</itemPath>
+          <itemPath>src/storm/gui/cGuiWidget.h</itemPath>
+          <itemPath>src/storm/gui/guiDefines.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="sound" displayName="sound" projectFiles="true">
+          <itemPath>src/storm/sound/cMusic.cpp</itemPath>
+          <itemPath>src/storm/sound/cMusic.h</itemPath>
+          <itemPath>src/storm/sound/cMusicSDL2.cpp</itemPath>
+          <itemPath>src/storm/sound/cMusicSDL2.h</itemPath>
+          <itemPath>src/storm/sound/cSound.cpp</itemPath>
+          <itemPath>src/storm/sound/cSound.h</itemPath>
+          <itemPath>src/storm/sound/cSoundManager.cpp</itemPath>
+          <itemPath>src/storm/sound/cSoundManager.h</itemPath>
+          <itemPath>src/storm/sound/cSoundManagerSDL2.cpp</itemPath>
+          <itemPath>src/storm/sound/cSoundManagerSDL2.h</itemPath>
+          <itemPath>src/storm/sound/cSoundSDL2.cpp</itemPath>
+          <itemPath>src/storm/sound/cSoundSDL2.h</itemPath>
+        </logicalFolder>
+        <itemPath>src/storm/cBinaryFile.cpp</itemPath>
+        <itemPath>src/storm/cBinaryFile.h</itemPath>
+        <itemPath>src/storm/cData.cpp</itemPath>
+        <itemPath>src/storm/cData.h</itemPath>
+        <itemPath>src/storm/cFileParser.cpp</itemPath>
+        <itemPath>src/storm/cFileParser.h</itemPath>
+        <itemPath>src/storm/cStateManager.cpp</itemPath>
+        <itemPath>src/storm/cStateManager.h</itemPath>
+        <itemPath>src/storm/cStormCallbacker.h</itemPath>
+        <itemPath>src/storm/cStormState.cpp</itemPath>
+        <itemPath>src/storm/cStormState.h</itemPath>
+        <itemPath>src/storm/cTimedCallbackManager.cpp</itemPath>
+        <itemPath>src/storm/cTimedCallbackManager.h</itemPath>
+        <itemPath>src/storm/cTimer.cpp</itemPath>
+        <itemPath>src/storm/cTimer.h</itemPath>
+        <itemPath>src/storm/defines.h</itemPath>
+        <itemPath>src/storm/engine.cpp</itemPath>
+        <itemPath>src/storm/engine.h</itemPath>
+        <itemPath>src/storm/fLogs.cpp</itemPath>
+        <itemPath>src/storm/fLogs.h</itemPath>
+        <itemPath>src/storm/storm.cpp</itemPath>
+        <itemPath>src/storm/storm.h</itemPath>
+      </logicalFolder>
+      <itemPath>src/game/cCommon.cpp</itemPath>
+      <itemPath>src/game/states/cStInGame.cpp</itemPath>
+      <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
+      <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -145,6 +153,7 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
+      <itemPath>todo.txt</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -182,6 +191,22 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/game/cCommon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/cCommon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/cGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/states/cStInGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/states/cStMainMenu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/states/cStMainMenu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -538,6 +563,22 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/game/cCommon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/cCommon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/cGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/states/cStInGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/states/cStMainMenu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/states/cStMainMenu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -4,14 +4,12 @@
  *
  * Created on August 13, 2015, 7:58 PM
  */
-
-#include <iostream>
-#include "storm/engine.h"
+#include "game/cGame.h"
 
 int main(int argc, char** argv) {
-    S_InitEngine(STORM_API_SDL2);
-    
-    std::cout << "Test test, test!" << std::endl;
+    cGame *g = new cGame;
+    g->Start();
+    delete g;
     
     return 0;
 }

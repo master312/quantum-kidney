@@ -19,6 +19,7 @@ class cGuiSkin;
 //@Api = What rendering api to use; STORM_API_SDL, STORM_API_OPENGL etc...
 bool S_InitEngine(int api);
 //De-initialize all subsystems and free all memory
+//Call this method ONLY when program ends. To quit engine call S_Stop() !
 void S_Quit();
 //Tick engine logic, and handle events
 void S_Tick();

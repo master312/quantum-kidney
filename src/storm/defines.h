@@ -36,10 +36,10 @@ typedef unsigned int uint;
 #define STORM_WINDOW_FULLSCREEN 1
 #define STORM_WINDOW_BORDERLESS 2	//TODO: DOSE NOT WORK YET!
 //Logging types
-#define STORM_LOG_NOTSPECIFIED 0
-#define STORM_LOG_INFO 1
-#define STORM_LOG_WARNING 2
-#define STORM_LOG_ERROR 3
+#define STORM_LOG_NOTSPECIFIED 0        //Default terminal text color. Visible in debug and release
+#define STORM_LOG_INFO 1                //Green text color. Visible in debug mode
+#define STORM_LOG_WARNING 2             //Yellow text color. Visible in debug mode
+#define STORM_LOG_ERROR 3               //Red text color. Visible in debug and release mode. Logged to file
 //State statuses
 #define STORM_STATE_CREATED 0		//State has just been created
 #define STORM_STATE_INITED 1		//State has been initialized; Ready to tick
