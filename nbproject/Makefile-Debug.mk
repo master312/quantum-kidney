@@ -35,8 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/game/cCommon.o \
 	${OBJECTDIR}/src/game/cGame.o \
+	${OBJECTDIR}/src/game/map/cMapChunk.o \
+	${OBJECTDIR}/src/game/sCommon.o \
 	${OBJECTDIR}/src/game/states/cStInGame.o \
 	${OBJECTDIR}/src/game/states/cStMainMenu.o \
 	${OBJECTDIR}/src/main.o \
@@ -110,15 +111,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quantum-kidney: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quantum-kidney ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/src/game/cCommon.o: src/game/cCommon.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cCommon.o src/game/cCommon.cpp
-
 ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
+
+${OBJECTDIR}/src/game/map/cMapChunk.o: src/game/map/cMapChunk.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/map
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/map/cMapChunk.o src/game/map/cMapChunk.cpp
+
+${OBJECTDIR}/src/game/sCommon.o: src/game/sCommon.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/sCommon.o src/game/sCommon.cpp
 
 ${OBJECTDIR}/src/game/states/cStInGame.o: src/game/states/cStInGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states

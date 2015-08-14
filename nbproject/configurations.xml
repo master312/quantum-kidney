@@ -4,9 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>src/game/cCommon.h</itemPath>
+      <itemPath>src/game/map/cMapChunk.h</itemPath>
       <itemPath>src/game/states/cStInGame.h</itemPath>
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
+      <itemPath>src/game/sCommon.h</itemPath>
+      <itemPath>src/game/map/sMapTile.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -138,10 +140,11 @@
         <itemPath>src/storm/storm.cpp</itemPath>
         <itemPath>src/storm/storm.h</itemPath>
       </logicalFolder>
-      <itemPath>src/game/cCommon.cpp</itemPath>
+      <itemPath>src/game/map/cMapChunk.cpp</itemPath>
       <itemPath>src/game/states/cStInGame.cpp</itemPath>
       <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/game/sCommon.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -192,13 +195,19 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/game/cCommon.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/game/cCommon.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/game/cGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -564,13 +573,19 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/game/cCommon.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/game/cCommon.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/game/cGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
