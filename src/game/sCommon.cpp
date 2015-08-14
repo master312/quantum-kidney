@@ -10,12 +10,13 @@
 sCommon *pubCommon = NULL;
 
 sCommon::sCommon() {
-    tileWidth = tileHeight = 32;
+    mapTileWidth = mapTileHeight = 32;
     mapMaxBot = 3;
     mapMaxTop = 2;
     mapChunkWidth = mapChunkHeight = 50;
-    mapChunkWidthPx = mapChunkWidth * tileWidth;
-    mapChunkHeightPx = mapChunkHeight * tileHeight;
+    mapChunkWidthPx = mapChunkWidth * mapTileWidth;
+    mapChunkHeightPx = mapChunkHeight * mapTileHeight;
+    mapWorldWidth = mapWorldHeight = 150;
     mapChunkTimeout = 5000;
 }
 

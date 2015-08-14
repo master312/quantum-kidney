@@ -230,4 +230,7 @@ cGuiManager *S_GuiGetManager();
 //If main state ends, program will close
 void S_AddMainState(cStormState *_state);
 
+//Returns how much time has passed form start of the program
+Uint32 S_GetTime();
+
 #endif

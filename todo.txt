@@ -1,6 +1,12 @@
 TODO LIST:
 
 -Map
+ -OpenWorld system
+  -Tile structure -DONE
+   *Animated tiles
+  -Chunk class -DONE
+   *Create tilesets indexing file. (1 winter.png; 2 darkCave.png ...) In LoadTilesets() method
+  -Map manager class -DONW
  -Trigger system
   *Scripts...
 -Stats class
@@ -21,4 +27,5 @@ TODO LIST:
 
 
 -STORM: Tooltips
+-STORM: Check texture reload code ...it may have some bugs
 -Char creation gui

@@ -14,13 +14,15 @@ struct sCommon {
     ~sCommon();
 
     /* Map tile size in pixels */
-    int tileWidth, tileHeight;
+    int mapTileWidth, mapTileHeight;
     /* Map layer count limit */
     int mapMaxBot, mapMaxTop;
     /* Size of one map chunk (in tiles) */
     int mapChunkWidth, mapChunkHeight;
     /* Size of map chunk in pixels */
     int mapChunkWidthPx, mapChunkHeightPx;
+    /* World size in map chunks */
+    int mapWorldWidth, mapWorldHeight;
     /* Delete map chunk from memory if unused for this amount of time ( ms ) */
     int mapChunkTimeout;
 };

@@ -15,6 +15,14 @@ struct sSrcTile {
     int tilesetId;
     int loc;
     //TODO: If tile is animated, animation code should be here
+    sSrcTile() {
+        tilesetId = 0;
+        loc = 0;
+    }
+    sSrcTile(int tsId, int tileLoc) {
+        tilesetId = tsId;
+        loc = tileLoc;
+    }
 };
 
 struct sMapTile {
@@ -28,6 +36,17 @@ struct sMapTile {
      * if value is -1, trigger area is unwalkable
      * [0] - Top left, [1] - Top right, [2] - Bottom left, [3] - Bottom right */
     int triggers[4];
+    
+    /* This constructor will initialize empty tile */
+    sMapTile(){
+        triggers[0] = triggers[1] = triggers[2] = triggers[3] = 0;
+    }
+    
+    /* This constructor will create one bottom layer with tile 0 */
+    sMapTile(int tilesetId, int a){
+        botLayers.push_back(sSrcTile(tilesetId, a));
+        triggers[0] = triggers[1] = triggers[2] = triggers[3] = 0;
+    }
     
     int CountBot() {
         return (int)botLayers.size();

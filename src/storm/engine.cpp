@@ -315,3 +315,6 @@ cGuiManager *S_GuiGetManager(){
 void S_AddMainState(cStormState *_state){
 	sEngine->GetStateManager()->PushState(_state);
 }
+Uint32 S_GetTime(){
+    return SDL_GetTicks();
+}
