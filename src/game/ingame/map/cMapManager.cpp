@@ -28,7 +28,8 @@ void cMapManager::Init() {
                                     &cMapManager::Clear, 
                                     GetCommon()->mapChunkTimeout));
     
-    CalculateVisible();
+    
+    HandleCamera(1, 1);
     
     StormPrintLog(STORM_LOG_INFO, "cMapManager", "Initialized");
 }

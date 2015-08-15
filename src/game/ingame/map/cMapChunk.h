@@ -13,8 +13,8 @@
 #include <vector>
 #include <map>
 #include "sMapTile.h"
-#include "../../storm/engine.h"
-#include "../sCommon.h"
+#include "../../../storm/engine.h"
+#include "../../sCommon.h"
 /* TODO:
  *  Optimize MABY...: Create new vector that will store coordinates of tiles that 
  * have top layer. So when calling DrawTop(...) we do not need to go trough

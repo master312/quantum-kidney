@@ -6,7 +6,7 @@ TODO LIST:
    *Animated tiles
   -Chunk class -DONE
    *Create tilesets indexing file. (1 winter.png; 2 darkCave.png ...) In LoadTilesets() method
-  -Map manager class -DONW
+  -Map manager class -DONE
  -Trigger system
   *Scripts...
 -Stats struct
@@ -16,8 +16,7 @@ TODO LIST:
    -NPC
   -Objects
    *Scripts...
--Main class
--Character controller
+-Character controller -TO TEST
 -InGame gui
 -Hotbar element class
  -Spell base class

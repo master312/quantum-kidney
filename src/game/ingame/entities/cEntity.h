@@ -7,7 +7,7 @@
 
 #ifndef CENTITY_H
 #define	CENTITY_H
-#include "../../storm/engine.h"
+#include "../../../storm/engine.h"
 
 enum eEntityType {undefined, character, npc, object};
 

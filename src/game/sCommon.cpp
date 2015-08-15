@@ -18,6 +18,8 @@ sCommon::sCommon() {
     mapChunkHeightPx = mapChunkHeight * mapTileHeight;
     mapWorldWidth = mapWorldHeight = 150;
     mapChunkTimeout = 5000;
+    
+    mapManager = NULL;
 }
 
 sCommon::~sCommon() {

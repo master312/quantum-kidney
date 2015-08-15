@@ -16,11 +16,22 @@ void cStInGame::Init() {
             new cStormCallbacker(this, &cStInGame::HandleEvents), 
             "cStInGame");
     
+    sCommon *tmpC = GetCommon(); 
+    
+    cMapManager *mapManager = new cMapManager();
+    mapManager->Init();
+    tmpC->mapManager = mapManager;
+    
+    cPlayerDriver *playerDriver = new cPlayerDriver();
+    playerDriver->Init();
+    tmpC->playerDriver = playerDriver;
     
     StormPrintLog(STORM_LOG_INFO, "cStInGame", "State initialized");
 }
 void cStInGame::GraphicsTick() {
+    sCommon *tmpC = GetCommon();
     
+    tmpC->mapManager->Draw();
     
     S_RenderText("State: cStInGame", 1, 1);
 }

@@ -13,6 +13,7 @@ struct sStats{
     int agility;
     int stamina;
     int intelect;
+    int speed;
 };
 
 #endif	/* SSTATS_H */

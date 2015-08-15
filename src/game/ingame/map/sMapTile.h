@@ -7,7 +7,7 @@
 
 #ifndef SMAPTILE_H
 #define	SMAPTILE_H
-#include "../../storm/engine.h"
+#include "../../../storm/engine.h"
 #include <vector>
 
 struct sSrcTile {

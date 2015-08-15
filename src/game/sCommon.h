@@ -9,6 +9,10 @@
 #define	CCOMMON_H
 #include <iostream>
 
+#include "ingame/cPlayerDriver.h"
+
+class cMapManager;
+
 struct sCommon {
     sCommon();
     ~sCommon();
@@ -25,6 +29,9 @@ struct sCommon {
     int mapWorldWidth, mapWorldHeight;
     /* Delete map chunk from memory if unused for this amount of time ( ms ) */
     int mapChunkTimeout;
+    
+    cMapManager *mapManager;
+    cPlayerDriver *playerDriver;
 };
 
 sCommon *GetCommon();

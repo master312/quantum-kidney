@@ -7,8 +7,8 @@
 
 #ifndef CMAPMANAGER_H
 #define	CMAPMANAGER_H
-#include "../../storm/engine.h"
-#include "../sCommon.h"
+#include "../../../storm/engine.h"
+#include "../../sCommon.h"
 #include "cMapChunk.h"
 #include <vector>
 /* TODO:
@@ -32,7 +32,6 @@ public:
     /* Delete unused chunks. This method should not be called manually
      * Method is called on interval */
     void Clear();
-    
     /* Save all changes made to map chunks */
     void SaveAll();
     

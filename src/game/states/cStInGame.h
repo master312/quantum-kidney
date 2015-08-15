@@ -9,6 +9,8 @@
 #define	CSTINGAME_H
 #include "../../storm/engine.h"
 #include "../sCommon.h"
+#include "../ingame/map/cMapManager.h"
+#include "../ingame/cPlayerDriver.h"
 
 class cStInGame : public cStormState {
 public:

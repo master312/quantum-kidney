@@ -30,6 +30,7 @@ public:
     std::string GetName() { return name; }
     void SetSubName(std::string _name) { subName = _name; }
     std::string GetSubName() { return subName; }
+    sStats *GetStats() { return &stats; }
 protected:
     /* This variable is used for debug only */
     int spriteId;

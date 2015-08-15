@@ -4,19 +4,20 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>src/game/entities/cCharacter.h</itemPath>
-      <itemPath>src/game/entities/cEntity.h</itemPath>
-      <itemPath>src/game/map/cMapChunk.h</itemPath>
-      <itemPath>src/game/map/cMapManager.h</itemPath>
-      <itemPath>src/game/entities/cNpc.h</itemPath>
-      <itemPath>src/game/entities/cObject.h</itemPath>
-      <itemPath>src/game/entities/cPawn.h</itemPath>
+      <itemPath>src/game/ingame/entities/cCharacter.h</itemPath>
+      <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
+      <itemPath>src/game/ingame/map/cMapManager.h</itemPath>
+      <itemPath>src/game/ingame/entities/cNpc.h</itemPath>
+      <itemPath>src/game/ingame/entities/cObject.h</itemPath>
+      <itemPath>src/game/ingame/entities/cPawn.h</itemPath>
+      <itemPath>src/game/ingame/cPlayerDriver.h</itemPath>
       <itemPath>src/game/states/cStInGame.h</itemPath>
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
+      <itemPath>src/storm/cVector2d.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
-      <itemPath>src/game/map/sMapTile.h</itemPath>
+      <itemPath>src/game/ingame/sKeyBinds.h</itemPath>
       <itemPath>src/game/elements/sStats.h</itemPath>
-      <itemPath>src/game/sStats.h</itemPath>
+      <itemPath>src/game/ingame/sStats.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -148,15 +149,16 @@
         <itemPath>src/storm/storm.cpp</itemPath>
         <itemPath>src/storm/storm.h</itemPath>
       </logicalFolder>
-      <itemPath>src/game/entities/cCharacter.cpp</itemPath>
-      <itemPath>src/game/entities/cEntity.cpp</itemPath>
-      <itemPath>src/game/map/cMapChunk.cpp</itemPath>
-      <itemPath>src/game/map/cMapManager.cpp</itemPath>
-      <itemPath>src/game/entities/cNpc.cpp</itemPath>
-      <itemPath>src/game/entities/cObject.cpp</itemPath>
-      <itemPath>src/game/entities/cPawn.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cCharacter.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
+      <itemPath>src/game/ingame/map/cMapManager.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cNpc.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cObject.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cPawn.cpp</itemPath>
+      <itemPath>src/game/ingame/cPlayerDriver.cpp</itemPath>
       <itemPath>src/game/states/cStInGame.cpp</itemPath>
       <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
+      <itemPath>src/storm/cVector2d.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
       <itemPath>src/game/sCommon.cpp</itemPath>
     </logicalFolder>
@@ -215,41 +217,62 @@
       </item>
       <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cCharacter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/cPlayerDriver.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/entities/cCharacter.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/cPlayerDriver.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cEntity.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cCharacter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cEntity.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cCharacter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cEntity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cNpc.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cEntity.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cObject.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/entities/cObject.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cNpc.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cObject.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cObject.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cPawn.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/cMapManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/map/cMapManager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/map/cMapManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cMapManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/sKeyBinds.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/game/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -293,6 +316,10 @@
       <item path="src/storm/cTimer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/storm/cTimer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cVector2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/storm/cVector2d.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/defines.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -621,41 +648,62 @@
       </item>
       <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cCharacter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/cPlayerDriver.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/entities/cCharacter.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/cPlayerDriver.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cEntity.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cCharacter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cEntity.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cCharacter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cEntity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cNpc.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cEntity.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cObject.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/entities/cObject.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cNpc.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cObject.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/game/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cObject.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/entities/cPawn.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/cMapManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/game/ingame/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/game/map/cMapManager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/map/cMapManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cMapManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/sMapTile.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/sKeyBinds.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/game/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -699,6 +747,10 @@
       <item path="src/storm/cTimer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/storm/cTimer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cVector2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/storm/cVector2d.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/defines.h" ex="false" tool="3" flavor2="0">
       </item>

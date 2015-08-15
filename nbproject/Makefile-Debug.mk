@@ -36,13 +36,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
-	${OBJECTDIR}/src/game/entities/cCharacter.o \
-	${OBJECTDIR}/src/game/entities/cEntity.o \
-	${OBJECTDIR}/src/game/entities/cNpc.o \
-	${OBJECTDIR}/src/game/entities/cObject.o \
-	${OBJECTDIR}/src/game/entities/cPawn.o \
-	${OBJECTDIR}/src/game/map/cMapChunk.o \
-	${OBJECTDIR}/src/game/map/cMapManager.o \
+	${OBJECTDIR}/src/game/ingame/cPlayerDriver.o \
+	${OBJECTDIR}/src/game/ingame/entities/cCharacter.o \
+	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
+	${OBJECTDIR}/src/game/ingame/entities/cNpc.o \
+	${OBJECTDIR}/src/game/ingame/entities/cObject.o \
+	${OBJECTDIR}/src/game/ingame/entities/cPawn.o \
+	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
+	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
 	${OBJECTDIR}/src/game/states/cStInGame.o \
 	${OBJECTDIR}/src/game/states/cStMainMenu.o \
@@ -54,6 +55,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/storm/cStormState.o \
 	${OBJECTDIR}/src/storm/cTimedCallbackManager.o \
 	${OBJECTDIR}/src/storm/cTimer.o \
+	${OBJECTDIR}/src/storm/cVector2d.o \
 	${OBJECTDIR}/src/storm/engine.o \
 	${OBJECTDIR}/src/storm/events/cEventManager.o \
 	${OBJECTDIR}/src/storm/events/cInputSDL2.o \
@@ -122,40 +124,45 @@ ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
 
-${OBJECTDIR}/src/game/entities/cCharacter.o: src/game/entities/cCharacter.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+${OBJECTDIR}/src/game/ingame/cPlayerDriver.o: src/game/ingame/cPlayerDriver.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cCharacter.o src/game/entities/cCharacter.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cPlayerDriver.o src/game/ingame/cPlayerDriver.cpp
 
-${OBJECTDIR}/src/game/entities/cEntity.o: src/game/entities/cEntity.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+${OBJECTDIR}/src/game/ingame/entities/cCharacter.o: src/game/ingame/entities/cCharacter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cEntity.o src/game/entities/cEntity.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cCharacter.o src/game/ingame/entities/cCharacter.cpp
 
-${OBJECTDIR}/src/game/entities/cNpc.o: src/game/entities/cNpc.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+${OBJECTDIR}/src/game/ingame/entities/cEntity.o: src/game/ingame/entities/cEntity.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cNpc.o src/game/entities/cNpc.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntity.o src/game/ingame/entities/cEntity.cpp
 
-${OBJECTDIR}/src/game/entities/cObject.o: src/game/entities/cObject.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+${OBJECTDIR}/src/game/ingame/entities/cNpc.o: src/game/ingame/entities/cNpc.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cObject.o src/game/entities/cObject.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cNpc.o src/game/ingame/entities/cNpc.cpp
 
-${OBJECTDIR}/src/game/entities/cPawn.o: src/game/entities/cPawn.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+${OBJECTDIR}/src/game/ingame/entities/cObject.o: src/game/ingame/entities/cObject.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cPawn.o src/game/entities/cPawn.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cObject.o src/game/ingame/entities/cObject.cpp
 
-${OBJECTDIR}/src/game/map/cMapChunk.o: src/game/map/cMapChunk.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/map
+${OBJECTDIR}/src/game/ingame/entities/cPawn.o: src/game/ingame/entities/cPawn.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/map/cMapChunk.o src/game/map/cMapChunk.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cPawn.o src/game/ingame/entities/cPawn.cpp
 
-${OBJECTDIR}/src/game/map/cMapManager.o: src/game/map/cMapManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/map
+${OBJECTDIR}/src/game/ingame/map/cMapChunk.o: src/game/ingame/map/cMapChunk.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/map/cMapManager.o src/game/map/cMapManager.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapChunk.o src/game/ingame/map/cMapChunk.cpp
+
+${OBJECTDIR}/src/game/ingame/map/cMapManager.o: src/game/ingame/map/cMapManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapManager.o src/game/ingame/map/cMapManager.cpp
 
 ${OBJECTDIR}/src/game/sCommon.o: src/game/sCommon.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game
@@ -211,6 +218,11 @@ ${OBJECTDIR}/src/storm/cTimer.o: src/storm/cTimer.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cTimer.o src/storm/cTimer.cpp
+
+${OBJECTDIR}/src/storm/cVector2d.o: src/storm/cVector2d.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/storm
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cVector2d.o src/storm/cVector2d.cpp
 
 ${OBJECTDIR}/src/storm/engine.o: src/storm/engine.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
