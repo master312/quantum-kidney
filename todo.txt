@@ -9,10 +9,11 @@ TODO LIST:
   -Map manager class -DONW
  -Trigger system
   *Scripts...
--Stats class
+-Stats struct
 -Entity
-  -Character
-  -Creature
+  -Pawn
+   -Character
+   -NPC
   -Objects
    *Scripts...
 -Main class
@@ -26,6 +27,7 @@ TODO LIST:
 ...All other shit like AI
 
 
--STORM: Tooltips
+-STORM!!: WRITE NEW COMMENTS ON PUBLIC ANIMATION FUNCTIONS!
+-STORM: Tooltip system
 -STORM: Check texture reload code ...it may have some bugs
 -Char creation gui

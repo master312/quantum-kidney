@@ -36,6 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
+	${OBJECTDIR}/src/game/entities/cCharacter.o \
+	${OBJECTDIR}/src/game/entities/cEntity.o \
+	${OBJECTDIR}/src/game/entities/cNpc.o \
+	${OBJECTDIR}/src/game/entities/cObject.o \
+	${OBJECTDIR}/src/game/entities/cPawn.o \
 	${OBJECTDIR}/src/game/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
@@ -116,6 +121,31 @@ ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
+
+${OBJECTDIR}/src/game/entities/cCharacter.o: src/game/entities/cCharacter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cCharacter.o src/game/entities/cCharacter.cpp
+
+${OBJECTDIR}/src/game/entities/cEntity.o: src/game/entities/cEntity.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cEntity.o src/game/entities/cEntity.cpp
+
+${OBJECTDIR}/src/game/entities/cNpc.o: src/game/entities/cNpc.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cNpc.o src/game/entities/cNpc.cpp
+
+${OBJECTDIR}/src/game/entities/cObject.o: src/game/entities/cObject.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cObject.o src/game/entities/cObject.cpp
+
+${OBJECTDIR}/src/game/entities/cPawn.o: src/game/entities/cPawn.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/entities/cPawn.o src/game/entities/cPawn.cpp
 
 ${OBJECTDIR}/src/game/map/cMapChunk.o: src/game/map/cMapChunk.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/map

@@ -112,12 +112,26 @@ void cMapManager::Clear() {
     }
 }
 void cMapManager::SaveAll() {
+    
 }
 sMapTile *cMapManager::GetTile(int x, int y) {
+    int chunkX = x / GetCommon()->mapChunkWidth;
+    int chunkY = y / GetCommon()->mapChunkHeight;
+    if(chunks[chunkX][chunkY] == NULL)
+            return NULL;
+    x -= chunkX * GetCommon()->mapChunkWidth;
+    y -= chunkY * GetCommon()->mapChunkHeight;
+    return chunks[chunkX][chunkY]->GetTile(x, y);
 }
 sMapTile *cMapManager::GetTileScreen(int x, int y) {
+    x = (x + camera.x) / GetCommon()->mapTileWidth;
+    y = (y + camera.y) / GetCommon()->mapTileHeight;
+    return GetTile(x, y);
 }
 cMapChunk *cMapManager::GetChunkScreen(int x, int y) {
+    x = (x + camera.x) / GetCommon()->mapChunkWidthPx;
+    y = (y + camera.y) / GetCommon()->mapChunkHeightPx;
+    return chunks[x][y];
 }
 void cMapManager::CalculateVisible() {
     start.x = camera.x / GetCommon()->mapChunkWidthPx;

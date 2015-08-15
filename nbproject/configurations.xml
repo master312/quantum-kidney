@@ -4,12 +4,19 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/game/entities/cCharacter.h</itemPath>
+      <itemPath>src/game/entities/cEntity.h</itemPath>
       <itemPath>src/game/map/cMapChunk.h</itemPath>
       <itemPath>src/game/map/cMapManager.h</itemPath>
+      <itemPath>src/game/entities/cNpc.h</itemPath>
+      <itemPath>src/game/entities/cObject.h</itemPath>
+      <itemPath>src/game/entities/cPawn.h</itemPath>
       <itemPath>src/game/states/cStInGame.h</itemPath>
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
       <itemPath>src/game/map/sMapTile.h</itemPath>
+      <itemPath>src/game/elements/sStats.h</itemPath>
+      <itemPath>src/game/sStats.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -141,8 +148,13 @@
         <itemPath>src/storm/storm.cpp</itemPath>
         <itemPath>src/storm/storm.h</itemPath>
       </logicalFolder>
+      <itemPath>src/game/entities/cCharacter.cpp</itemPath>
+      <itemPath>src/game/entities/cEntity.cpp</itemPath>
       <itemPath>src/game/map/cMapChunk.cpp</itemPath>
       <itemPath>src/game/map/cMapManager.cpp</itemPath>
+      <itemPath>src/game/entities/cNpc.cpp</itemPath>
+      <itemPath>src/game/entities/cObject.cpp</itemPath>
+      <itemPath>src/game/entities/cPawn.cpp</itemPath>
       <itemPath>src/game/states/cStInGame.cpp</itemPath>
       <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -201,6 +213,28 @@
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cCharacter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cCharacter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cEntity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cEntity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cNpc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
@@ -214,6 +248,8 @@
       <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -583,6 +619,28 @@
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cCharacter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cCharacter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cEntity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cEntity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cNpc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cNpc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/game/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/map/cMapChunk.h" ex="false" tool="3" flavor2="0">
@@ -596,6 +654,8 @@
       <item path="src/game/sCommon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/states/cStInGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
