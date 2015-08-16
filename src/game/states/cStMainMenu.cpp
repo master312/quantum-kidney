@@ -1,4 +1,5 @@
 #include "cStMainMenu.h"
+#include "cStAnimGenerator.h"
 
 cStMainMenu::cStMainMenu(){
 	
@@ -23,6 +24,8 @@ void cStMainMenu::LogicTick(){
 void cStMainMenu::HandleEvents(){
     if(S_IsKeyDown(KEY_RETURN)){
         PushState(new cStInGame());
+    } else if(S_IsKeyDown(KEY_a)){
+        PushState(new cStAnimGenerator());
     } else if(S_IsKeyDown(KEY_ESCAPE)){
         S_Quit();
     }

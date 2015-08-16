@@ -6,6 +6,14 @@
 CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
+# Debug_Linux configuration
+CND_PLATFORM_Debug_Linux=GNU-Linux-x86
+CND_ARTIFACT_DIR_Debug_Linux=dist/Debug_Linux/GNU-Linux-x86
+CND_ARTIFACT_NAME_Debug_Linux=quantum-kidney
+CND_ARTIFACT_PATH_Debug_Linux=dist/Debug_Linux/GNU-Linux-x86/quantum-kidney
+CND_PACKAGE_DIR_Debug_Linux=dist/Debug_Linux/GNU-Linux-x86/package
+CND_PACKAGE_NAME_Debug_Linux=quantum-kidney.tar
+CND_PACKAGE_PATH_Debug_Linux=dist/Debug_Linux/GNU-Linux-x86/package/quantum-kidney.tar
 # Debug_Windows configuration
 CND_PLATFORM_Debug_Windows=MinGW-Windows
 CND_ARTIFACT_DIR_Debug_Windows=dist/Debug_Windows/MinGW-Windows

@@ -9,6 +9,7 @@
 #define	CSTMAINMENU_H
 #include "../../storm/engine.h"
 #include "cStInGame.h"
+#include "cStAnimGenerator.h"
 
 class cStMainMenu : public cStormState {
 public:
