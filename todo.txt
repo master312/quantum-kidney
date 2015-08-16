@@ -23,6 +23,7 @@ TODO LIST:
   *Scripts...
  -Item base class
   *Scripts....
+-Start using cVector2d class for all coordinates
 ...All other shit like AI
 
 
