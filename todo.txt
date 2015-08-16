@@ -30,4 +30,5 @@ TODO LIST:
 -STORM!!: WRITE NEW COMMENTS ON PUBLIC ANIMATION FUNCTIONS!
 -STORM: Tooltip system
 -STORM: Check texture reload code ...it may have some bugs
+-STORM: GuiWidget->AddChuild to add multiple widgets at onse
 -Char creation gui

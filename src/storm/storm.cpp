@@ -134,11 +134,20 @@ void storm::Tick(){
 	mAnimation->UpdateAll();
 	if(IsGraphicsTick()){
 		mState->GraphicsTick();
-		// if(isDebug && mFont != NULL && mInput != NULL){
-		// 	char mousePos[40];
-		// 	sprintf(mousePos, "Mouse X:%d Y:%d", mInput->mouseX, mInput->mouseY);
-		// 	mFont->DrawText("default", mousePos, 5, 5);
-		// }
+		if(isDebug && mFont != NULL){
+                    char mousePos[40];
+                    cInput *tmpI = mEvents->GetInputManager();
+                    
+                    if(tmpI->textScan) {
+                        sprintf(mousePos, "Mouse X:%d Y:%d. Text input mode", 
+                                tmpI->mouseX, tmpI->mouseY);                        
+                    } else {
+                        sprintf(mousePos, "Mouse X:%d Y:%d", 
+                                tmpI->mouseX, tmpI->mouseY);
+                    }
+                    
+                    mFont->DrawText("default", mousePos, 2, mGraphics->height - 28);
+		}
 		guiManager->GraphicsTick();
 		FlipScreen();
 	}
