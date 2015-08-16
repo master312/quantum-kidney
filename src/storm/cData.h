@@ -3,6 +3,7 @@
 //This class contains functions for converting various data types to binary (char array)
 //And binary data manipulation
 #include "defines.h"
+#include <cstring>
 #ifndef CDATA_H
 #define CDATA_H
 

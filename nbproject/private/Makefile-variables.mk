@@ -3,5 +3,5 @@
 #
 # NOCDDL
 #
-# Debug configuration
+# Debug_Windows configuration
 # Release configuration

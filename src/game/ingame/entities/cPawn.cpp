@@ -18,7 +18,7 @@ cPawn::~cPawn() {
 }
 void cPawn::LoadSprite() {
     char tmp[50];
-    sprintf(&tmp, "sprites/%d.png", spriteId);
+    sprintf(tmp, "sprites/%d.png", spriteId);
     spriteTexture = S_LoadAnimation(tmp);
 }
 void cPawn::Draw() {

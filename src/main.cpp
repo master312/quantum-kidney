@@ -6,6 +6,10 @@
  */
 #include "game/cGame.h"
 
+#ifdef OS_WINDOWS
+#undef main
+#endif
+
 int main(int argc, char** argv) {
     cGame *g = new cGame;
     g->Start();

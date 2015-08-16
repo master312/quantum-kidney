@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "cData.h"
 
 bool cData::IsBigEndian(){
@@ -76,5 +78,5 @@ void cData::ShortToByte(short &_short, char *dest){
 }
 
 void cData::ByteCopy(char *src, char *dest, int destOffset, int srcLen){
-	memcpy(dest + destOffset, src, srcLen);
+	std::memcpy(dest + destOffset, src, srcLen);
 }
