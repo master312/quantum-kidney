@@ -65,6 +65,8 @@ void cStAnimGenerator::Resume() {
 void cStAnimGenerator::Shutdown() {
 }
 void cStAnimGenerator::LoadAnim() {
+    std::cout<<"test"<<std::endl;
+    
     uint spriteTemp = S_LoadTexture(sInput->GetText());
     if(spriteTemp == 0){
         return;
