@@ -45,6 +45,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
+	${OBJECTDIR}/src/game/states/cStAnimGenerator.o \
 	${OBJECTDIR}/src/game/states/cStInGame.o \
 	${OBJECTDIR}/src/game/states/cStMainMenu.o \
 	${OBJECTDIR}/src/main.o \
@@ -168,6 +169,11 @@ ${OBJECTDIR}/src/game/sCommon.o: src/game/sCommon.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/sCommon.o src/game/sCommon.cpp
+
+${OBJECTDIR}/src/game/states/cStAnimGenerator.o: src/game/states/cStAnimGenerator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/states
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStAnimGenerator.o src/game/states/cStAnimGenerator.cpp
 
 ${OBJECTDIR}/src/game/states/cStInGame.o: src/game/states/cStInGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states

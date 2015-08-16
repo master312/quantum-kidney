@@ -58,7 +58,7 @@ void cGuiWidgetInput::HandleWidgetEvent(bool isMouseOver){
 		}
 	}else{
 		isOver = false;
-		if(S_IsMouseLeft()){
+		if(S_IsMouseLeft() && pointerLoc > -1){
 			pointerLoc = -1;
 			S_StopTextInput();
 			return;

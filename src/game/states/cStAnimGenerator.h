@@ -8,6 +8,7 @@
 #ifndef CSTANIMGENERATOR_H
 #define	CSTANIMGENERATOR_H
 #include "../../storm/engine.h"
+#include "../../storm/gui/cGuiManager.h"
 
 class cStAnimGenerator : public cStormState {
 public:
@@ -21,6 +22,18 @@ public:
     void Pause();
     void Resume();
     void Shutdown();
+    void LoadAnim();
+    
+    
+private:
+    
+    
+    cGuiWidgetInput *sInput;
+    cGuiWidgetInput *aInput;
+    cGuiWidgetInput *fwInput;
+    cGuiWidgetInput *fhInput;
+    cGuiWidgetButton *aButton;
+    cGuiWidgetContainer *cont;    
 };
 
 #endif	/* CSTANIMGENERATOR_H */

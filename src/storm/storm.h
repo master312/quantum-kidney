@@ -28,6 +28,7 @@
 //TODO: Finish TODO lists from all classes ...
 //TODO Someday: Add one more logic thread
 //TODO Someday: Borderless window
+//TODO Add Separate Constructors for all cases in cGuiWidgetContainer
 
 
 //DONE: Texture usage. Do not free textures unless thay are not used anymore

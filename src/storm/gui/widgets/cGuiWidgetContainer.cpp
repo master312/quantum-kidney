@@ -87,7 +87,7 @@ void cGuiWidgetContainer::HandleWidgetEvent(bool isMouseOver){
 			closeButtonState = 0;
 		}
 		if(titleBarRect[0].IsCollision(S_GetMouseX(), S_GetMouseY())){
-			if(!isDragging && !isResize){
+			if(!isDragging && !isResize && isMovable){
 				resizeDir = -1;
 				isDragging = true;
 				dragStart.x = S_GetMouseX() - loc.x;
@@ -163,7 +163,7 @@ void cGuiWidgetContainer::Draw(){
 	}
 }
 void cGuiWidgetContainer::HandleResizeEvent(){
-	if(isResize){
+	if(isResize && isResizable){
 		if(S_IsMouseLeft()){
 			switch(resizeDir){
 				case 0:	//Left

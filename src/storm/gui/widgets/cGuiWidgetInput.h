@@ -18,6 +18,8 @@ public:
 	void HandleWidgetEvent(bool isMouseOver);
 	void Render();
 	void Draw();
+        
+        std::string GetText() { return text; }
 private:
 	std::string text;
 	//Is this input box enabled
