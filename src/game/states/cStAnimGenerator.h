@@ -9,6 +9,7 @@
 #define	CSTANIMGENERATOR_H
 #include "../../storm/engine.h"
 #include "../../storm/gui/cGuiManager.h"
+#include <vector>
 
 class cStAnimGenerator : public cStormState {
 public:
@@ -26,8 +27,9 @@ public:
     
     
 private:
+    uint animationId;
     
-    
+    cGuiWidgetInput *frInput;
     cGuiWidgetInput *sInput;
     cGuiWidgetInput *aInput;
     cGuiWidgetInput *fwInput;
