@@ -138,6 +138,7 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 	std::string fullFile = (char*)STORM_DIR_ANIMS + _filename;
 	cBinaryFile tmpFile;
         std::ofstream a_file(fullFile);
+        a_file.clear();
 	tmpFile.Open(fullFile);
 	if(!tmpFile.IsOpen()){
 		StormPrintLog(STORM_LOG_ERROR, "cAnimation", 
