@@ -15,6 +15,9 @@ cGuiWidgetInput::cGuiWidgetInput(std::string _name, int x, int y, int w, int h,
 	pointerLoc = -1;
 	isOver = false;
 	timer.SetInterval(50);
+        if(text.size() > 0){
+            visibleString = text;
+        }
 }
 cGuiWidgetInput::~cGuiWidgetInput(){
 
