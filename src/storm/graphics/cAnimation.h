@@ -48,10 +48,14 @@ public:
 	bool IsPaused() { return isPaused; }
 	//How many times will this animation be repeated before it ends (stop drawing)
 	int GetRepetations() { return repetations; }
-	//Return texture id for given frame; This will cause error if out 'frame' is out of range
-	uint GetTexture(int frame) { return textures[frame]; }
+	//If animaiton is made up of multiple textures
+        //this function will return texture ID for @frame
+        //but if animation is made up of texture sections, it will return
+        //section ID for @frame
+        //This will cause error if out 'frame' is out of range
+	uint GetFrame(int frame) { return textures[frame]; }
 	//Return number of textures(frames) in this animation
-	int GetTextureCount() { return (int)textures.size(); }
+	int GetFramesCount() { return (int)textures.size(); }
 	//Return FPS of this animation
 	int GetFps() { return fps; }
 	//Returns animation filename;

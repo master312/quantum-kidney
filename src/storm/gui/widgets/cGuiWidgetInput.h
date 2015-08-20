@@ -20,6 +20,7 @@ public:
 	void Draw();
         
         std::string GetText() { return text; }
+        void SetText(std::string _text) { text = _text; visibleString = text; }
 private:
 	std::string text;
 	//Is this input box enabled

@@ -32,7 +32,7 @@ void cStAnimGenerator::GraphicsTick() {
         cAnimation *anim = S_GetAnimation(animationId);
         plCurFrame->SetText("Frame: %d / %d", 
                             anim->GetCurFrame(), 
-                            anim->GetLastFrame() - 1);
+                            anim->GetFramesCount() - 1);
     }
 }
 void cStAnimGenerator::LogicTick() {
@@ -62,6 +62,11 @@ void cStAnimGenerator::LoadAnim(){
     animationId = S_LoadAnimation(lAnimFilename->GetText());
     if(animationId == 0)
         return;
+    
+    lAnimSpriteFname->SetText(S_GetTexture(
+                        S_GetSection(
+                            S_GetAnimation(animationId)->GetFrame(0))->texture)
+                    ->filename);
     
     S_GuiShowWidgetByName("CONT_ANIM_PLAY"); 
 }

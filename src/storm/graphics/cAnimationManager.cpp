@@ -129,7 +129,7 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 			"Could not save animation. Filename name not specified");
 		return;
 	}
-	if(tmpAni->GetTextureCount() == 0){
+	if(tmpAni->GetFramesCount() == 0){
 		StormPrintLog(STORM_LOG_ERROR, "cAnimation", 
 			"Could not save animation. There are not any frames in this animation");
 		return;
@@ -152,7 +152,7 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 	//FPS
 	tmpFile.WriteInt(tmpAni->GetFps());
 	//Frames count
-	tmpFile.WriteInt(tmpAni->GetTextureCount());
+	tmpFile.WriteInt(tmpAni->GetFramesCount());
 	//Use textures, or sections
 	if(tmpAni->IsUseTextures()){
 		tmpFile.WriteByte('1');
@@ -161,10 +161,10 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 	}
 	//Write frames
 	sTexture *tmpTexture = NULL;
-	for(int i = 0; i < tmpAni->GetTextureCount(); i++){
+	for(int i = 0; i < tmpAni->GetFramesCount(); i++){
 		if(!tmpAni->IsUseTextures()){
 			//Animation is made using texture sections
-			sTextureSection *tmpSec = tManager->GetSection(tmpAni->GetTexture(i));
+			sTextureSection *tmpSec = tManager->GetSection(tmpAni->GetFrame(i));
 			tmpTexture = tManager->GetTexture(tmpSec->texture);
 			//Write section details
 			tmpFile.WriteInt(tmpSec->x);
@@ -174,7 +174,7 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 			// // //
 		}else{
 			//Animation is made using multiple textures
-			tmpTexture = tManager->GetTexture(tmpAni->GetTexture(i));
+			tmpTexture = tManager->GetTexture(tmpAni->GetFrame(i));
 			//Filename length
 			tmpFile.WriteString(tmpTexture->filename);
 		}
@@ -203,13 +203,13 @@ void cAnimationManager::Remove(uint animationId){
 		cAnimation *tmpAni = &animations[animationId];
 		if(tmpAni->IsUseTextures()){
 			//Animation is made from multiple textures
-			for(int i = 0; i < tmpAni->GetTextureCount(); i++){
-				tManager->UnloadTexture(tmpAni->GetTexture(i));
+			for(int i = 0; i < tmpAni->GetFramesCount(); i++){
+				tManager->UnloadTexture(tmpAni->GetFrame(i));
 			}
 		}else{
 			//Animation is made from texture sections
 			uint toRem = 0;
-			toRem = tManager->GetSection(tmpAni->GetTexture(0))->texture;
+			toRem = tManager->GetSection(tmpAni->GetFrame(0))->texture;
 			tManager->UnloadTexture(toRem);
 		}
 	}
