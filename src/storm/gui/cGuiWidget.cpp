@@ -30,6 +30,14 @@ int cGuiWidget::HandleEvents(){
 void cGuiWidget::SetLoc(int x, int y){
 	UpdatePosition(x, y);
 }
+void cGuiWidget::AddChildren(int count, ...){
+	va_list ap;
+	va_start(ap, count);
+	for(int i = 0; i < count; i++){
+		AddChild(va_arg(ap, cGuiWidget*));
+	}
+	va_end(ap);
+}
 
 void cGuiWidget::AddChild(cGuiWidget *_child){
 	StormPrintLog(STORM_LOG_WARNING, "cGuiWidget", "Template class called");

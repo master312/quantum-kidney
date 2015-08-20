@@ -221,7 +221,17 @@ uint S_GuiAddWidget(cGuiWidget *widget, cGuiSkin *skin = NULL);
 //Deletes widget object with matching ID
 void S_GuiRemoveWidget(uint id);
 //Returns pointer to widget matching ID, or NULL if not found
-cGuiWidget *S_GuiGetWidget(uint id);
+cGuiWidget *S_GuiGetWidgetById(uint id);
+//Returns pointer to widget matching NAME, or NULL if not found
+cGuiWidget *S_GuiGetWidgetByName(std::string _name);
+//Hide gui widget by Id
+void S_GuiHideWidgetById(uint id);
+//Hide gui widget by name
+void S_GuiHideWidgetByName(std::string _name);
+//Show gui widget by ID
+void S_GuiShowWidgetById(uint id);
+//Show gui widget by name
+void S_GuiShowWidgetByName(std::string _name);
 //Returns pointer to GUI manager
 cGuiManager *S_GuiGetManager();
 

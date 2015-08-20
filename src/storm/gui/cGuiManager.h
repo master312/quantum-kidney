@@ -39,7 +39,18 @@ public:
 	//Returns pointer to widget with matching id
 	//Or NULL if not found
 	cGuiWidget *GetWidget(uint id);
-
+	//Returns pointer to widget with matching name
+	//Or NULL if not found
+        cGuiWidget *GetWidget(std::string name);
+        //Show hidden widget matching ID
+        void ShowWidget(uint id);
+        //Show hidden widget matching name
+        void ShowWidget(std::string name);
+        //Hide widget matching ID
+        void HideWidget(uint id);
+        //Hide widget matching name
+        void HideWidget(std::string name);
+        
 	void HandleEvents();
 	void LogicTick();
 	void GraphicsTick();

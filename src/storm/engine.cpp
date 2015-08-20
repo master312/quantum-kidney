@@ -306,8 +306,23 @@ uint S_GuiAddWidget(cGuiWidget *widget, cGuiSkin *skin){
 void S_GuiRemoveWidget(uint id){
 	sEngine->GetGuiManager()->Remove(id);
 }
-cGuiWidget *S_GuiGetWidget(uint id){
+cGuiWidget *S_GuiGetWidgetById(uint id){
 	return sEngine->GetGuiManager()->GetWidget(id);
+}
+cGuiWidget *S_GuiGetWidgetByName(std::string _name){
+	return sEngine->GetGuiManager()->GetWidget(_name);
+}
+void S_GuiHideWidgetById(uint id){
+	sEngine->GetGuiManager()->HideWidget(id);
+}
+void S_GuiHideWidgetByName(std::string _name){
+	sEngine->GetGuiManager()->HideWidget(_name);
+}
+void S_GuiShowWidgetById(uint id){
+	sEngine->GetGuiManager()->ShowWidget(id);
+}
+void S_GuiShowWidgetByName(std::string _name){
+	sEngine->GetGuiManager()->ShowWidget(_name);
 }
 cGuiManager *S_GuiGetManager(){
 	return sEngine->GetGuiManager();

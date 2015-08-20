@@ -13,6 +13,7 @@ public:
 
 	std::string GetText() { return text; }
 	void SetText(std::string _text) { text = _text; }
+        void SetText(std::string _text, ...);
 	void SetColor(uint _r, uint _g, uint _b) {r = _r; g = _g; b = _b; }
 
 	void Render();

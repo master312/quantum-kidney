@@ -59,6 +59,47 @@ cGuiWidget *cGuiManager::GetWidget(uint id){
 		return NULL;
 	return widgets[id];
 }
+cGuiWidget *cGuiManager::GetWidget(std::string name){
+	for (auto& kv : widgets) {
+		if(kv.second->name.compare(name) == 0)
+		        return kv.second;
+        }
+}
+void cGuiManager::ShowWidget(uint id){
+	cGuiWidget *tmpW = GetWidget(id);
+	if(tmpW == NULL)
+		return;
+	if(tmpW->isOnScreen)
+		return;
+    
+	tmpW->isOnScreen = true;
+	onScreen.push_back(id);
+}
+void cGuiManager::ShowWidget(std::string name){
+	for (auto& kv : widgets) {
+		if(kv.second->name.compare(name) == 0){
+		        ShowWidget(kv.first);
+		        return;
+                }
+        }
+}
+void cGuiManager::HideWidget(uint id){
+	cGuiWidget *tmpW = GetWidget(id);
+	if(tmpW == NULL)
+		return;
+	if(!tmpW->isOnScreen)
+		return;
+    
+	tmpW->isOnScreen = false;
+}
+void cGuiManager::HideWidget(std::string name){
+	for (auto& kv : widgets) {
+		if(kv.second->name.compare(name) == 0){
+		        HideWidget(kv.first);
+		        return;
+                }
+        }
+}
 void cGuiManager::HandleEvents(){
 	bool toEat = false;
 	for(int i = 0; i < (int)onScreen.size(); i++){

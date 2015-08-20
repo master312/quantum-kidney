@@ -24,10 +24,12 @@ public:
 	int HandleEvents();
 
 	void SetLoc(int x, int y);
-
+        //Adds multiple children to this widget
+        void AddChildren(int count, ...);
+	
 	//Adds child to this widget
 	virtual void AddChild(cGuiWidget *_child);
-	//Return count of children that this widget have
+        //Return count of children that this widget have
 	virtual int GetChildCount();
 	//Return pointer to child
 	virtual cGuiWidget *GetChild(int id);

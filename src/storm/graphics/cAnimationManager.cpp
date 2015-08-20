@@ -182,8 +182,6 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 	if(!tmpAni->IsUseTextures()){
 		//Animation is made using texture sections
 		//Save texture filename
-		tmpFile.WriteInt(tmpTexture->filename.size());
-		//Filename
 		tmpFile.WriteString(tmpTexture->filename.c_str());
 	}
 	//Integer 777 marks EOF
@@ -212,9 +210,6 @@ void cAnimationManager::Remove(uint animationId){
 			//Animation is made from texture sections
 			uint toRem = 0;
 			toRem = tManager->GetSection(tmpAni->GetTexture(0))->texture;
-			for(int i = 0; i < tmpAni->GetTextureCount(); i++){
-				tManager->RemoveSection(tmpAni->GetTexture(0));
-			}
 			tManager->UnloadTexture(toRem);
 		}
 	}

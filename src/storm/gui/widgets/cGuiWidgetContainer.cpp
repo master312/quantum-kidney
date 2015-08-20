@@ -42,7 +42,12 @@ cGuiWidgetContainer::~cGuiWidgetContainer(){
 void cGuiWidgetContainer::AddChild(cGuiWidget *_child){
 	if(_child->skin == NULL)
 		_child->skin = skin;
-	_child->SetLoc(_child->loc.x + loc.x, _child->loc.y + loc.y + titleBarRect[0].h);
+        if(showTitleBar) {
+		_child->SetLoc(_child->loc.x + loc.x, 
+                                _child->loc.y + loc.y + titleBarRect[0].h);
+        } else {
+		_child->SetLoc(_child->loc.x + loc.x, _child->loc.y + loc.y);
+        }
 	_child->Render();
 	children.push_back(_child);
 }

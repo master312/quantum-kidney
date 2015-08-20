@@ -23,10 +23,18 @@ public:
     void Pause();
     void Resume();
     void Shutdown();
+    
+    void ShowLoadFile();
+    void ShowCreateNew();
+    
     void LoadAnim();
     
+    void PlayPauseAnim();
     
+    void Generate();
+    void Save();
 private:
+    uint spriteTemp;
     uint animationId;
     
     cGuiWidgetInput *frInput;
@@ -34,8 +42,20 @@ private:
     cGuiWidgetInput *aInput;
     cGuiWidgetInput *fwInput;
     cGuiWidgetInput *fhInput;
-    cGuiWidgetButton *aButton;
-    cGuiWidgetContainer *cont;    
+    cGuiWidgetButton *gButton;
+    cGuiWidgetButton *sButton;
+
+    cGuiWidgetLabel *plCurFrame;
+    cGuiWidgetButton *plPlayPause;
+    cGuiWidgetInput *plLocX, *plLocY;
+    
+    cGuiWidgetInput *lAnimFilename;
+    cGuiWidgetInput *lAnimSpriteFname;
+    
+    void InitMainWindow();
+    void InitLoadWindow();
+    void InitGenWindow();
+    void InitPlaybackWindow();
 };
 
 #endif	/* CSTANIMGENERATOR_H */
