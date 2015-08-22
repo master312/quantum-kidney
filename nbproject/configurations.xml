@@ -15,6 +15,7 @@
       <itemPath>src/game/states/cStInGame.h</itemPath>
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
       <itemPath>src/storm/cVector2d.h</itemPath>
+      <itemPath>src/storm/graphics/sAnimFrameGroup.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
       <itemPath>src/game/ingame/sKeyBinds.h</itemPath>
       <itemPath>src/game/elements/sStats.h</itemPath>
@@ -440,6 +441,11 @@
             flavor2="0">
       </item>
       <item path="src/storm/graphics/cTextureManagerSDL2.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/storm/graphics/sAnimFrameGroup.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -876,6 +882,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/storm/graphics/sAnimFrameGroup.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/storm/graphics/sFont.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/graphics/sTexture.h" ex="false" tool="3" flavor2="0">
@@ -1308,6 +1319,11 @@
             flavor2="0">
       </item>
       <item path="src/storm/graphics/cTextureManagerSDL2.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/storm/graphics/sAnimFrameGroup.h"
             ex="false"
             tool="3"
             flavor2="0">

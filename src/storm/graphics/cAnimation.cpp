@@ -36,3 +36,9 @@ void cAnimation::Update(){
 void cAnimation::SetTexture(uint _texture, int frame){
 	textures[frame] = _texture;
 }
+void cAnimation::AddFrameGroup(std::string _name, int start, int end){
+	sAnimFrameGroup tmp;
+	tmp.start = start;
+	tmp.end = end;
+        groups[_name] = tmp;
+}

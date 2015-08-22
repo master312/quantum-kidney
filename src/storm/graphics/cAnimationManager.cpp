@@ -115,10 +115,25 @@ uint cAnimationManager::LoadAnimation(std::string _filename){
 			tmpFrames.push_back(tManager->CreateSection(tmpSections[i]));
 		}
 	}
+        
+        //Create new animation
+        uint animId = CreateAnimation(tmpFrames, tmpFps, isUseTextures);
+        cAnimation *tmpAnim = GetAnimation(animId);
+        
+        //Read frame groups
+        int grCount = tmpFile.ReadInt();
+        if(grCount > 0){
+                for (int i = 0; i < grCount; i++) {
+                        std::string tmpStr = tmpFile.ReadString();
+                        int tmpSt = tmpFile.ReadInt();
+                        int tmpEn = tmpFile.ReadInt();
+                        tmpAnim->AddFrameGroup(tmpStr, tmpSt, tmpEn);
+                }
+        }
 	tmpFile.Close();
-	uint animId = CreateAnimation(tmpFrames, tmpFps, isUseTextures);
-	GetAnimation(animId)->SetFilename(_filename);
-	GetAnimation(animId)->SetIsLoadedFromFile(true);
+	
+	tmpAnim->SetFilename(_filename);
+	tmpAnim->SetIsLoadedFromFile(true);
 	StormPrintLog(STORM_LOG_INFO, "cAnimation", "Animation %s loaded", _filename.c_str());
 	return animId;
 }
@@ -184,6 +199,17 @@ void cAnimationManager::SaveAnimation(std::string _filename, uint animationId){
 		//Save texture filename
 		tmpFile.WriteString(tmpTexture->filename.c_str());
 	}
+        
+        //Write all frame gropus
+        std::map<std::string, sAnimFrameGroup> *groups = tmpAni->GetFrameGroups();
+        tmpFile.WriteInt((int)groups->size());
+        if(groups->size() > 0){
+                for (auto& kv : *groups) {
+                        tmpFile.WriteString(kv.first);
+                        tmpFile.WriteInt(kv.second.start);
+                        tmpFile.WriteInt(kv.second.end);
+                }
+        }
 	//Integer 777 marks EOF
 	tmpFile.WriteInt(777);
 	tmpFile.Close();

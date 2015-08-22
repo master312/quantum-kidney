@@ -31,6 +31,8 @@ public:
     
     void PlayPauseAnim();
     
+    void CreateGroup();
+    
     void Generate();
     void Save();
 private:
@@ -52,10 +54,17 @@ private:
     cGuiWidgetInput *lAnimFilename;
     cGuiWidgetInput *lAnimSpriteFname;
     
+    cGuiWidgetInput *gAnimStart;
+    cGuiWidgetInput *gAnimEnd;
+    cGuiWidgetInput *gAnimName;
+    cGuiWidgetButton *gAnimCreate;
+    cGuiWidgetList *gAnimList;
+    
     void InitMainWindow();
     void InitLoadWindow();
     void InitGenWindow();
     void InitPlaybackWindow();
+    void InitGroupsWindow();
 };
 
 #endif	/* CSTANIMGENERATOR_H */

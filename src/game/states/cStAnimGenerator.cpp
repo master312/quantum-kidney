@@ -11,7 +11,8 @@
 
 cStAnimGenerator::cStAnimGenerator() {
     spriteTemp = 0;
-    animationId = 0;    
+    animationId = 0;
+    aInput = NULL;
 }
 cStAnimGenerator::~cStAnimGenerator() {
 }
@@ -69,6 +70,21 @@ void cStAnimGenerator::LoadAnim(){
                     ->filename);
     
     S_GuiShowWidgetByName("CONT_ANIM_PLAY"); 
+    InitGroupsWindow();
+    std::map<std::string, sAnimFrameGroup> *tmpG;
+    tmpG = S_GetAnimation(animationId)->GetFrameGroups();
+    int count = tmpG->size();
+    
+    if(count == 0)
+        return;
+    
+    for(auto &kk : *tmpG){
+        char tmpCh[50];
+        sprintf(tmpCh, "%s %d-%d", kk.first.c_str(), 
+                                    kk.second.start,
+                                    kk.second.end);
+        gAnimList->AddItem(tmpCh);
+    }
 }
 void cStAnimGenerator::PlayPauseAnim() {
     if(animationId == 0)
@@ -78,6 +94,16 @@ void cStAnimGenerator::PlayPauseAnim() {
     }else{
         S_PauseAnimation(animationId);
     }
+}
+void cStAnimGenerator::CreateGroup() {
+    int start = atoi(gAnimStart->GetText().c_str());
+    int end = atoi(gAnimEnd->GetText().c_str());
+    S_GetAnimation(animationId)->AddFrameGroup(gAnimName->GetText(),
+                                                start, end);
+    
+    char tmp[50];
+    sprintf(tmp, "%s %d-%d", gAnimName->GetText().c_str(), start, end);
+    gAnimList->AddItem(tmp);
 }
 void cStAnimGenerator::Generate() {
     if(animationId > 0){
@@ -111,12 +137,13 @@ void cStAnimGenerator::Generate() {
     
     animationId = S_CreateAnimation(frames, framerate, false);
     S_GuiShowWidgetByName("CONT_ANIM_PLAY");
+    InitGroupsWindow();
 }
 void cStAnimGenerator::Save() {
     if(animationId == 0)
         return;
     
-    if(aInput->GetText().size() > 0)
+    if(aInput != NULL)
         S_SaveAnimation(animationId, aInput->GetText());
     else
         S_SaveAnimation(animationId, lAnimFilename->GetText());
@@ -125,7 +152,7 @@ void cStAnimGenerator::Save() {
 void cStAnimGenerator::InitMainWindow() {
     cGuiWidgetContainer *cont = new cGuiWidgetContainer("CONT_ANIM_MAIN",
                                                 "Anim editor",
-                                                 20, 20, 250, 100,
+                                                 5, 20, 250, 100,
                                                  false, false, false, false);
     S_GuiAddWidget(cont);
     
@@ -147,7 +174,7 @@ void cStAnimGenerator::InitMainWindow() {
 void cStAnimGenerator::InitLoadWindow(){
     cGuiWidgetContainer *cont = new cGuiWidgetContainer("CONT_ANIM_LOAD",
                                                 "Anim loader",
-                                                 20, 20, 300, 240,
+                                                 5, 20, 300, 240,
                                                  false, false, false, false);
     cont->isOnScreen = false;
     S_GuiAddWidget(cont);
@@ -175,7 +202,7 @@ void cStAnimGenerator::InitLoadWindow(){
 void cStAnimGenerator::InitGenWindow() {
     cGuiWidgetContainer *cont = new cGuiWidgetContainer("CONT_ANIM_GEN",
                                                 "Anim editor",
-                                                 20, 20, 300, 240,
+                                                 5, 20, 300, 240,
                                                  false, false, false, false);
     cont->isOnScreen = false;
     S_GuiAddWidget(cont);
@@ -209,7 +236,7 @@ void cStAnimGenerator::InitGenWindow() {
 void cStAnimGenerator::InitPlaybackWindow() {
     cGuiWidgetContainer *cont = new cGuiWidgetContainer("CONT_ANIM_PLAY",
                                                 "Playback",
-                                                20, 270, 300, 150,
+                                                5, 270, 300, 150,
                                                 true, false, false, false);
     cont->isOnScreen = false;
     S_GuiAddWidget(cont);
@@ -224,4 +251,22 @@ void cStAnimGenerator::InitPlaybackWindow() {
     plLocY = new cGuiWidgetInput("INP_PL_LOCY", 150, 35, 60, 28, "400");
     
     cont->AddChildren(4, plCurFrame, plPlayPause, plLocX, plLocY);
+}
+void cStAnimGenerator::InitGroupsWindow() {
+    cGuiWidgetContainer *cont = new cGuiWidgetContainer("CONT_ANIM_GROUPS",
+                                                "Frame groups",
+                                                310, 20, 300, 250,
+                                                true, false, false, false);
+    S_GuiAddWidget(cont);
+    
+    gAnimStart = new cGuiWidgetInput("INP_GR_START", 1, 1, 45, 28);
+    gAnimEnd = new cGuiWidgetInput("INP_GR_END", 48, 1, 45, 28);
+    gAnimName = new cGuiWidgetInput("INP_GR_END", 94, 1, 140, 28);
+    gAnimCreate = new cGuiWidgetButton("BTN_GR_CREATE", "Create", 236, 1, true,
+                                        cStormCallbacker(this, 
+                                            &cStAnimGenerator::CreateGroup)
+                                        );
+    gAnimList = new cGuiWidgetList("LS_GR_LIST", 1, 32, 299, 180, NULL);
+    
+    cont->AddChildren(5, gAnimStart, gAnimEnd, gAnimName, gAnimCreate, gAnimList);
 }

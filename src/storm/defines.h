@@ -46,7 +46,7 @@ typedef unsigned int uint;
 #define STORM_STATE_PAUSED 2		//State is paused; State object will not be deleted by state manager, and it must be resumed, or deleted manually!!!
 #define STORM_STATE_END 3			//State has been ended; State object will be deleted by state manager
 //Currently used animation file version
-#define STORM_ANIM_FILEVER 100		//1.0.0
+#define STORM_ANIM_FILEVER 115
 //Interval for handling timed callback functions (ms)
 #define STORM_TIMED_CALLBACK_INTERVAL 10
 //Delay between GUI manager logic ticks (ms)

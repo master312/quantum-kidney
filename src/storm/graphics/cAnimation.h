@@ -3,9 +3,11 @@
 //TODO Someday: Error checks on set functions
 #include <vector>
 #include <fstream>
+#include <map>
 #include "../defines.h"
 #include "../fLogs.h"
 #include "../cData.h"
+#include "sAnimFrameGroup.h"
 #ifndef CANIMATION_H
 #define CANIMATION_H
 
@@ -37,7 +39,18 @@ public:
 	void SetFirstFrame(int f) { firstFrame = f; }
 	void SetLastFrame(int f) { lastFrame = f; }
 	void SetFilename(std::string _filename) { filename = _filename; }
-
+        
+        //Return 'sAnimFrameGroup' object with @_name
+        sAnimFrameGroup *GetGroup(std::string _name) { return &groups[_name]; }
+        //Creates new frame group named @_name, that starts at @start
+        //and ends at @end.
+        //If group with same @_name already exists, it will be overwritten
+        void AddFrameGroup(std::string _name, int start, int end);
+        //Returns pointer to std::map that contains all 
+        //frame groups of this animation
+        std::map<std::string, sAnimFrameGroup>
+            *GetFrameGroups() { return &groups; }
+        
 	//On what frame animation starts
 	int GetFirstFrame() { return firstFrame; }
 	//On what frame animation ends
@@ -75,7 +88,9 @@ private:
 	//Vector of textures used in this animation
 	//every element is one frame
 	std::vector<uint> textures;
-	
+	//Names of frame groups
+        std::map<std::string, sAnimFrameGroup> groups;
+        
 	//Frames pre secound for this animation
 	int fps;
 	//On what frame animation starts
