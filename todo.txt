@@ -16,14 +16,13 @@ TODO LIST:
    -NPC -DONE
   -Objects
    *Scripts...
--Character controller -TO TEST
+-Character controller -DONE
 -InGame gui
 -Hotbar element class
  -Spell base class
   *Scripts...
  -Item base class
   *Scripts....
--Start using cVector2d class for all coordinates
 ...All other shit like AI
 
 

@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
+	${OBJECTDIR}/src/game/ingame/cCameraManager.o \
 	${OBJECTDIR}/src/game/ingame/cEntityManager.o \
 	${OBJECTDIR}/src/game/ingame/cPlayerDriver.o \
 	${OBJECTDIR}/src/game/ingame/entities/cCharacter.o \
@@ -125,6 +126,11 @@ ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
+
+${OBJECTDIR}/src/game/ingame/cCameraManager.o: src/game/ingame/cCameraManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cCameraManager.o src/game/ingame/cCameraManager.cpp
 
 ${OBJECTDIR}/src/game/ingame/cEntityManager.o: src/game/ingame/cEntityManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame

@@ -9,6 +9,7 @@
 #define	CENTITY_H
 #include "../../../storm/engine.h"
 #include "../../../storm/cVector2d.h"
+#include "../../sCommon.h"
 
 enum eEntityType {undefined, character, npc, object};
 

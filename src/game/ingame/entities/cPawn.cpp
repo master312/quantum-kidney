@@ -24,8 +24,8 @@ void cPawn::LoadAnim() {
                 "Could not load animation file '%s'", tmp);
     }
 }
-void cPawn::Draw() {
-    S_DrawAnimation(animId, (int)loc.x, (int)loc.y);
+void cPawn::Draw(int lookX, int lookY) {
+    S_DrawAnimation(animId, (int)loc.x - lookX, (int)loc.y - lookY);
 }
 //Protected
 void cPawn::UnloadAnimation() {

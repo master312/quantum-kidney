@@ -9,10 +9,10 @@
 #define	CCOMMON_H
 #include <iostream>
 
-#include "ingame/cPlayerDriver.h"
-
 class cMapManager;
 class cEntityManager;
+class cCameraManager;
+class cPlayerDriver;
 
 struct sCommon {
     sCommon();
@@ -34,6 +34,7 @@ struct sCommon {
     cMapManager *mapManager;
     cPlayerDriver *playerDriver;
     cEntityManager *entityManager;
+    cCameraManager *cameraManager;
 };
 
 sCommon *GetCommon();

@@ -8,7 +8,8 @@
 #ifndef CENTITYMANAGER_H
 #define	CENTITYMANAGER_H
 #include "../sCommon.h"
-#include "entities/cEntity.h"
+#include "entities/cPawn.h"
+#include "map/cMapManager.h"
 #include <vector>
 
 class cEntityManager {
@@ -17,6 +18,7 @@ public:
     ~cEntityManager();
     
     void Tick();
+    void Draw();
     
     void PushEntity(cEntity *e);
 private:

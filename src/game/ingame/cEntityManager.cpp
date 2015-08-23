@@ -21,6 +21,16 @@ void cEntityManager::Tick() {
         }
     }
 }
+void cEntityManager::Draw() {
+    sPoint *cam = GetCommon()->mapManager->GetCamera();
+    
+    for(int i = 0; i < (int)entities.size(); i++){
+        cEntity *tmpE = entities[i];
+        if(tmpE->IsPawn()){
+            ((cPawn*)tmpE)->Draw(cam->x, cam->y);
+        }
+    }
+}
 void cEntityManager::PushEntity(cEntity *e){
     entities.push_back(e);
 }

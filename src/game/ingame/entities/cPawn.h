@@ -24,7 +24,7 @@ public:
     void LoadAnim();
     
     /* Draws this pawn on screen */
-    void Draw();
+    void Draw(int lookX, int lookY);
 
     void SetAnimId(int _animId) { animationId = _animId; }
     int GetAnimId() { return animationId; }

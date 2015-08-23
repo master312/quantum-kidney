@@ -12,6 +12,7 @@
 #include "../ingame/map/cMapManager.h"
 #include "../ingame/cPlayerDriver.h"
 #include "../ingame/cEntityManager.h"
+#include "../ingame/cCameraManager.h"
 
 class cStInGame : public cStormState {
 public:

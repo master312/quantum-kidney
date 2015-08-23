@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/game/ingame/cCameraManager.h</itemPath>
       <itemPath>src/game/ingame/entities/cCharacter.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
       <itemPath>src/game/ingame/cEntityManager.h</itemPath>
@@ -19,7 +20,6 @@
       <itemPath>src/storm/graphics/sAnimFrameGroup.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
       <itemPath>src/game/ingame/sKeyBinds.h</itemPath>
-      <itemPath>src/game/elements/sStats.h</itemPath>
       <itemPath>src/game/ingame/sStats.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -152,6 +152,7 @@
         <itemPath>src/storm/storm.cpp</itemPath>
         <itemPath>src/storm/storm.h</itemPath>
       </logicalFolder>
+      <itemPath>src/game/ingame/cCameraManager.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cCharacter.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
       <itemPath>src/game/ingame/cEntityManager.cpp</itemPath>
@@ -222,7 +223,9 @@
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/cCameraManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cCameraManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -663,7 +666,9 @@
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/cCameraManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cCameraManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1108,7 +1113,9 @@
       </item>
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      <item path="src/game/ingame/cCameraManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cCameraManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
