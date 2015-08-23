@@ -18,13 +18,14 @@ void cPawn::LoadAnim() {
     char tmp[50];
     sprintf(tmp, "%d.sanim", animationId);
     animId = S_LoadAnimation(tmp);
+    
     if(animId == 0){
         StormPrintLog(STORM_LOG_ERROR, "cPawn", 
                 "Could not load animation file '%s'", tmp);
     }
 }
 void cPawn::Draw() {
-    S_DrawAnimation(animId, loc.x, loc.y);
+    S_DrawAnimation(animId, (int)loc.x, (int)loc.y);
 }
 //Protected
 void cPawn::UnloadAnimation() {

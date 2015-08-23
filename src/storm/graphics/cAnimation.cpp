@@ -42,3 +42,12 @@ void cAnimation::AddFrameGroup(std::string _name, int start, int end){
 	tmp.end = end;
         groups[_name] = tmp;
 }
+void cAnimation::SetFrameGroup(std::string name){
+    if(groups.count(name) == 0 || name.compare(curGroup) == 0)
+        return;
+    
+    curGroup = name;
+    curFrame = groups[name].start;
+    SetFirstFrame(groups[name].start);
+    SetLastFrame(groups[name].end + 1);
+}

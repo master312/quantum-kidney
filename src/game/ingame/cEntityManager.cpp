@@ -27,21 +27,37 @@ void cEntityManager::PushEntity(cEntity *e){
 //Private methods
 void cEntityManager::HandlePawn(cPawn *pawn) {
     //Handle pawn's movement
-    if(!pawn->IsMoving())
+    cAnimation *anim = pawn->GetAnimation();
+    
+    if(!pawn->IsMoving()){
+        if(!anim->IsPaused()){
+            anim->Pause();
+            anim->Reset();
+        }
         return;
-    int sp = pawn->GetStats()->speed;
+    }
+    if(anim->IsPaused())
+        anim->Resume();
+    
+    int delta = S_GetDelta();
+    
+    float sp = (float)pawn->GetStats()->speed / 1000;
     switch(pawn->GetDirection()){
         case PAWN_DIR_NORTH:
-            pawn->GetLoc()->y -= sp;
+            pawn->GetLoc()->y -= (sp * delta);
+            anim->SetFrameGroup("walk_n");
             break;
         case PAWN_DIR_EAST:
-            pawn->GetLoc()->x += sp;
+            pawn->GetLoc()->x += (sp * delta);
+            anim->SetFrameGroup("walk_e");
             break;
         case PAWN_DIR_SOUTH:
-            pawn->GetLoc()->y += sp;
+            pawn->GetLoc()->y += (sp * delta);
+            anim->SetFrameGroup("walk_s");
             break;
         case PAWN_DIR_WEST:
-            pawn->GetLoc()->x -= sp;
+            pawn->GetLoc()->x -= (sp * delta);
+            anim->SetFrameGroup("walk_w");
             break;
     }
 }

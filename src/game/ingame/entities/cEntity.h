@@ -8,6 +8,7 @@
 #ifndef CENTITY_H
 #define	CENTITY_H
 #include "../../../storm/engine.h"
+#include "../../../storm/cVector2d.h"
 
 enum eEntityType {undefined, character, npc, object};
 
@@ -20,7 +21,7 @@ public:
     
     void SetId(int _id) { id = _id; }
     int GetId() { return id; }
-    sRect *GetLoc() { return &loc; }
+    cVector2d *GetLoc() { return &loc; }
     
     eEntityType GetType() { return type; }
     
@@ -31,7 +32,7 @@ public:
     bool IsObject() { return type == object; }
 protected:
     int id;
-    sRect loc;
+    cVector2d loc;
     
     eEntityType type;
 };

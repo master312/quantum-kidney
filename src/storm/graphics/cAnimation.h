@@ -31,7 +31,8 @@ public:
 	void AddFrame(uint _texture) { textures.push_back(_texture); }
 	//Set texture for frame
 	void SetTexture(uint _texture, int frame);
-	//Set delay for frame
+	//Sets how many frames of this animation should be displayed
+        //pre one second
 	void SetFps(int _fps) { fps = _fps; };
 	//Set how many times will animation be repeated
 	void SetRepetitions(int _repetations) { repetations = _repetations; }
@@ -50,6 +51,9 @@ public:
         //frame groups of this animation
         std::map<std::string, sAnimFrameGroup>
             *GetFrameGroups() { return &groups; }
+        //Makes start and end frames of this animation equal to
+        //group named @name
+        void SetFrameGroup(std::string name);
         
 	//On what frame animation starts
 	int GetFirstFrame() { return firstFrame; }
@@ -90,6 +94,8 @@ private:
 	std::vector<uint> textures;
 	//Names of frame groups
         std::map<std::string, sAnimFrameGroup> groups;
+        //Name of the group that is currently being displayed
+        std::string curGroup;
         
 	//Frames pre secound for this animation
 	int fps;

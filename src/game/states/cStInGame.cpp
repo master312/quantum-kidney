@@ -37,7 +37,7 @@ void cStInGame::InitNewGame() { //Private method...
     cCharacter *tmpChar = new cCharacter();
     tmpChar->SetAnimId(4);
     tmpChar->LoadAnim();
-    tmpChar->GetStats()->speed = 3;
+    tmpChar->GetStats()->speed = 64;
     
     GetCommon()->entityManager->PushEntity(tmpChar);
     GetCommon()->playerDriver->SetCharacter(tmpChar);

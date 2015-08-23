@@ -28,6 +28,7 @@ public:
 
     void SetAnimId(int _animId) { animationId = _animId; }
     int GetAnimId() { return animationId; }
+    cAnimation *GetAnimation() { return S_GetAnimation(animId); }
     void SetName(std::string _name) { name = _name; }
     std::string GetName() { return name; }
     void SetSubName(std::string _name) { subName = _name; }
@@ -41,7 +42,7 @@ public:
 protected:
     /* Animation ID */
     int animationId;
-    /* Animation ID in storm framework animaiton handler*/
+    /* Animation ID in storm framework animation handler */
     uint animId;
     /* What direction is pawn facing */
     short direction;

@@ -10,20 +10,20 @@ using namespace std;
 
 class cVector2d {
 public:
-    cVector2d(float X = 0, float Y = 0);
+    cVector2d(double X = 0, double Y = 0);
     ~cVector2d() {}
 
-    float x, y;
+    double x, y;
 
-    cVector2d operator*(float scalar) const;
+    cVector2d operator*(double scalar) const;
     cVector2d operator+(const cVector2d &vect) const;
     cVector2d operator-(const cVector2d &vect) const;
     
-    void Rotate(float angle);
-    float CrossProduct(const cVector2d &vect2) const;
-    float Magnitude();
+    void Rotate(double angle);
+    double CrossProduct(const cVector2d &vect2) const;
+    double Magnitude();
     void Normalise();
-    float DotProduct(const cVector2d &vect) const;
+    double DotProduct(const cVector2d &vect) const;
     
     void Print();
 };
