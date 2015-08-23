@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
+	${OBJECTDIR}/src/game/ingame/cEntityManager.o \
 	${OBJECTDIR}/src/game/ingame/cPlayerDriver.o \
 	${OBJECTDIR}/src/game/ingame/entities/cCharacter.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
@@ -124,6 +125,11 @@ ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
+
+${OBJECTDIR}/src/game/ingame/cEntityManager.o: src/game/ingame/cEntityManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cEntityManager.o src/game/ingame/cEntityManager.cpp
 
 ${OBJECTDIR}/src/game/ingame/cPlayerDriver.o: src/game/ingame/cPlayerDriver.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame

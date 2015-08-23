@@ -12,6 +12,7 @@
 #include "ingame/cPlayerDriver.h"
 
 class cMapManager;
+class cEntityManager;
 
 struct sCommon {
     sCommon();
@@ -32,6 +33,7 @@ struct sCommon {
     
     cMapManager *mapManager;
     cPlayerDriver *playerDriver;
+    cEntityManager *entityManager;
 };
 
 sCommon *GetCommon();

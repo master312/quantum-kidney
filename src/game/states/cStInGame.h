@@ -11,6 +11,7 @@
 #include "../sCommon.h"
 #include "../ingame/map/cMapManager.h"
 #include "../ingame/cPlayerDriver.h"
+#include "../ingame/cEntityManager.h"
 
 class cStInGame : public cStormState {
 public:
@@ -25,7 +26,8 @@ public:
     void Resume();
     void Shutdown();
 private:
-
+    //This is temp method used to initialize test game scenario
+    void InitNewGame();
 };
 
 #endif	/* CSTINGAME_H */

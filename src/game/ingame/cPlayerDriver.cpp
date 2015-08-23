@@ -23,16 +23,22 @@ void cPlayerDriver::HandleEvents() {
     if(character == NULL)
         return;
     
-    int speed = character->GetStats()->speed;
-    if(S_IsKeyDown(binds.movement[BIND_MOVE_UP])){
-        character->GetLoc()->y -= speed;
-    }else if(S_IsKeyDown(binds.movement[BIND_MOVE_DOWN])){
-        character->GetLoc()->y += speed;
+    character->SetDirection(0);
+    character->SetIsMoving(false);
+    
+    if(S_IsKeyDown(binds.movement[BIND_MOVE_NORTH])){
+        character->PushDirection(PAWN_DIR_NORTH);
+        character->SetIsMoving(true);
+    }else if(S_IsKeyDown(binds.movement[BIND_MOVE_SOUTH])){
+        character->PushDirection(PAWN_DIR_SOUTH);
+        character->SetIsMoving(true);
     }
     
-    if(S_IsKeyDown(binds.movement[BIND_MOVE_RIGHT])){
-        character->GetLoc()->x += speed;
-    }else if(S_IsKeyDown(binds.movement[BIND_MOVE_LEFT])){
-        character->GetLoc()->x -= speed;
+    if(S_IsKeyDown(binds.movement[BIND_MOVE_EAST])){
+        character->PushDirection(PAWN_DIR_EAST);
+        character->SetIsMoving(true);
+    }else if(S_IsKeyDown(binds.movement[BIND_MOVE_WEST])){
+        character->PushDirection(PAWN_DIR_WEST);
+        character->SetIsMoving(true);
     }
 }

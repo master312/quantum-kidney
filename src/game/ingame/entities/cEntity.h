@@ -22,6 +22,8 @@ public:
     int GetId() { return id; }
     sRect *GetLoc() { return &loc; }
     
+    eEntityType GetType() { return type; }
+    
     bool IsDefined() { return type != undefined; }
     bool IsPawn() { return type == character || type == npc; }
     bool IsCharacter() { return type == character; }

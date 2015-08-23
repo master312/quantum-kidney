@@ -13,6 +13,6 @@ cNpc::cNpc() {
 cNpc::~cNpc() {
 }
 void cNpc::OnDestroy() {
-    UnloadSprites();
+    UnloadAnimation();
 }
 

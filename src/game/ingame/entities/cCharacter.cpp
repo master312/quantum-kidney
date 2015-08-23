@@ -13,7 +13,7 @@ cCharacter::cCharacter() {
 cCharacter::~cCharacter() {
 }
 void cCharacter::OnDestroy() {
-    UnloadSprites();
+    UnloadAnimation();
 }
 
 

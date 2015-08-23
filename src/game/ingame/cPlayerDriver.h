@@ -21,7 +21,7 @@ public:
     /* Event handler callback function */
     void HandleEvents();
     
-    void SetCharacter(cCharacter *_character);
+    void SetCharacter(cCharacter *_character) { character = _character; }
     cCharacter *GetCharacter() { return character; }
 private:
     cCharacter *character;

@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>src/game/ingame/entities/cCharacter.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
+      <itemPath>src/game/ingame/cEntityManager.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.h</itemPath>
       <itemPath>src/game/ingame/entities/cNpc.h</itemPath>
       <itemPath>src/game/ingame/entities/cObject.h</itemPath>
@@ -153,6 +154,7 @@
       </logicalFolder>
       <itemPath>src/game/ingame/entities/cCharacter.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
+      <itemPath>src/game/ingame/cEntityManager.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.cpp</itemPath>
@@ -221,6 +223,10 @@
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cPlayerDriver.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -658,6 +664,10 @@
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cPlayerDriver.cpp" ex="false" tool="1" flavor2="8">
       </item>
@@ -1099,6 +1109,10 @@
       <item path="src/game/cGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/elements/sStats.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/ingame/cEntityManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/cPlayerDriver.cpp" ex="false" tool="1" flavor2="0">
       </item>

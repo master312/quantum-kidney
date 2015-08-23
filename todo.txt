@@ -10,10 +10,10 @@ TODO LIST:
  -Trigger system
   *Scripts...
 -Stats struct
--Entity
-  -Pawn
-   -Character
-   -NPC
+-Entity -DONE
+  -Pawn -DONE
+   -Character -DONE
+   -NPC -DONE
   -Objects
    *Scripts...
 -Character controller -TO TEST
@@ -33,5 +33,4 @@ TODO LIST:
 -STORM!!: WRITE NEW COMMENTS ON PUBLIC ANIMATION FUNCTIONS!
 -STORM: Tooltip system
 -STORM: Check texture reload code ...it may have some bugs
--STORM: GuiWidget->AddChuild to add multiple widgets at onse
 -Char creation gui

@@ -8,26 +8,26 @@
 #include "cPawn.h"
 
 cPawn::cPawn() {
-    spriteId = 0;
-    spriteTexture = 0;
     animationId = 0;
     animId = 0;
 }
 cPawn::~cPawn() {
     
 }
-void cPawn::LoadSprite() {
+void cPawn::LoadAnim() {
     char tmp[50];
-    sprintf(tmp, "sprites/%d.png", spriteId);
-    spriteTexture = S_LoadAnimation(tmp);
+    sprintf(tmp, "%d.sanim", animationId);
+    animId = S_LoadAnimation(tmp);
+    if(animId == 0){
+        StormPrintLog(STORM_LOG_ERROR, "cPawn", 
+                "Could not load animation file '%s'", tmp);
+    }
 }
 void cPawn::Draw() {
-    S_DrawTexture(spriteTexture, loc.x, loc.y);
+    S_DrawAnimation(animId, loc.x, loc.y);
 }
 //Protected
-void cPawn::UnloadSprites() {
-    if(spriteTexture > 0)
-        S_UnloadTexture(spriteTexture);
+void cPawn::UnloadAnimation() {
     if(animId > 0)
         S_RemoveAnimation(animId);
 }

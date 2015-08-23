@@ -9,21 +9,23 @@
 #define	CPAWN_H
 #include "cEntity.h"
 #include "../sStats.h"
+#define PAWN_DIR_NORTH 0x0001
+#define PAWN_DIR_EAST 0x0010
+#define PAWN_DIR_SOUTH 0x0100
+#define PAWN_DIR_WEST 0x1000
 
 class cPawn : public cEntity {
 public:
     cPawn();
     virtual ~cPawn();
     
-    /* Load sprites (animation) for this pawn
+    /* Load animation for this pawn
      * animationId or spriteId must be set before calling this method */
-    void LoadSprite();
+    void LoadAnim();
     
     /* Draws this pawn on screen */
     void Draw();
 
-    void SetSpriteId(int _spriteId) { spriteId = _spriteId; }
-    int GetSpriteId() { return spriteId; }
     void SetAnimId(int _animId) { animationId = _animId; }
     int GetAnimId() { return animationId; }
     void SetName(std::string _name) { name = _name; }
@@ -31,14 +33,20 @@ public:
     void SetSubName(std::string _name) { subName = _name; }
     std::string GetSubName() { return subName; }
     sStats *GetStats() { return &stats; }
+    void SetDirection(short dir) { direction = dir; }
+    void PushDirection(short dir) { direction |= dir; }
+    short GetDirection() { return direction; }
+    bool IsMoving() { return isMoving; }
+    void SetIsMoving(bool m) { isMoving = m; }
 protected:
-    /* This variable is used for debug only */
-    int spriteId;
-    uint spriteTexture;
     /* Animation ID */
     int animationId;
     /* Animation ID in storm framework animaiton handler*/
     uint animId;
+    /* What direction is pawn facing */
+    short direction;
+    /* Is pawn moving */
+    bool isMoving;
     
     std::string name;
     std::string subName;
@@ -46,7 +54,7 @@ protected:
     /* Pawn stats */
     sStats stats;
     
-    void UnloadSprites();
+    void UnloadAnimation();
 };
 
 #endif	/* CPAWN_H */
