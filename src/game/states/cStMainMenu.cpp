@@ -21,7 +21,7 @@ void cStMainMenu::GraphicsTick(){
 void cStMainMenu::LogicTick(){
 	
 }
-void cStMainMenu::HandleEvents(){
+void cStMainMenu::HandleEvents(void *data){
     if(S_IsKeyDown(KEY_RETURN)){
         PushState(new cStInGame());
     } else if(S_IsKeyDown(KEY_a)){

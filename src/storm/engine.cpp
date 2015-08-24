@@ -33,6 +33,9 @@ bool S_IsGraphicsTick(){
 int S_GetDelta(){
 	return sEngine->GetDelta();
 }
+void S_SetDebugMode(bool b){
+	sEngine->SetDebug(b);
+}
 
 void S_SetWindowSize(int width, int height){
 	sEngine->SetWindowSize(width, height);

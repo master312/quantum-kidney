@@ -15,7 +15,7 @@ void cFontManagerSDL2::DrawSection(uint section, int x, int y, float scale,
 	
 	uint textureId = 0;
 	if(tManager->GetSection(section) == NULL){
-		StormPrintLog(STORM_LOG_ERROR, "cFontManagerSDL2", 
+		StormPrintLog(STORM_LOG_WARNING, "cFontManagerSDL2", 
 				"No section with ID %d", section);
 		return;
 	}

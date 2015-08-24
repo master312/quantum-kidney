@@ -13,7 +13,7 @@ public:
 		cStormCallbacker _callback);
 	~cGuiWidgetButton();
 	
-	void SetCallBack(cStormCallbacker _callback = NULL);
+	void SetCallBack(cStormCallbacker _callback);
 
 	void UpdatePosition(int newX, int newY);
 	void HandleWidgetEvent(bool isMouseOver);

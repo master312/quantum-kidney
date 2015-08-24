@@ -47,6 +47,7 @@ bool cGraphicsSDL2::MakeWindow(){
 		StormPrintLog(STORM_LOG_ERROR, "cGraphicsSDL2", "Could not create SDL renderer");
 		return false;
 	}
+        SDL_SetRenderDrawBlendMode(gRenderer, SDL_BLENDMODE_BLEND);
 	SDL_RendererInfo info;
 	SDL_GetRendererInfo(gRenderer, &info);
 	maxTextureWidth = info.max_texture_width;
@@ -80,18 +81,18 @@ void cGraphicsSDL2::SetWindowType(int type){
 void cGraphicsSDL2::DrawRectangle(int x, int y, int width, int height, 
 							float red, float green, float blue, float alpha){
 	SDL_Rect tmpRect = {x, y, width, height};
-	SDL_SetRenderDrawColor(gRenderer, (Uint8)red * 255, (Uint8)green * 255, (Uint8)blue * 255, (Uint8)alpha * 255);
+	SDL_SetRenderDrawColor(gRenderer, red * 255, green * 255, blue * 255, alpha * 255);
 	SDL_RenderDrawRect(gRenderer, &tmpRect);
 }
 void cGraphicsSDL2::DrawFilledRectangle(int x, int y, int width, int height, 
 							float red, float green, float blue, float alpha){
 	SDL_Rect tmpRect = {x, y, width, height};
-	SDL_SetRenderDrawColor(gRenderer, (Uint8)red * 255, (Uint8)green * 255, (Uint8)blue * 255, (Uint8)alpha * 255);
+	SDL_SetRenderDrawColor(gRenderer, red * 255, green * 255, blue * 255, alpha * 255);
 	SDL_RenderFillRect(gRenderer, &tmpRect);
 }
 void cGraphicsSDL2::DrawLine(int x, int y, int x2, int y2, 
 									int red, int green, int blue, int alpha){
-	SDL_SetRenderDrawColor(gRenderer, (Uint8)red * 255, (Uint8)green * 255, (Uint8)blue * 255, (Uint8)alpha * 255);
+	SDL_SetRenderDrawColor(gRenderer, red * 255, green * 255, blue * 255, alpha * 255);
 	SDL_RenderDrawLine(gRenderer, x, y, x2, y2);
 }
 

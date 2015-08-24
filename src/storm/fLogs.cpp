@@ -12,13 +12,6 @@ void StormSetTermColor(char *termColor){
 }
 
 void StormPrintLog(int type, const char *className, const char *message, ...){
-	int size = 0;
-	for(uint i = 0; i < strlen(message); i++){
-		if(message[i] == '%'){
-			size++;
-		}
-	}
-
 	switch(type){
 		case STORM_LOG_NOTSPECIFIED:
 			StormSetTermColor((char*)LOGCOLOR_DEFAULT);
@@ -58,35 +51,65 @@ void StormPrintLog(int type, const char *className, const char *message, ...){
 				break;
 		}
 	}
-	if(size == 0){
-		std::cout << message;
-	}else{
-		va_list ap;
-		va_start(ap, size);
-		for(uint i = 0; i < strlen(message); i++){
-			if(message[i] == '%'){
-				switch(message[i + 1]){
-					case 'd':	//Int
-						std::cout << va_arg(ap, int);
-						break;
-					case 's':
-						std::cout << va_arg(ap, char*);
-						break;
-					case 'f':
-						std::cout << va_arg(ap, double);
-						break;
-					default:
-						break;
-				}
-				i++;
-			}else{
-				std::cout << message[i];
-			}
-		}
-		va_end(ap);
-	}
+        
+        int size = 0;
+        for(uint i = 0; i < strlen(message); i++){
+            if(message[i] == '%'){
+                size++;
+            }
+        }
+        
+        if(size == 0){
+            std::cout << message;
+        }else{
+            va_list ap;
+            va_start(ap, message);
+            std::cout << StormParseArgs(message, size, ap);
+            va_end(ap);
+        }
+        
 	std::cout << std::endl;
 #ifdef OS_LINUX
 	std::cout << LOGCOLOR_DEFAULT;
 #endif
+}
+
+std::string StormParseArgs(std::string text, ...){
+    int count = 0;
+    for(uint i = 0; i < text.size(); i++){
+        if(text[i] == '%'){
+                count++;
+        }
+    }
+    
+    va_list ap;
+    va_start(ap, count);
+    text = StormParseArgs(text, count, ap);
+    va_end(ap);
+    
+    return text;
+}
+std::string StormParseArgs(std::string text, int count, va_list ap){
+    std::stringstream ss;
+    for(uint i = 0; i < text.size(); i++){
+            if(text[i] == '%'){
+                    switch(text[i + 1]){
+                            case 'd':	//Int
+                                    ss << va_arg(ap, int);
+                                    break;
+                            case 's':
+                                    ss << va_arg(ap, char*);
+                                    break;
+                            case 'f':
+                                    ss << va_arg(ap, double);
+                                    break;
+                            default:
+                                    break;
+                    }
+                    i++;
+            }else{
+                    ss << text[i];
+            }
+    }
+    return ss.str();
 }

@@ -1,5 +1,7 @@
 #include "storm.h"
 #include "gui/cGuiManager.h"
+#include "cStormConsole.h"
+#include "cStormConsoleCommands.h"
 
 storm::storm(){
 	api = 0;
@@ -23,7 +25,11 @@ storm::storm(){
 	mSound = NULL;
 	mState = NULL;
 	tCallbackManager = NULL;
+        mConsole = NULL;
+        hConsoleCommands = NULL;
 	isDebug = true;
+        frames = framesCount = fps = 0;
+        toCalculateFps.SetInterval(STORM_AVERAGE_FPS_TIME);
 }
 storm::~storm(){
 	Quit();
@@ -71,6 +77,9 @@ bool storm::Initialize(int _api){
 		StormPrintLog(STORM_LOG_ERROR, "Storm", "Could not load default font!");
 		return false;
 	}
+        mConsole = new cStormConsole();
+        mConsole->Init();
+        hConsoleCommands = new cStormConsoleCommands(mConsole);
 	guiManager = new cGuiManager();
 	if(!guiManager->Initialize()){
 		StormPrintLog(STORM_LOG_ERROR, "Storm", "Could not initialize GUI manager!");
@@ -82,6 +91,7 @@ bool storm::Initialize(int _api){
 	ClearScreen();
 	isRunning = true;
 	lastLogicTick = SDL_GetTicks();
+        toCalculateFps.Reset();
 	StormPrintLog(STORM_LOG_INFO, "Storm", "Engine initialized");
 	return true;
 }
@@ -118,7 +128,14 @@ void storm::Quit(){
 		delete tCallbackManager;
 		tCallbackManager = NULL;
 	}
-
+        if(mConsole != NULL){
+            delete mConsole;
+            mConsole = NULL;
+        }
+        if(hConsoleCommands != NULL){
+            delete hConsoleCommands;
+            hConsoleCommands = NULL;
+        }
 	StormPrintLog(STORM_LOG_INFO, "Storm", "Program ended");
 }
 bool b = false;
@@ -134,21 +151,26 @@ void storm::Tick(){
 	mAnimation->UpdateAll();
 	if(IsGraphicsTick()){
 		mState->GraphicsTick();
+		guiManager->GraphicsTick();
+                mConsole->Draw();
+                
+                frames += 1000 / (SDL_GetTicks() - lastGraphTick);
+                framesCount++;
 		if(isDebug && mFont != NULL){
                     char mousePos[40];
                     cInput *tmpI = mEvents->GetInputManager();
                     
                     if(tmpI->textScan) {
-                        sprintf(mousePos, "Mouse X:%d Y:%d. Text input mode", 
-                                tmpI->mouseX, tmpI->mouseY);                        
+                        sprintf(mousePos, "FPS:%d Mouse X:%d Y:%d Text input mode", 
+                                fps, tmpI->mouseX, tmpI->mouseY);                        
                     } else {
-                        sprintf(mousePos, "Mouse X:%d Y:%d", 
-                                tmpI->mouseX, tmpI->mouseY);
+                        sprintf(mousePos, "FPS:%d Mouse X:%d Y:%d", 
+                                fps, tmpI->mouseX, tmpI->mouseY);
                     }
                     
                     mFont->DrawText("default", mousePos, 2, mGraphics->height - 28);
 		}
-		guiManager->GraphicsTick();
+                
 		FlipScreen();
 	}
 
@@ -165,6 +187,11 @@ void storm::Tick(){
 			"State manager returned NULL for current state. Quiting program...");
 		isRunning = false;
 	}
+        if(toCalculateFps.IsTimeUp()){
+            fps = frames / framesCount;
+            frames = framesCount = 0;
+            toCalculateFps.Reset();
+        }
 }
 void storm::FlipScreen(){
 	mGraphics->SwapBuffers();

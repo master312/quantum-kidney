@@ -36,6 +36,8 @@ void S_Stop();
 bool S_IsGraphicsTick();
 //Return delta time
 int S_GetDelta();
+//Toggle debug mode
+void S_SetDebugMode(bool b);
 
 //Set window size; DO NOT USE THIS FOR RESIZE! Use S_ResizeWindow
 //TODO: Check this. This crashes program

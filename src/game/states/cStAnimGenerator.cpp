@@ -46,17 +46,17 @@ void cStAnimGenerator::Resume() {
 }
 void cStAnimGenerator::Shutdown() {
 }
-void cStAnimGenerator::ShowLoadFile(){
+void cStAnimGenerator::ShowLoadFile(void *data){
     S_GuiHideWidgetByName("CONT_ANIM_MAIN");
     InitLoadWindow();
     S_GuiShowWidgetByName("CONT_ANIM_LOAD");
 }
-void cStAnimGenerator::ShowCreateNew(){
+void cStAnimGenerator::ShowCreateNew(void *data){
     S_GuiHideWidgetByName("CONT_ANIM_MAIN");
     InitGenWindow();
     S_GuiShowWidgetByName("CONT_ANIM_GEN");
 }
-void cStAnimGenerator::LoadAnim(){
+void cStAnimGenerator::LoadAnim(void *data){
     if(animationId != 0){
         S_RemoveAnimation(animationId);
     }
@@ -86,7 +86,7 @@ void cStAnimGenerator::LoadAnim(){
         gAnimList->AddItem(tmpCh);
     }
 }
-void cStAnimGenerator::PlayPauseAnim() {
+void cStAnimGenerator::PlayPauseAnim(void *data) {
     if(animationId == 0)
         return;
     if(S_GetAnimation(animationId)->IsPaused()){
@@ -95,7 +95,7 @@ void cStAnimGenerator::PlayPauseAnim() {
         S_PauseAnimation(animationId);
     }
 }
-void cStAnimGenerator::CreateGroup() {
+void cStAnimGenerator::CreateGroup(void *data) {
     int start = atoi(gAnimStart->GetText().c_str());
     int end = atoi(gAnimEnd->GetText().c_str());
     S_GetAnimation(animationId)->AddFrameGroup(gAnimName->GetText(),
@@ -105,7 +105,7 @@ void cStAnimGenerator::CreateGroup() {
     sprintf(tmp, "%s %d-%d", gAnimName->GetText().c_str(), start, end);
     gAnimList->AddItem(tmp);
 }
-void cStAnimGenerator::Generate() {
+void cStAnimGenerator::Generate(void *data) {
     if(animationId > 0){
         if(!S_GetAnimation(animationId)->IsLoadedFromFile() && spriteTemp > 0){
             S_UnloadTexture(spriteTemp);
@@ -139,7 +139,7 @@ void cStAnimGenerator::Generate() {
     S_GuiShowWidgetByName("CONT_ANIM_PLAY");
     InitGroupsWindow();
 }
-void cStAnimGenerator::Save() {
+void cStAnimGenerator::Save(void *data) {
     if(animationId == 0)
         return;
     

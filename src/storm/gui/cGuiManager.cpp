@@ -100,7 +100,7 @@ void cGuiManager::HideWidget(std::string name){
                 }
         }
 }
-void cGuiManager::HandleEvents(){
+void cGuiManager::HandleEvents(void *data){
 	bool toEat = false;
 	for(int i = 0; i < (int)onScreen.size(); i++){
 		if(widgets[onScreen[i]]->HandleEvents() != GUI_WIDGET_EVENT_NOTHING){

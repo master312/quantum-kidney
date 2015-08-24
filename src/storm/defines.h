@@ -23,10 +23,10 @@ typedef unsigned int uint;
 #include <GL/glu.h>
 #endif
 
-//Version 0.14.11
+//Version 0.15.1
 #define STORM_VERSION_MAJOR 0
-#define STORM_VERSION_MINOR 14
-#define STORM_VERSION_FIX 11
+#define STORM_VERSION_MINOR 15
+#define STORM_VERSION_FIX 1
 //Rendering apis
 #define STORM_API_OPENGL 1
 #define STORM_API_SDL 2
@@ -51,6 +51,14 @@ typedef unsigned int uint;
 #define STORM_TIMED_CALLBACK_INTERVAL 10
 //Delay between GUI manager logic ticks (ms)
 #define STORM_GUI_LOGIC_INTERVAL 250
+//Default number of log lines in console
+#define STORM_CONSOLE_DEFAULT_LOG_HISTORY 64
+//Default console height (log lines displayed count)
+#define STORM_CONSOLE_DEFAULT_HEIGHT 10
+//Maximum command hoistory
+#define STORM_CONSOLE_DEFAULT_HISTORY_MAX 40
+//How often will average FPS be calculated (in ms)
+#define STORM_AVERAGE_FPS_TIME 1000
 //Default directory structure
 #define STORM_DIR_DATA "data/"				//Location of default data directory
 #define STORM_DIR_GRAPHICS "data/graphics/"	//Location of directory that contains graphics (sprites and images)

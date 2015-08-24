@@ -2,6 +2,7 @@
 //Thu Feb 19 04:00:46 2015
 #include "defines.h"
 #include <iostream>
+#include <sstream>
 #ifndef FLOGS_H
 #define FLOGS_H
 #ifdef OS_LINUX
@@ -24,5 +25,9 @@ void StormSetTermColor(char *termColor);
 //Print log on console
 //Warning: This function CAN NOT print '%' character in string for now
 void StormPrintLog(int type, const char *className, const char *message, ...);
+
+//Parse arguments from arg_list and return string
+std::string StormParseArgs(std::string text, ...);
+std::string StormParseArgs(std::string text, int count, va_list ap);
 
 #endif

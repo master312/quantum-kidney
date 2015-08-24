@@ -24,17 +24,17 @@ public:
     void Resume();
     void Shutdown();
     
-    void ShowLoadFile();
-    void ShowCreateNew();
+    void ShowLoadFile(void *data);
+    void ShowCreateNew(void *data);
     
-    void LoadAnim();
+    void LoadAnim(void *data);
     
-    void PlayPauseAnim();
+    void PlayPauseAnim(void *data);
     
-    void CreateGroup();
+    void CreateGroup(void *data);
     
-    void Generate();
-    void Save();
+    void Generate(void *data);
+    void Save(void *data);
 private:
     uint spriteTemp;
     uint animationId;

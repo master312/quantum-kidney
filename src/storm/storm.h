@@ -13,6 +13,8 @@
 #include "events/cEventManager.h"
 #include "cStateManager.h"
 #include "cTimedCallbackManager.h"
+#include "cStormConsole.h"
+#include "cTimer.h"
 #include <map>
 #ifndef STORM_H
 #define STORM_H
@@ -49,6 +51,8 @@
 // 	that is added as callback to event handled. This way event 'eating' function
 //	will be possible
 class cGuiManager;
+class cStormConsole;
+class cStormConsoleCommands;
 
 class storm{
 public:
@@ -104,6 +108,8 @@ public:
 	cStateManager *GetStateManager() { return mState; }
 	//Returns pointer to GuiManager object
 	cGuiManager *GetGuiManager() { return guiManager; }
+        //Returns pointer to console object
+        cStormConsole *GetConsole() { return mConsole; }
 	//Returns pointer to TimedCallbacke manager
 	cTimedCallbackManager *GetCallbackManager() { return tCallbackManager; }
 	//Returns delta time
@@ -133,6 +139,11 @@ private:
 	int targetLogic;
 	//How much time has passed since last logic tick (ms)
 	int delta;
+        //Current FPS
+        int fps;
+        cTimer toCalculateFps;
+        int frames;
+        int framesCount;
 
 	// //Pointer to input manager
 	cEventManager *mEvents;
@@ -152,6 +163,10 @@ private:
 	cGuiManager *guiManager;
 	//Timed Callback manager
 	cTimedCallbackManager *tCallbackManager; 
+        //Storm console
+        cStormConsole *mConsole;
+        //Storm framework console commands handler class
+        cStormConsoleCommands *hConsoleCommands;
 };
 
 #endif

@@ -40,7 +40,7 @@ void cGuiWidgetButton::HandleWidgetEvent(bool isMouseOver){
 			toReturnEvent = GUI_WIDGET_EVENT_HANDLED;
 		}else{
 			if(state == 2){
-				callback();
+				callback.Call();
 				state = 1;
 				toReturnEvent = GUI_WIDGET_EVENT_HANDLED;
 			}else{

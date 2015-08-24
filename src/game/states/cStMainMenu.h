@@ -19,7 +19,7 @@ public:
     void Init();
     void GraphicsTick();
     void LogicTick();
-    void HandleEvents();
+    void HandleEvents(void *data);
     void Pause();
     void Resume();
     void Shutdown();

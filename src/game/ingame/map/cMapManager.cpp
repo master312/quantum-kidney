@@ -70,7 +70,7 @@ void cMapManager::Draw() {
         }
     }
 }
-void cMapManager::Clear() {
+void cMapManager::Clear(void *data) {
     if(loadedChunks.size() < 9)
         return;
     for(int i = 0; i < loadedChunks.size(); i++){

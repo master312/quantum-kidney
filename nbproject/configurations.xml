@@ -16,6 +16,8 @@
       <itemPath>src/game/states/cStAnimGenerator.h</itemPath>
       <itemPath>src/game/states/cStInGame.h</itemPath>
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
+      <itemPath>src/storm/cStormConsole.h</itemPath>
+      <itemPath>src/storm/cStormConsoleCommands.h</itemPath>
       <itemPath>src/storm/cVector2d.h</itemPath>
       <itemPath>src/storm/graphics/sAnimFrameGroup.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
@@ -166,6 +168,8 @@
       <itemPath>src/game/states/cStAnimGenerator.cpp</itemPath>
       <itemPath>src/game/states/cStInGame.cpp</itemPath>
       <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
+      <itemPath>src/storm/cStormConsole.cpp</itemPath>
+      <itemPath>src/storm/cStormConsoleCommands.cpp</itemPath>
       <itemPath>src/storm/cVector2d.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
       <itemPath>src/game/sCommon.cpp</itemPath>
@@ -320,6 +324,17 @@
       <item path="src/storm/cStateManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormCallbacker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormState.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -763,6 +778,17 @@
       <item path="src/storm/cStateManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormCallbacker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormState.cpp" ex="false" tool="1" flavor2="8">
       </item>
@@ -1210,6 +1236,17 @@
       <item path="src/storm/cStateManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormCallbacker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsole.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/storm/cStormConsoleCommands.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/storm/cStormState.cpp" ex="false" tool="1" flavor2="0">
       </item>

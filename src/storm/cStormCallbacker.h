@@ -17,7 +17,7 @@ private:
     public:
         virtual ~Callback() { }
         virtual Callback* clone() const = 0;
-        virtual void call() = 0;
+        virtual void call(void *data) = 0;
     };
     
     // Implementation for member functions
@@ -26,25 +26,24 @@ private:
     {
     private:
         T*      object;
-        void (T::*callback)();
-            
+        void (T::*callback)(void *data);
     public:
-        ClassCallback(T* obj, void (T::*clbk)()) : object(obj), callback(clbk) {}
+        ClassCallback(T* obj, void (T::*clbk)(void *data)) : object(obj), callback(clbk) {}
         virtual Callback* clone() const { return new ClassCallback<T>(object,callback); }
-        virtual void call() { (object->*callback)(); }
+        virtual void call(void *data) { (object->*callback)(data); }
     };
     
-    // Implementation for global functions
-    class GlobalCallback : public Callback
-    {
-    private:
-        void (*callback)();
-            
-    public:
-        GlobalCallback( void (*clbk)() ) : callback(clbk) {}
-        virtual Callback* clone() const { return new GlobalCallback(callback); }
-        virtual void call() { (*callback)(); }
-    };
+//    // Implementation for global functions
+//    class GlobalCallback : public Callback
+//    {
+//    private:
+//        void (*callback)();
+//            
+//    public:
+//        GlobalCallback( void (*clbk)() ) : callback(clbk) {}
+//        virtual Callback* clone() const { return new GlobalCallback(callback); }
+//        virtual void call() { (*callback)(); }
+//    };
     
 private:
     // Data member for the cStormCallbacker class
@@ -72,13 +71,13 @@ public:
     }
 
     // construct with an actual callback
-    cStormCallbacker(void (*clbk)())
-    {
-        callback = new GlobalCallback(clbk);
-    }
+//    cStormCallbacker(void (*clbk)())
+//    {
+//        callback = new GlobalCallback(clbk);
+//    }
 
     template <typename T>
-    cStormCallbacker(T* obj, void (T::*clbk)())
+    cStormCallbacker(T* obj, void (T::*clbk)(void *data))
     {
         callback = new ClassCallback<T>(obj,clbk);
         interval = 0;
@@ -86,7 +85,7 @@ public:
     }
 
     template <typename T>
-    cStormCallbacker(T* obj, void (T::*clbk)(), int _interval)
+    cStormCallbacker(T* obj, void (T::*clbk)(void *data), int _interval)
     {
         callback = new ClassCallback<T>(obj,clbk);
         interval = _interval;
@@ -94,13 +93,13 @@ public:
     }
 
     // actually calling the function
-    void operator () (){
+//    void operator () (){
+//        if(callback != NULL)
+//            callback->call(NULL);
+//    }
+    void Call (void *data = NULL){
         if(callback != NULL)
-            callback->call();
-    }
-    void Call (){
-        if(callback != NULL)
-            callback->call();
+            callback->call(data);
     }
 
     int GetInterval() { return interval; }

@@ -67,7 +67,7 @@ void cGuiWidgetList::HandleWidgetEvent(bool isMouseOver){
 	int ns = (S_GetMouseY() - loc.y) / itemHeight;
 	if(selected != ns){
 		selected = ns;
-		callback();
+		callback.Call();
 		toReturnEvent = GUI_WIDGET_EVENT_HANDLED;
 	}else{
 		return;

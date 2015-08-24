@@ -19,7 +19,7 @@ void cPlayerDriver::Init() {
     
     StormPrintLog(STORM_LOG_INFO, "cPlayerDriver", "Initialized");
 }
-void cPlayerDriver::HandleEvents() {
+void cPlayerDriver::HandleEvents(void *data) {
     if(character == NULL)
         return;
     

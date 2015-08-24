@@ -31,7 +31,7 @@ public:
     
     /* Delete unused chunks. This method should not be called manually
      * Method is called on interval */
-    void Clear();
+    void Clear(void *data);
     /* Save all changes made to map chunks */
     void SaveAll();
     

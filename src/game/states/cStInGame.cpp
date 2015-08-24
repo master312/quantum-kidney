@@ -59,7 +59,7 @@ void cStInGame::LogicTick() {
     tmpC->entityManager->Tick();
     tmpC->cameraManager->Tick();
 }
-void cStInGame::HandleEvents() {
+void cStInGame::HandleEvents(void *data) {
     
 }
 void cStInGame::Pause() {

@@ -51,7 +51,7 @@ public:
         //Hide widget matching name
         void HideWidget(std::string name);
         
-	void HandleEvents();
+	void HandleEvents(void *data);
 	void LogicTick();
 	void GraphicsTick();
 private:

@@ -55,6 +55,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/storm/cData.o \
 	${OBJECTDIR}/src/storm/cFileParser.o \
 	${OBJECTDIR}/src/storm/cStateManager.o \
+	${OBJECTDIR}/src/storm/cStormConsole.o \
+	${OBJECTDIR}/src/storm/cStormConsoleCommands.o \
 	${OBJECTDIR}/src/storm/cStormState.o \
 	${OBJECTDIR}/src/storm/cTimedCallbackManager.o \
 	${OBJECTDIR}/src/storm/cTimer.o \
@@ -221,6 +223,16 @@ ${OBJECTDIR}/src/storm/cStateManager.o: src/storm/cStateManager.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStateManager.o src/storm/cStateManager.cpp
+
+${OBJECTDIR}/src/storm/cStormConsole.o: src/storm/cStormConsole.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/storm
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsole.o src/storm/cStormConsole.cpp
+
+${OBJECTDIR}/src/storm/cStormConsoleCommands.o: src/storm/cStormConsoleCommands.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/storm
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsoleCommands.o src/storm/cStormConsoleCommands.cpp
 
 ${OBJECTDIR}/src/storm/cStormState.o: src/storm/cStormState.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm

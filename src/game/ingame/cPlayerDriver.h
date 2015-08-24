@@ -19,7 +19,7 @@ public:
     /* Initialize player handler */
     void Init();
     /* Event handler callback function */
-    void HandleEvents();
+    void HandleEvents(void *data);
     
     void SetCharacter(cCharacter *_character) { character = _character; }
     cCharacter *GetCharacter() { return character; }
