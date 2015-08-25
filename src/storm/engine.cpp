@@ -81,6 +81,29 @@ cGraphics *S_GetGraphicsManager(){
 	return sEngine->GetGraphicsManager();
 }
 
+void S_ConsoleAddHandler(std::string name, cStormCallbacker cb) {
+	sEngine->GetConsole()->AddCommand(name, cb);
+}
+void S_ConsolePrintLine(std::string text, ...) {
+        int count = 0;
+        for(uint i = 0; i < text.size(); i++){
+            if(text[i] == '%'){
+                count ++;
+            }
+        }
+        if(count > 0) {
+                va_list ap;
+                va_start(ap, count);
+                sEngine->GetConsole()->PushLogLine(StormParseArgs(text, count, ap));
+                va_end(ap);
+        }else{
+                sEngine->GetConsole()->PushLogLine(text);
+        }
+}
+cStormConsole *S_GetConsole() {
+        return sEngine->GetConsole();
+}
+
 uint S_LoadTexture(std::string filename){
 	return sEngine->GetTextureManager()->LoadTexture(filename);
 }

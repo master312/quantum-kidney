@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>src/game/ingame/cCameraManager.h</itemPath>
       <itemPath>src/game/ingame/entities/cCharacter.h</itemPath>
+      <itemPath>src/game/ingame/map/cDebgMapEditor.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
       <itemPath>src/game/ingame/cEntityManager.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.h</itemPath>
@@ -156,6 +157,7 @@
       </logicalFolder>
       <itemPath>src/game/ingame/cCameraManager.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cCharacter.cpp</itemPath>
+      <itemPath>src/game/ingame/map/cDebgMapEditor.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
       <itemPath>src/game/ingame/cEntityManager.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.cpp</itemPath>
@@ -270,6 +272,16 @@
       <item path="src/game/ingame/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/ingame/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/game/ingame/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -724,6 +736,16 @@
       <item path="src/game/ingame/entities/cPawn.cpp" ex="false" tool="1" flavor2="8">
       </item>
       <item path="src/game/ingame/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/game/ingame/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1182,6 +1204,16 @@
       <item path="src/game/ingame/entities/cPawn.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/ingame/entities/cPawn.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/map/cDebgMapEditor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/game/ingame/map/cMapChunk.cpp" ex="false" tool="1" flavor2="0">
       </item>

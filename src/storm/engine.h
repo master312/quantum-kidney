@@ -237,6 +237,13 @@ void S_GuiShowWidgetByName(std::string _name);
 //Returns pointer to GUI manager
 cGuiManager *S_GuiGetManager();
 
+//Adds new command handler to storm console
+void S_ConsoleAddHandler(std::string name, cStormCallbacker cb);
+//Print line to console
+void S_ConsolePrintLine(std::string text, ...);
+//Returns pointer to cStormConsoleClass
+cStormConsole *S_GetConsole();
+
 //Adds main state to engine. This is class that will basically contain main game class; 
 //Should be called ONLY one time at the beginning of the program
 //If main state ends, program will close

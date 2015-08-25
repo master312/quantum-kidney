@@ -27,6 +27,7 @@ public:
     void Show();
     void Hide();
     void PrintLine(std::string text, ...);
+    void PushLogLine(std::string text);
     void AddCommand(std::string name, cStormCallbacker cb) {
         if(commands.count(name) > 0){
             StormPrintLog(STORM_LOG_WARNING, "cStormConsole",

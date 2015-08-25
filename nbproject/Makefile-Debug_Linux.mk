@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/ingame/entities/cNpc.o \
 	${OBJECTDIR}/src/game/ingame/entities/cObject.o \
 	${OBJECTDIR}/src/game/ingame/entities/cPawn.o \
+	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
@@ -168,6 +169,11 @@ ${OBJECTDIR}/src/game/ingame/entities/cPawn.o: src/game/ingame/entities/cPawn.cp
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cPawn.o src/game/ingame/entities/cPawn.cpp
+
+${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o: src/game/ingame/map/cDebgMapEditor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o src/game/ingame/map/cDebgMapEditor.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cMapChunk.o: src/game/ingame/map/cMapChunk.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map

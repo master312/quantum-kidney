@@ -143,10 +143,17 @@ void cStormConsole::PrintLine(std::string text, ...) {
         }
     }
     
-    va_list ap;
-    va_start(ap, count);
-    logLines.push_back(StormParseArgs(text, count, ap));
-    va_end(ap);
+    if(count > 0) {
+        va_list ap;
+        va_start(ap, count);
+        PushLogLine(StormParseArgs(text, count, ap));
+        va_end(ap);
+    }else{
+        PushLogLine(text);
+    }
+}
+void cStormConsole::PushLogLine(std::string text) {
+    logLines.push_back(text);
     
     if(logLines.size() > maxLogLines){
         //TODO: Delete log lines
