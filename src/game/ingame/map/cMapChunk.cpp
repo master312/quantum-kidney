@@ -47,13 +47,22 @@ void cMapChunk::DrawBot(int x, int y) {
         }
     }
 }
-void cMapChunk::DrawTop(int x, int y) {
+void cMapChunk::DrawTop(int x, int y, bool drawTriggers) {
     int destX, destY;
     for(int i = 0; i < GetCommon()->mapChunkWidth; i++){
         destX = x + (i * GetCommon()->mapTileWidth);
         for(int j = 0; j < GetCommon()->mapChunkHeight; j++){
             destY = y + (j * GetCommon()->mapTileHeight);
             DrawTileTop(i, j, destX, destY);
+            if(drawTriggers) {
+                int tW = GetCommon()->mapTileWidth / 2;
+                int tH = GetCommon()->mapTileHeight / 2;
+                sMapTile *t = &tiles[i][j];
+                DrawTrigger(t->triggers[0][0], destX, destY, tW, tH);
+                DrawTrigger(t->triggers[1][0], destX + tW, destY, tW, tH);
+                DrawTrigger(t->triggers[1][1], destX + tW, destY + tH, tW, tH);
+                DrawTrigger(t->triggers[0][1], destX, destY + tH, tW, tH);
+            }
         }
     }
 }
@@ -106,4 +115,14 @@ void cMapChunk::DrawTile(sSrcTile *tile, int x, int y) {
     tmpRect.y *= GetCommon()->mapTileHeight;
     
     S_DrawTextureCropped(ts->id, &tmpRect, x, y);
+}
+void cMapChunk::DrawTrigger(int type, int x, int y, int tw, int th) {
+    switch(type){
+        case 0: //Not set
+            S_DrawRect(x, y, tw, th, 0, 0, 0);
+            break;
+        case -1: //Blocked
+            S_DrawFillRect(x, y, tw, th, 0, 0, 0);
+            break;
+    }
 }

@@ -8,8 +8,9 @@
 #ifndef CMAPMANAGER_H
 #define	CMAPMANAGER_H
 #include "../../../storm/engine.h"
-#include "../../sCommon.h"
+
 #include "cMapChunk.h"
+#include "cDebgMapEditor.h"
 #include <vector>
 /* TODO:
  *  Out of range check in CalculateVisible() */
@@ -43,6 +44,14 @@ public:
     sMapTile *GetTileScreen(int x, int y);
     /* Returns pointer to map chunk. @x and @y are coordinates on screen */
     cMapChunk *GetChunkScreen(int x, int y);
+    /* Return trigger value on screen coordinates @x : @y */
+    int GetTriggerScreen(int x, int y);
+    /* Set trigger at @x, @y to value @v */
+    void SetTriggerScreen(int x, int y, int v);
+    
+    /* If this is set to true, then */
+    void SetDrawTriggerGrid(bool b) { drawTriggerGrid = b; }
+    bool GetIsDrawTriggerGrid() { return drawTriggerGrid; }
     
     sPoint *GetCamera() { return &camera; }
 private:
@@ -55,9 +64,13 @@ private:
     sPoint end;
     /* Camera coordinates */
     sPoint camera;
-
+    /* Weather trigger grid should be drawn */
+    bool drawTriggerGrid;
+    
     /* Calculate coordinates of visible chunks (start and end) */
     void CalculateVisible();
+    
+    cDebgMapEditor *debugMapEditor;
 };
 
 #endif	/* CMAPMANAGER_H */

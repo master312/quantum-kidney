@@ -23,7 +23,7 @@ cGuiWidgetLabel::cGuiWidgetLabel(std::string _name, std::string _text, int x, in
 cGuiWidgetLabel::~cGuiWidgetLabel(){
 
 }
-void cGuiWidgetLabel::SetText(std::string _text, ...){
+void cGuiWidgetLabel::SetTextArgs(std::string _text, ...){
     char tmp[_text.size() + 50];
     va_list argptr;
     va_start(argptr, _text.c_str());

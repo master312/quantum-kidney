@@ -31,7 +31,7 @@ void cStAnimGenerator::GraphicsTick() {
             S_DrawAnimation(animationId, 400, 400);
         }
         cAnimation *anim = S_GetAnimation(animationId);
-        plCurFrame->SetText("Frame: %d / %d", 
+        plCurFrame->SetTextArgs("Frame: %d / %d", 
                             anim->GetCurFrame(), 
                             anim->GetFramesCount() - 1);
     }

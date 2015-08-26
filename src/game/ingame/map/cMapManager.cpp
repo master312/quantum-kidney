@@ -8,8 +8,12 @@
 #include "cMapManager.h"
 
 cMapManager::cMapManager() {
+    debugMapEditor = NULL;
+    drawTriggerGrid = false;
 }
 cMapManager::~cMapManager() {
+    //TODO: Delete all map chunks
+    delete debugMapEditor;
 }
 void cMapManager::Init() {
     for(int i = 0; i < GetCommon()->mapWorldWidth; i++){
@@ -30,6 +34,9 @@ void cMapManager::Init() {
     
     
     HandleCamera(1, 1);
+    
+    debugMapEditor = new cDebgMapEditor();
+    debugMapEditor->Init();
     
     StormPrintLog(STORM_LOG_INFO, "cMapManager", "Initialized");
 }
@@ -54,6 +61,7 @@ void cMapManager::Draw() {
                 shiftX = camera.x - (i * GetCommon()->mapChunkWidthPx);
                 shiftY = camera.y - (j * GetCommon()->mapChunkHeightPx);
                 chunks[i][j]->DrawBot(-shiftX, -shiftY);
+                chunks[i][j]->DrawTop(-shiftX, -shiftY, drawTriggerGrid);
             } else {
                 chunks[i][j] = new cMapChunk();
                 char tmpName[50];
@@ -133,6 +141,23 @@ cMapChunk *cMapManager::GetChunkScreen(int x, int y) {
     x = (x + camera.x) / GetCommon()->mapChunkWidthPx;
     y = (y + camera.y) / GetCommon()->mapChunkHeightPx;
     return chunks[x][y];
+}
+int cMapManager::GetTriggerScreen(int x, int y) {
+    sMapTile *ch = GetTileScreen(x, y);
+    int tx = ((int)x / GetCommon()->mapChunkWidthPx) * GetCommon()->mapChunkWidthPx;
+    int ty = ((int)y / GetCommon()->mapChunkHeightPx) * GetCommon()->mapChunkHeightPx;
+    x = (x - tx) / (GetCommon()->mapChunkWidthPx / 2);
+    y = (y - ty) / (GetCommon()->mapChunkHeightPx / 2);
+    return ch->triggers[x][y];
+}
+void cMapManager::SetTriggerScreen(int x, int y, int v) {
+    sMapTile *ch = GetTileScreen(x, y);
+    int tx = ((x + camera.x) / GetCommon()->mapTileWidth) * GetCommon()->mapTileWidth;
+    int ty = ((y + camera.y) / GetCommon()->mapTileHeight) * GetCommon()->mapTileHeight;
+    x = ((x + camera.x) - tx) / (GetCommon()->mapTileWidth / 2);
+    y = ((y + camera.y) - ty) / (GetCommon()->mapTileHeight / 2);
+    
+    ch->triggers[x][y] = v;
 }
 void cMapManager::CalculateVisible() {
     start.x = camera.x / GetCommon()->mapChunkWidthPx;

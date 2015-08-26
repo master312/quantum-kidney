@@ -58,8 +58,10 @@ public:
     
     /* Draw bottom layer on screen, on screen coordinates @x, @y */
     void DrawBot(int x, int y);
-    /* Draw top layer on screen, on screen coordinates @x, @y */
-    void DrawTop(int x, int y);
+    /* Draw top layer on screen, on screen coordinates @x, @y 
+     * if @drawTriggers is true, then triggers and trigger grid will be drawn
+     * over map */
+    void DrawTop(int x, int y, bool drawTriggers);
     /* Draws bottom layer of single tile */
     void DrawTileBot(int tileX, int tileY, int destX, int destY);
     /* Draws top layer of single tile */
@@ -91,6 +93,8 @@ private:
     void LoadTilesets();
     /* Draws @tile (sSrcTile) at @x:@y on screen*/
     void DrawTile(sSrcTile *tile, int x, int y);
+    /* Draws trigger of @type, on coordinates @x, @y */
+    void DrawTrigger(int type, int x, int y, int tw, int th);
 };
 
 #endif	/* CMAPCHUNK_H */

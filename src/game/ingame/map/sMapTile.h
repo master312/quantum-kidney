@@ -33,19 +33,18 @@ struct sMapTile {
     
     /* Every tile has 4 triggers, and their size is W=(tileW/2), H=(tileH/2)
      * This array hold ID's of triggers; If value is 0, there is no trigger
-     * if value is -1, trigger area is unwalkable
-     * [0] - Top left, [1] - Top right, [2] - Bottom left, [3] - Bottom right */
-    int triggers[4];
+     * if value is -1, trigger area is unwalkable */
+    int triggers[2][2];
     
     /* This constructor will initialize empty tile */
     sMapTile(){
-        triggers[0] = triggers[1] = triggers[2] = triggers[3] = 0;
+        triggers[0][0] = triggers[0][1] = triggers[1][0] = triggers[1][1] = 0;
     }
     
     /* This constructor will create one bottom layer with tile 0 */
     sMapTile(int tilesetId, int a){
         botLayers.push_back(sSrcTile(tilesetId, a));
-        triggers[0] = triggers[1] = triggers[2] = triggers[3] = 0;
+        triggers[0][0] = triggers[0][1] = triggers[1][0] = triggers[1][1] = 0;
     }
     
     int CountBot() {
@@ -56,11 +55,11 @@ struct sMapTile {
         return (int)topLayers.size();
     }
     
-    sSrcTile *GetBot(int layer){
+    sSrcTile *GetBot(int layer) {
         return &botLayers[layer];
     }
     
-    sSrcTile *GetTop(int layer){
+    sSrcTile *GetTop(int layer) {
         return &topLayers[layer];
     }
 };

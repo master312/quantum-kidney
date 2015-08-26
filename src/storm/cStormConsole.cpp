@@ -23,7 +23,7 @@ void cStormConsole::HandleEvents(void *data) {
         }
         return;
     }
-    if(S_IsKeyDown(key)){
+    if(S_IsKeyDown(KEY_ESCAPE)){
         Hide();
         return;
     }
