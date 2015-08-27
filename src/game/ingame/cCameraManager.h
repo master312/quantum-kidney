@@ -10,7 +10,6 @@
 #include "../sCommon.h"
 #include "map/cMapManager.h"
 #include "../../storm/cVector2d.h"
-#include "cPlayerDriver.h"
 
 class cCameraManager {
 public:

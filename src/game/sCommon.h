@@ -10,9 +10,7 @@
 #include <iostream>
 
 class cMapManager;
-class cEntityManager;
 class cCameraManager;
-class cPlayerDriver;
 
 struct sCommon {
     sCommon();
@@ -32,8 +30,6 @@ struct sCommon {
     int mapChunkTimeout;
     
     cMapManager *mapManager;
-    cPlayerDriver *playerDriver;
-    cEntityManager *entityManager;
     cCameraManager *cameraManager;
 };
 

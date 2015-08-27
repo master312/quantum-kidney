@@ -4,17 +4,17 @@
         <activeConfTypeElem>1</activeConfTypeElem>
         <activeConfIndexElem>0</activeConfIndexElem>
     </data>
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/game/ingame/map/cMapChunk.cpp</url>
+            <bookmark id="1">
+                <name/>
+                <line>63</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/cStormConsole.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/storm.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/engine.cpp</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/engine.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/map/cDebgMapEditor.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/defines.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/map/cDebgMapEditor.cpp</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/storm/cStormConsole.cpp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

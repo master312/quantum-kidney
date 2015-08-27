@@ -22,13 +22,6 @@ void cStInGame::Init() {
     mapManager->Init();
     tmpC->mapManager = mapManager;
     
-    cPlayerDriver *playerDriver = new cPlayerDriver();
-    playerDriver->Init();
-    tmpC->playerDriver = playerDriver;
-    
-    cEntityManager *entityManager = new cEntityManager();
-    tmpC->entityManager = entityManager;
-    
     cCameraManager *cameraManager = new cCameraManager();
     tmpC->cameraManager = cameraManager;
     
@@ -37,26 +30,18 @@ void cStInGame::Init() {
     StormPrintLog(STORM_LOG_INFO, "cStInGame", "State initialized");
 }
 void cStInGame::InitNewGame() { //Private method...
-    cCharacter *tmpChar = new cCharacter();
-    tmpChar->SetAnimId(4);
-    tmpChar->LoadAnim();
-    tmpChar->GetStats()->speed = 128;
     
-    GetCommon()->entityManager->PushEntity(tmpChar);
-    GetCommon()->playerDriver->SetCharacter(tmpChar);
 }
 void cStInGame::GraphicsTick() {
     sCommon *tmpC = GetCommon();
     
     tmpC->mapManager->Draw();
-    tmpC->entityManager->Draw();
     
     S_RenderText("State: cStInGame", 1, 1);
 }
 void cStInGame::LogicTick() {
     sCommon *tmpC = GetCommon();
     
-    tmpC->entityManager->Tick();
     tmpC->cameraManager->Tick();
 }
 void cStInGame::HandleEvents(void *data) {

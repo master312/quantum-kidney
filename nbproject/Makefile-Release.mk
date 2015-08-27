@@ -37,13 +37,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
 	${OBJECTDIR}/src/game/ingame/cCameraManager.o \
-	${OBJECTDIR}/src/game/ingame/cEntityManager.o \
-	${OBJECTDIR}/src/game/ingame/cPlayerDriver.o \
-	${OBJECTDIR}/src/game/ingame/entities/cCharacter.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
-	${OBJECTDIR}/src/game/ingame/entities/cNpc.o \
-	${OBJECTDIR}/src/game/ingame/entities/cObject.o \
-	${OBJECTDIR}/src/game/ingame/entities/cPawn.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o \
 	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
@@ -135,40 +133,30 @@ ${OBJECTDIR}/src/game/ingame/cCameraManager.o: src/game/ingame/cCameraManager.cp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cCameraManager.o src/game/ingame/cCameraManager.cpp
 
-${OBJECTDIR}/src/game/ingame/cEntityManager.o: src/game/ingame/cEntityManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cEntityManager.o src/game/ingame/cEntityManager.cpp
-
-${OBJECTDIR}/src/game/ingame/cPlayerDriver.o: src/game/ingame/cPlayerDriver.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cPlayerDriver.o src/game/ingame/cPlayerDriver.cpp
-
-${OBJECTDIR}/src/game/ingame/entities/cCharacter.o: src/game/ingame/entities/cCharacter.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cCharacter.o src/game/ingame/entities/cCharacter.cpp
-
 ${OBJECTDIR}/src/game/ingame/entities/cEntity.o: src/game/ingame/entities/cEntity.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntity.o src/game/ingame/entities/cEntity.cpp
 
-${OBJECTDIR}/src/game/ingame/entities/cNpc.o: src/game/ingame/entities/cNpc.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o: src/game/ingame/entities/components/cComCollision.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cNpc.o src/game/ingame/entities/cNpc.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o src/game/ingame/entities/components/cComCollision.cpp
 
-${OBJECTDIR}/src/game/ingame/entities/cObject.o: src/game/ingame/entities/cObject.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o: src/game/ingame/entities/components/cComPawnController.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cObject.o src/game/ingame/entities/cObject.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o src/game/ingame/entities/components/cComPawnController.cpp
 
-${OBJECTDIR}/src/game/ingame/entities/cPawn.o: src/game/ingame/entities/cPawn.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o: src/game/ingame/entities/components/cComPlayerDriver.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cPawn.o src/game/ingame/entities/cPawn.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o src/game/ingame/entities/components/cComPlayerDriver.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o: src/game/ingame/entities/components/cComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o src/game/ingame/entities/components/cComponent.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o: src/game/ingame/map/cDebgMapEditor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map

@@ -10,32 +10,28 @@
 #include "../../../storm/engine.h"
 #include "../../../storm/cVector2d.h"
 #include "../../sCommon.h"
-
-enum eEntityType {undefined, character, npc, object};
+#include "components/cComponent.h"
+#include <vector>
 
 class cEntity {
 public:
     cEntity();
-    virtual ~cEntity();
+    ~cEntity();
     /* Called just before object deletion */
-    virtual void OnDestroy() { }
+    void OnDestroy() { }
     
     void SetId(int _id) { id = _id; }
     int GetId() { return id; }
     cVector2d *GetLoc() { return &loc; }
-    
-    eEntityType GetType() { return type; }
-    
-    bool IsDefined() { return type != undefined; }
-    bool IsPawn() { return type == character || type == npc; }
-    bool IsCharacter() { return type == character; }
-    bool IsNpc() { return type == npc; }
-    bool IsObject() { return type == object; }
+    /* Adds new component to this entity */
+    void AddComponent(cComponent *component);
+    /* Returns pointer to component, or nullptr if not found*/
+    template <typename T> T GetComponent();
 protected:
     int id;
     cVector2d loc;
     
-    eEntityType type;
+    std::vector<cComponent*> components;
 };
 
 #endif	/* CENTITY_H */

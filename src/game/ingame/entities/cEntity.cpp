@@ -9,8 +9,18 @@
 
 cEntity::cEntity() {
     id = -1;
-    type = undefined;
 }
 cEntity::~cEntity() {
 }
-
+void cEntity::AddComponent(cComponent *component) {
+    components.push_back(component);
+}
+template <typename T> T cEntity::GetComponent() {
+    for(auto &i : components){
+        T *toReturn = dynamic_cast<T*> (i);
+        if(toReturn != nullptr){
+            return toReturn;
+        }
+    }
+    return nullptr;
+}
