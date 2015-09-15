@@ -16,7 +16,6 @@ cGame::~cGame() {
 
 void cGame::Start() {
     srand(time(0));
-    
     if(!S_InitEngine(STORM_API_SDL2)){
         return;
     }

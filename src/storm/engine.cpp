@@ -110,6 +110,9 @@ uint S_LoadTexture(std::string filename){
 uint S_CreateSection(uint textureId, int x, int y, int w, int h){
 	return sEngine->GetTextureManager()->CreateSection(textureId, x, y, w, h);
 }
+uint S_CreateSection(uint textureId, sRect& rect){
+	return sEngine->GetTextureManager()->CreateSection(textureId, rect.x, rect.y, rect.w, rect.h);
+}
 void S_DrawTexture(uint textureId, int x, int y, float scale, float rot){
 	sEngine->GetTextureManager()->DrawTexture(textureId, x, y, scale, rot);
 }

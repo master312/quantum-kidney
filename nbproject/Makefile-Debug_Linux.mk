@@ -38,14 +38,17 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
 	${OBJECTDIR}/src/game/ingame/cCameraManager.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
+	${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o \
-	${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o \
 	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
+	${OBJECTDIR}/src/game/scripts/cLuaEngine.o \
 	${OBJECTDIR}/src/game/states/cStAnimGenerator.o \
 	${OBJECTDIR}/src/game/states/cStInGame.o \
 	${OBJECTDIR}/src/game/states/cStMainMenu.o \
@@ -113,7 +116,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net
+LDLIBSOPTIONS=-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net -llua5.2
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -126,312 +129,327 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quantum-kidney: ${OBJECTFILES}
 ${OBJECTDIR}/src/game/cGame.o: src/game/cGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/cGame.o src/game/cGame.cpp
 
 ${OBJECTDIR}/src/game/ingame/cCameraManager.o: src/game/ingame/cCameraManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cCameraManager.o src/game/ingame/cCameraManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/cCameraManager.o src/game/ingame/cCameraManager.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/cEntity.o: src/game/ingame/entities/cEntity.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntity.o src/game/ingame/entities/cEntity.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntity.o src/game/ingame/entities/cEntity.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o: src/game/ingame/entities/cEntityFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o src/game/ingame/entities/cEntityFactory.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o: src/game/ingame/entities/components/cComAnimation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o src/game/ingame/entities/components/cComAnimation.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o: src/game/ingame/entities/components/cComCollision.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o src/game/ingame/entities/components/cComCollision.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o src/game/ingame/entities/components/cComCollision.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o: src/game/ingame/entities/components/cComImage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o src/game/ingame/entities/components/cComImage.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o: src/game/ingame/entities/components/cComPawnController.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o src/game/ingame/entities/components/cComPawnController.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o src/game/ingame/entities/components/cComPawnController.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o: src/game/ingame/entities/components/cComPlayerDriver.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o src/game/ingame/entities/components/cComPlayerDriver.cpp
-
-${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o: src/game/ingame/entities/components/cComponent.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o src/game/ingame/entities/components/cComponent.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o src/game/ingame/entities/components/cComPlayerDriver.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o: src/game/ingame/map/cDebgMapEditor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o src/game/ingame/map/cDebgMapEditor.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o src/game/ingame/map/cDebgMapEditor.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cMapChunk.o: src/game/ingame/map/cMapChunk.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapChunk.o src/game/ingame/map/cMapChunk.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapChunk.o src/game/ingame/map/cMapChunk.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cMapManager.o: src/game/ingame/map/cMapManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapManager.o src/game/ingame/map/cMapManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/map/cMapManager.o src/game/ingame/map/cMapManager.cpp
 
 ${OBJECTDIR}/src/game/sCommon.o: src/game/sCommon.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/sCommon.o src/game/sCommon.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/sCommon.o src/game/sCommon.cpp
+
+${OBJECTDIR}/src/game/scripts/cLuaEngine.o: src/game/scripts/cLuaEngine.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/scripts
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/scripts/cLuaEngine.o src/game/scripts/cLuaEngine.cpp
 
 ${OBJECTDIR}/src/game/states/cStAnimGenerator.o: src/game/states/cStAnimGenerator.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStAnimGenerator.o src/game/states/cStAnimGenerator.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStAnimGenerator.o src/game/states/cStAnimGenerator.cpp
 
 ${OBJECTDIR}/src/game/states/cStInGame.o: src/game/states/cStInGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStInGame.o src/game/states/cStInGame.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStInGame.o src/game/states/cStInGame.cpp
 
 ${OBJECTDIR}/src/game/states/cStMainMenu.o: src/game/states/cStMainMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStMainMenu.o src/game/states/cStMainMenu.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/states/cStMainMenu.o src/game/states/cStMainMenu.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 ${OBJECTDIR}/src/storm/cBinaryFile.o: src/storm/cBinaryFile.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cBinaryFile.o src/storm/cBinaryFile.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cBinaryFile.o src/storm/cBinaryFile.cpp
 
 ${OBJECTDIR}/src/storm/cData.o: src/storm/cData.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cData.o src/storm/cData.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cData.o src/storm/cData.cpp
 
 ${OBJECTDIR}/src/storm/cFileParser.o: src/storm/cFileParser.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cFileParser.o src/storm/cFileParser.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cFileParser.o src/storm/cFileParser.cpp
 
 ${OBJECTDIR}/src/storm/cStateManager.o: src/storm/cStateManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStateManager.o src/storm/cStateManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStateManager.o src/storm/cStateManager.cpp
 
 ${OBJECTDIR}/src/storm/cStormConsole.o: src/storm/cStormConsole.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsole.o src/storm/cStormConsole.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsole.o src/storm/cStormConsole.cpp
 
 ${OBJECTDIR}/src/storm/cStormConsoleCommands.o: src/storm/cStormConsoleCommands.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsoleCommands.o src/storm/cStormConsoleCommands.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormConsoleCommands.o src/storm/cStormConsoleCommands.cpp
 
 ${OBJECTDIR}/src/storm/cStormState.o: src/storm/cStormState.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormState.o src/storm/cStormState.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cStormState.o src/storm/cStormState.cpp
 
 ${OBJECTDIR}/src/storm/cTimedCallbackManager.o: src/storm/cTimedCallbackManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cTimedCallbackManager.o src/storm/cTimedCallbackManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cTimedCallbackManager.o src/storm/cTimedCallbackManager.cpp
 
 ${OBJECTDIR}/src/storm/cTimer.o: src/storm/cTimer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cTimer.o src/storm/cTimer.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cTimer.o src/storm/cTimer.cpp
 
 ${OBJECTDIR}/src/storm/cVector2d.o: src/storm/cVector2d.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cVector2d.o src/storm/cVector2d.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/cVector2d.o src/storm/cVector2d.cpp
 
 ${OBJECTDIR}/src/storm/engine.o: src/storm/engine.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/engine.o src/storm/engine.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/engine.o src/storm/engine.cpp
 
 ${OBJECTDIR}/src/storm/events/cEventManager.o: src/storm/events/cEventManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/events
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/events/cEventManager.o src/storm/events/cEventManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/events/cEventManager.o src/storm/events/cEventManager.cpp
 
 ${OBJECTDIR}/src/storm/events/cInputSDL2.o: src/storm/events/cInputSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/events
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/events/cInputSDL2.o src/storm/events/cInputSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/events/cInputSDL2.o src/storm/events/cInputSDL2.cpp
 
 ${OBJECTDIR}/src/storm/fLogs.o: src/storm/fLogs.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/fLogs.o src/storm/fLogs.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/fLogs.o src/storm/fLogs.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cAnimation.o: src/storm/graphics/cAnimation.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cAnimation.o src/storm/graphics/cAnimation.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cAnimation.o src/storm/graphics/cAnimation.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cAnimationManager.o: src/storm/graphics/cAnimationManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cAnimationManager.o src/storm/graphics/cAnimationManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cAnimationManager.o src/storm/graphics/cAnimationManager.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cFontManager.o: src/storm/graphics/cFontManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManager.o src/storm/graphics/cFontManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManager.o src/storm/graphics/cFontManager.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cFontManagerOpenGL.o: src/storm/graphics/cFontManagerOpenGL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManagerOpenGL.o src/storm/graphics/cFontManagerOpenGL.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManagerOpenGL.o src/storm/graphics/cFontManagerOpenGL.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cFontManagerSDL2.o: src/storm/graphics/cFontManagerSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManagerSDL2.o src/storm/graphics/cFontManagerSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cFontManagerSDL2.o src/storm/graphics/cFontManagerSDL2.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cGraphics.o: src/storm/graphics/cGraphics.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphics.o src/storm/graphics/cGraphics.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphics.o src/storm/graphics/cGraphics.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cGraphicsOpenGL.o: src/storm/graphics/cGraphicsOpenGL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphicsOpenGL.o src/storm/graphics/cGraphicsOpenGL.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphicsOpenGL.o src/storm/graphics/cGraphicsOpenGL.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cGraphicsSDL2.o: src/storm/graphics/cGraphicsSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphicsSDL2.o src/storm/graphics/cGraphicsSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cGraphicsSDL2.o src/storm/graphics/cGraphicsSDL2.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cTextureManager.o: src/storm/graphics/cTextureManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManager.o src/storm/graphics/cTextureManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManager.o src/storm/graphics/cTextureManager.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cTextureManagerOpenGL.o: src/storm/graphics/cTextureManagerOpenGL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManagerOpenGL.o src/storm/graphics/cTextureManagerOpenGL.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManagerOpenGL.o src/storm/graphics/cTextureManagerOpenGL.cpp
 
 ${OBJECTDIR}/src/storm/graphics/cTextureManagerSDL2.o: src/storm/graphics/cTextureManagerSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/graphics
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManagerSDL2.o src/storm/graphics/cTextureManagerSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/graphics/cTextureManagerSDL2.o src/storm/graphics/cTextureManagerSDL2.cpp
 
 ${OBJECTDIR}/src/storm/gui/cGuiManager.o: src/storm/gui/cGuiManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiManager.o src/storm/gui/cGuiManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiManager.o src/storm/gui/cGuiManager.cpp
 
 ${OBJECTDIR}/src/storm/gui/cGuiSkin.o: src/storm/gui/cGuiSkin.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiSkin.o src/storm/gui/cGuiSkin.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiSkin.o src/storm/gui/cGuiSkin.cpp
 
 ${OBJECTDIR}/src/storm/gui/cGuiWidget.o: src/storm/gui/cGuiWidget.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiWidget.o src/storm/gui/cGuiWidget.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/cGuiWidget.o src/storm/gui/cGuiWidget.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetButton.o: src/storm/gui/widgets/cGuiWidgetButton.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetButton.o src/storm/gui/widgets/cGuiWidgetButton.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetButton.o src/storm/gui/widgets/cGuiWidgetButton.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetCheckBox.o: src/storm/gui/widgets/cGuiWidgetCheckBox.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetCheckBox.o src/storm/gui/widgets/cGuiWidgetCheckBox.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetCheckBox.o src/storm/gui/widgets/cGuiWidgetCheckBox.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetComboBox.o: src/storm/gui/widgets/cGuiWidgetComboBox.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetComboBox.o src/storm/gui/widgets/cGuiWidgetComboBox.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetComboBox.o src/storm/gui/widgets/cGuiWidgetComboBox.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetContainer.o: src/storm/gui/widgets/cGuiWidgetContainer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetContainer.o src/storm/gui/widgets/cGuiWidgetContainer.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetContainer.o src/storm/gui/widgets/cGuiWidgetContainer.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetHorizontalSlider.o: src/storm/gui/widgets/cGuiWidgetHorizontalSlider.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetHorizontalSlider.o src/storm/gui/widgets/cGuiWidgetHorizontalSlider.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetHorizontalSlider.o src/storm/gui/widgets/cGuiWidgetHorizontalSlider.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetInput.o: src/storm/gui/widgets/cGuiWidgetInput.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetInput.o src/storm/gui/widgets/cGuiWidgetInput.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetInput.o src/storm/gui/widgets/cGuiWidgetInput.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetLabel.o: src/storm/gui/widgets/cGuiWidgetLabel.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetLabel.o src/storm/gui/widgets/cGuiWidgetLabel.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetLabel.o src/storm/gui/widgets/cGuiWidgetLabel.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetList.o: src/storm/gui/widgets/cGuiWidgetList.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetList.o src/storm/gui/widgets/cGuiWidgetList.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetList.o src/storm/gui/widgets/cGuiWidgetList.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetPictureBox.o: src/storm/gui/widgets/cGuiWidgetPictureBox.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetPictureBox.o src/storm/gui/widgets/cGuiWidgetPictureBox.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetPictureBox.o src/storm/gui/widgets/cGuiWidgetPictureBox.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetRadioGroup.o: src/storm/gui/widgets/cGuiWidgetRadioGroup.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetRadioGroup.o src/storm/gui/widgets/cGuiWidgetRadioGroup.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetRadioGroup.o src/storm/gui/widgets/cGuiWidgetRadioGroup.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetTree.o: src/storm/gui/widgets/cGuiWidgetTree.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetTree.o src/storm/gui/widgets/cGuiWidgetTree.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetTree.o src/storm/gui/widgets/cGuiWidgetTree.cpp
 
 ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetVerticalSlider.o: src/storm/gui/widgets/cGuiWidgetVerticalSlider.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/gui/widgets
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetVerticalSlider.o src/storm/gui/widgets/cGuiWidgetVerticalSlider.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/gui/widgets/cGuiWidgetVerticalSlider.o src/storm/gui/widgets/cGuiWidgetVerticalSlider.cpp
 
 ${OBJECTDIR}/src/storm/sound/cMusic.o: src/storm/sound/cMusic.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cMusic.o src/storm/sound/cMusic.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cMusic.o src/storm/sound/cMusic.cpp
 
 ${OBJECTDIR}/src/storm/sound/cMusicSDL2.o: src/storm/sound/cMusicSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cMusicSDL2.o src/storm/sound/cMusicSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cMusicSDL2.o src/storm/sound/cMusicSDL2.cpp
 
 ${OBJECTDIR}/src/storm/sound/cSound.o: src/storm/sound/cSound.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSound.o src/storm/sound/cSound.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSound.o src/storm/sound/cSound.cpp
 
 ${OBJECTDIR}/src/storm/sound/cSoundManager.o: src/storm/sound/cSoundManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundManager.o src/storm/sound/cSoundManager.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundManager.o src/storm/sound/cSoundManager.cpp
 
 ${OBJECTDIR}/src/storm/sound/cSoundManagerSDL2.o: src/storm/sound/cSoundManagerSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundManagerSDL2.o src/storm/sound/cSoundManagerSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundManagerSDL2.o src/storm/sound/cSoundManagerSDL2.cpp
 
 ${OBJECTDIR}/src/storm/sound/cSoundSDL2.o: src/storm/sound/cSoundSDL2.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm/sound
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundSDL2.o src/storm/sound/cSoundSDL2.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/sound/cSoundSDL2.o src/storm/sound/cSoundSDL2.cpp
 
 ${OBJECTDIR}/src/storm/storm.o: src/storm/storm.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/storm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/storm.o src/storm/storm.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/storm/storm.o src/storm/storm.cpp
 
 # Subprojects
 .build-subprojects:

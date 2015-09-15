@@ -25,6 +25,11 @@ void cStInGame::Init() {
     cCameraManager *cameraManager = new cCameraManager();
     tmpC->cameraManager = cameraManager;
     
+    cEntityFactory *entityFactory = new cEntityFactory();
+    entityFactory->Init();
+    entityFactory->LoadScripts();
+    tmpC->entityFactory = entityFactory;
+    
     InitNewGame();
     
     StormPrintLog(STORM_LOG_INFO, "cStInGame", "State initialized");
@@ -45,7 +50,7 @@ void cStInGame::LogicTick() {
     tmpC->cameraManager->Tick();
 }
 void cStInGame::HandleEvents(void *data) {
-    
+
 }
 void cStInGame::Pause() {
     S_RemoveEventHandler("cStInGame");

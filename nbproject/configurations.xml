@@ -4,13 +4,40 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="libs" displayName="libs" projectFiles="true">
+        <logicalFolder name="LuaBridge" displayName="LuaBridge" projectFiles="true">
+          <logicalFolder name="detail" displayName="detail" projectFiles="true">
+            <itemPath>src/libs/LuaBridge/detail/CFunctions.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/ClassInfo.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/Constructor.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/FuncTraits.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/Iterator.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/LuaException.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/LuaHelpers.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/LuaRef.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/Namespace.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/Stack.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/TypeList.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/TypeTraits.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/Userdata.h</itemPath>
+            <itemPath>src/libs/LuaBridge/detail/dump.h</itemPath>
+          </logicalFolder>
+          <itemPath>src/libs/LuaBridge/LuaBridge.h</itemPath>
+          <itemPath>src/libs/LuaBridge/RefCountedObject.h</itemPath>
+          <itemPath>src/libs/LuaBridge/RefCountedPtr.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>src/game/ingame/cCameraManager.h</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComAnimation.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComCollision.h</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComImage.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPawnController.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPlayerDriver.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComponent.h</itemPath>
       <itemPath>src/game/ingame/map/cDebgMapEditor.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
+      <itemPath>src/game/ingame/entities/cEntityFactory.h</itemPath>
+      <itemPath>src/game/scripts/cLuaEngine.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.h</itemPath>
       <itemPath>src/game/states/cStAnimGenerator.h</itemPath>
       <itemPath>src/game/states/cStInGame.h</itemPath>
@@ -154,12 +181,15 @@
         <itemPath>src/storm/storm.h</itemPath>
       </logicalFolder>
       <itemPath>src/game/ingame/cCameraManager.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComAnimation.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComCollision.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComImage.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPawnController.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPlayerDriver.cpp</itemPath>
-      <itemPath>src/game/ingame/entities/components/cComponent.cpp</itemPath>
       <itemPath>src/game/ingame/map/cDebgMapEditor.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cEntityFactory.cpp</itemPath>
+      <itemPath>src/game/scripts/cLuaEngine.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.cpp</itemPath>
@@ -200,10 +230,13 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <incDir>
+            <pElem>src/libs</pElem>
+          </incDir>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerOptionItem>-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net</linkerOptionItem>
+            <linkerOptionItem>-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net -llua5.2</linkerOptionItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -236,12 +269,42 @@
       </item>
       <item path="src/game/ingame/entities/cEntity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComCollision.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -264,11 +327,6 @@
       <item path="src/game/ingame/entities/components/cComPlayerDriver.h"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/game/ingame/entities/components/cComponent.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
@@ -305,6 +363,10 @@
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/scripts/cLuaEngine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/scripts/cLuaEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/game/states/cStAnimGenerator.cpp"
             ex="false"
             tool="1"
@@ -319,6 +381,76 @@
       <item path="src/game/states/cStMainMenu.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/states/cStMainMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/LuaBridge.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedObject.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedPtr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/CFunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/ClassInfo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Constructor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/FuncTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Iterator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaHelpers.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaRef.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Namespace.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeList.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Userdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/dump.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -707,12 +839,42 @@
       </item>
       <item path="src/game/ingame/entities/cEntity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComCollision.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -735,11 +897,6 @@
       <item path="src/game/ingame/entities/components/cComPlayerDriver.h"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/game/ingame/entities/components/cComponent.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
@@ -776,6 +933,10 @@
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/scripts/cLuaEngine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/scripts/cLuaEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/game/states/cStAnimGenerator.cpp"
             ex="false"
             tool="1"
@@ -790,6 +951,76 @@
       <item path="src/game/states/cStMainMenu.cpp" ex="false" tool="1" flavor2="8">
       </item>
       <item path="src/game/states/cStMainMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/LuaBridge.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedObject.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedPtr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/CFunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/ClassInfo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Constructor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/FuncTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Iterator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaHelpers.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaRef.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Namespace.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeList.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Userdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/dump.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="8">
       </item>
@@ -1182,12 +1413,42 @@
       </item>
       <item path="src/game/ingame/entities/cEntity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComCollision.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/cComImage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1210,11 +1471,6 @@
       <item path="src/game/ingame/entities/components/cComPlayerDriver.h"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/game/ingame/entities/components/cComponent.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
@@ -1251,6 +1507,10 @@
       </item>
       <item path="src/game/sCommon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/game/scripts/cLuaEngine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/scripts/cLuaEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/game/states/cStAnimGenerator.cpp"
             ex="false"
             tool="1"
@@ -1265,6 +1525,76 @@
       <item path="src/game/states/cStMainMenu.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/states/cStMainMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/LuaBridge.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedObject.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/RefCountedPtr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/CFunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/ClassInfo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Constructor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/FuncTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Iterator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaHelpers.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/LuaRef.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Namespace.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeList.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/TypeTraits.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/Userdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/libs/LuaBridge/detail/dump.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

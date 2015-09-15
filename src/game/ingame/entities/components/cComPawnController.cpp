@@ -1,6 +1,6 @@
 #include "cComPawnController.h"
 
-cComPawnController::cComPawnController() {
+cComPawnController::cComPawnController(luabridge::LuaRef &table) {
 }
 cComPawnController::~cComPawnController() {
 }

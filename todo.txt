@@ -26,10 +26,12 @@ TODO LIST:
 ...All other shit like AI
 
 
--STORM: Int or Float only text fields. .GetInt() and .GetFloat functions
-        -If text fiels in Number only, then it should be able to change value
+-STORM_GUI: Int or Float (numeric) only text fields. .GetInt() and .GetFloat functions
+        -If text fiels is Number only, then it should be able to change value
         -by sliding (like one in unity editor)
 -STORM!!: WRITE NEW COMMENTS ON PUBLIC ANIMATION FUNCTIONS!
 -STORM: Tooltip system
 -STORM: Check texture reload code ...it may have some bugs
+-STORM: !!ADD STORM_LOG_DEBUG TYPE
+-STOEM: !!MAKE STORM A ENTITY-COMPONENT-SYSTEM!
 -Char creation gui

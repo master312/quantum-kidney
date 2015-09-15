@@ -8,13 +8,14 @@
 
 #ifndef CCOMPONENT_H
 #define	CCOMPONENT_H
+#include "../../../scripts/cLuaEngine.h"
+#include "../../../../storm/engine.h"
 
 class cComponent {
 public:
-    cComponent();
-    ~cComponent();
-private:
-
+    virtual ~cComponent() { }
+    /* Initialize component. Return < 0 if there was an error */
+    virtual int Init() { }
 };
 
 #endif	/* CCOMPONENT_H */

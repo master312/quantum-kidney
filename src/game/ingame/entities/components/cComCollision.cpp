@@ -1,6 +1,6 @@
 #include "cComCollision.h"
 
-cComCollision::cComCollision() {
+cComCollision::cComCollision(luabridge::LuaRef &table) {
 }
 cComCollision::~cComCollision() {
 }

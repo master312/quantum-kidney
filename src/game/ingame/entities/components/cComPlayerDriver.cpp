@@ -1,6 +1,6 @@
 #include "cComPlayerDriver.h"
 
-cComPlayerDriver::cComPlayerDriver() {
+cComPlayerDriver::cComPlayerDriver(luabridge::LuaRef &table) {
 }
 cComPlayerDriver::~cComPlayerDriver() {
 }

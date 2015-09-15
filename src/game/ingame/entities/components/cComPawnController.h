@@ -7,10 +7,11 @@
 
 #ifndef CCOMPAWNCONTROLLER_H
 #define	CCOMPAWNCONTROLLER_H
+#include "cComponent.h"
 
-class cComPawnController {
+class cComPawnController : public cComponent {
 public:
-    cComPawnController();
+    cComPawnController(luabridge::LuaRef &table);
     ~cComPawnController();
 private:
 

@@ -7,10 +7,11 @@
 
 #ifndef CCOMPLAYERDRIVER_H
 #define	CCOMPLAYERDRIVER_H
+#include "cComponent.h"
 
-class cComPlayerDriver {
+class cComPlayerDriver : public cComponent {
 public:
-    cComPlayerDriver();
+    cComPlayerDriver(luabridge::LuaRef &table);
     ~cComPlayerDriver();
 private:
 

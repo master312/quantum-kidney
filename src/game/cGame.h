@@ -10,6 +10,7 @@
 #include <iostream>
 #include "../storm/engine.h"
 #include "states/cStMainMenu.h"
+#include "scripts/cLuaEngine.h"
 
 class cGame {
 public:

@@ -10,17 +10,12 @@
 cEntity::cEntity() {
     id = -1;
 }
+cEntity::cEntity(const std::string &_type){
+    id = -1;
+    type = _type;
+}
 cEntity::~cEntity() {
 }
-void cEntity::AddComponent(cComponent *component) {
-    components.push_back(component);
-}
-template <typename T> T cEntity::GetComponent() {
-    for(auto &i : components){
-        T *toReturn = dynamic_cast<T*> (i);
-        if(toReturn != nullptr){
-            return toReturn;
-        }
-    }
-    return nullptr;
+void cEntity::AddComponent(std::type_index type, cComponent *component) {
+    components[type] = component;
 }

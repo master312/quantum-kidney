@@ -71,6 +71,7 @@ cGraphics *S_GetGraphicsManager();
 uint S_LoadTexture(std::string filename);
 //Creates new texture sections
 uint S_CreateSection(uint textureId, int x, int y, int w, int h);
+uint S_CreateSection(uint textureId, sRect& rect);
 //Draws texture to screen
 void S_DrawTexture(uint textureId, int x, int y, float scale = 1, float rot = 0);
 //Draws scaled texture to screen

@@ -11,6 +11,7 @@
 
 class cMapManager;
 class cCameraManager;
+class cEntityFactory;
 
 struct sCommon {
     sCommon();
@@ -31,6 +32,7 @@ struct sCommon {
     
     cMapManager *mapManager;
     cCameraManager *cameraManager;
+    cEntityFactory *entityFactory;
 };
 
 sCommon *GetCommon();

@@ -4,6 +4,18 @@
 //And binary data manipulation
 #include "defines.h"
 #include <cstring>
+#include <vector>
+#include <iostream>
+#include "defines.h"
+
+#ifdef OS_LINUX
+    #include <sys/types.h>
+    #include <dirent.h>
+    #include <errno.h>
+#endif
+#ifdef OS_WINDOWS
+
+#endif
 #ifndef CDATA_H
 #define CDATA_H
 
@@ -20,6 +32,10 @@ public:
 	static void ShortToByte(short &_short, char *dest);
 	
 	static void ByteCopy(char *src, char *dest, int destOffset, int srcLen);
+	//Returns list of files in directory, or empty vector if dir is empty
+        static std::vector<std::string> GetDir(const std::string& loc, 
+                                            const std::string& ext = "");
+
 };
 
 #endif

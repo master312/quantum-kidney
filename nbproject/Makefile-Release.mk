@@ -38,14 +38,17 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/cGame.o \
 	${OBJECTDIR}/src/game/ingame/cCameraManager.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
+	${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o \
-	${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o \
 	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
 	${OBJECTDIR}/src/game/sCommon.o \
+	${OBJECTDIR}/src/game/scripts/cLuaEngine.o \
 	${OBJECTDIR}/src/game/states/cStAnimGenerator.o \
 	${OBJECTDIR}/src/game/states/cStInGame.o \
 	${OBJECTDIR}/src/game/states/cStMainMenu.o \
@@ -138,10 +141,25 @@ ${OBJECTDIR}/src/game/ingame/entities/cEntity.o: src/game/ingame/entities/cEntit
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntity.o src/game/ingame/entities/cEntity.cpp
 
+${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o: src/game/ingame/entities/cEntityFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o src/game/ingame/entities/cEntityFactory.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o: src/game/ingame/entities/components/cComAnimation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o src/game/ingame/entities/components/cComAnimation.cpp
+
 ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o: src/game/ingame/entities/components/cComCollision.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o src/game/ingame/entities/components/cComCollision.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o: src/game/ingame/entities/components/cComImage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o src/game/ingame/entities/components/cComImage.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o: src/game/ingame/entities/components/cComPawnController.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
@@ -152,11 +170,6 @@ ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o: src/game/in
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o src/game/ingame/entities/components/cComPlayerDriver.cpp
-
-${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o: src/game/ingame/entities/components/cComponent.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComponent.o src/game/ingame/entities/components/cComponent.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o: src/game/ingame/map/cDebgMapEditor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map
@@ -177,6 +190,11 @@ ${OBJECTDIR}/src/game/sCommon.o: src/game/sCommon.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/game
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/sCommon.o src/game/sCommon.cpp
+
+${OBJECTDIR}/src/game/scripts/cLuaEngine.o: src/game/scripts/cLuaEngine.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/scripts
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/scripts/cLuaEngine.o src/game/scripts/cLuaEngine.cpp
 
 ${OBJECTDIR}/src/game/states/cStAnimGenerator.o: src/game/states/cStAnimGenerator.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/states

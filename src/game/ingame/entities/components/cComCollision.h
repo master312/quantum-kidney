@@ -7,10 +7,11 @@
 
 #ifndef CCOMCOLLISION_H
 #define	CCOMCOLLISION_H
+#include "cComponent.h"
 
-class cComCollision {
+class cComCollision : public cComponent {
 public:
-    cComCollision();
+    cComCollision(luabridge::LuaRef &table);
     ~cComCollision();
 private:
 
