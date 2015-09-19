@@ -56,6 +56,11 @@ std::string S_GetWindowTitle();
 bool S_IsWindowFullscreen();
 //Resize window
 void S_ResizeWindow(int width, int height);
+//Set maximum FPS
+void S_SetMaxFps(int _fps);
+//Set maximum logic ticks pre sec
+void S_SetMaxLogicTicks(int _mlt);
+
 //Draws rectangle on screen
 void S_DrawRect(int x, int y, int width, int height, float red = 0.0, float green = 0.0, float blue = 0.0, float alpha = 1.0);
 void S_DrawRect(sRect *rect, float red = 0.0, float green = 0.0, float blue = 0.0, float alpha = 1.0);

@@ -11,18 +11,15 @@
 
 class cComImage : public cComponent {
 public:
-    cComImage(luabridge::LuaRef &table);
+    cComImage(luabridge::LuaRef &table, cEntity *e);
     ~cComImage();
-    
-    int Init();
-    
+       
     bool IsInited() { return isInited; }
     bool IsCropped() { return cropRect != nullptr; }
     
     uint GetTextureId() { return textureId; }
     void SetTextureId(uint _id) { textureId = _id; }
 private:
-    std::string imgFilename;
     uint textureId;
     sRect *cropRect;
     

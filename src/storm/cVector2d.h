@@ -12,7 +12,9 @@ class cVector2d {
 public:
     cVector2d(double X = 0, double Y = 0);
     ~cVector2d() {}
-
+    void Set(double X, double Y);
+    void Set(const cVector2d &vect);
+    
     double x, y;
 
     cVector2d operator*(double scalar) const;
@@ -24,6 +26,7 @@ public:
     double Magnitude();
     void Normalise();
     double DotProduct(const cVector2d &vect) const;
+    void Add(const cVector2d &vect);
     
     void Print();
 };

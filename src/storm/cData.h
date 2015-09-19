@@ -34,7 +34,7 @@ public:
 	static void ByteCopy(char *src, char *dest, int destOffset, int srcLen);
 	//Returns list of files in directory, or empty vector if dir is empty
         static std::vector<std::string> GetDir(const std::string& loc, 
-                                            const std::string& ext = "");
+                                               const std::string& ext = "");
 
 };
 

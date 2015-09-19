@@ -2,7 +2,7 @@
 #include "components/cComCollision.h"
 #include "components/cComImage.h"
 #include "components/cComAnimation.h"
-#include "components/cComPawnController.h"
+#include "components/cComPawn.h"
 #include "components/cComPlayerDriver.h"
 #include "components/cComImage.h"
 #include "components/cComAnimation.h"
@@ -71,11 +71,14 @@ cEntity *cEntityFactory::CreateEntity(const std::string& type) {
     }
 
     cEntity *e = new cEntity(type);
-    auto vec = luaEngine->GetTableKeys(type);
+    std::vector<std::string> vec = luaEngine->GetTableKeys(type);
     LuaRef table = luaEngine->GetTable(type);
     
     for(auto &comName : vec){
-        if(comName == "Com_Image"){
+        if(comName == type){
+            LuaRef defTable = table[type.c_str()];
+            InitDefault(e, defTable);
+        }else if(comName == "Com_Image"){
             LuaRef imgTable = table["Com_Image"];
             AddComponent<cComImage>(e, imgTable);
         }else if(comName == "Com_Animation"){
@@ -84,12 +87,9 @@ cEntity *cEntityFactory::CreateEntity(const std::string& type) {
         }else if(comName == "Com_Collision"){
             LuaRef colTable = table["Com_Collision"];
             AddComponent<cComCollision>(e, colTable);
-        }else if(comName == "Com_PawnController"){
-            LuaRef pcTable = table["Com_PawnController"];
-            AddComponent<cComPawnController>(e, pcTable);
-        }else if(comName == "Com_PlayerDriver"){
-            LuaRef pdTable = table["Com_PlayerDriver"];
-            AddComponent<cComPlayerDriver>(e, pdTable);
+        }else if(comName == "Com_Pawn"){
+            LuaRef pcTable = table["Com_Pawn"];
+            AddComponent<cComPawn>(e, pcTable);
         }else{
             StormPrintLog(STORM_LOG_ERROR, "cEntityFactory",
                     "'%s' component not found", comName.c_str());

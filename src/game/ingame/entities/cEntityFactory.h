@@ -37,9 +37,31 @@ private:
     cLuaEngine *luaEngine;
     
     template <typename T>
-    void AddComponent(cEntity* e, LuaRef& comTable) {
+    T *AddComponent(cEntity *e, LuaRef &comTable) {
         if(!comTable.isNil()){
-            e->AddComponent(std::type_index(typeid(T)), new T(comTable));
+            T *tmp = new T(comTable, e);
+            e->AddComponent(std::type_index(typeid(T)), tmp);
+            return tmp;
+        }
+        return nullptr;
+    }
+    
+    void InitDefault(cEntity *e, LuaRef &comTable) {
+        if(!comTable["x"].isNil()){
+            if(comTable["x"].isNumber()){
+                e->GetLoc()->x = comTable["x"].cast<int>();
+            }else{
+                StormPrintLog(STORM_LOG_WARNING, "cEntityFactory", 
+                              "X position of entity is not a number!");
+            }
+        }
+        if(!comTable["y"].isNil()){
+            if(comTable["y"].isNumber()){
+                e->GetLoc()->y = comTable["y"].cast<int>();
+            }else{
+                StormPrintLog(STORM_LOG_WARNING, "cEntityFactory", 
+                              "Y position of entity is not a number!");
+            }
         }
     }
 };

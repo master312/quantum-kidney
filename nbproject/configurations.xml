@@ -31,12 +31,13 @@
       <itemPath>src/game/ingame/entities/components/cComAnimation.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComCollision.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComImage.h</itemPath>
-      <itemPath>src/game/ingame/entities/components/cComPawnController.h</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComPawn.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPlayerDriver.h</itemPath>
       <itemPath>src/game/ingame/entities/components/cComponent.h</itemPath>
       <itemPath>src/game/ingame/map/cDebgMapEditor.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.h</itemPath>
       <itemPath>src/game/ingame/entities/cEntityFactory.h</itemPath>
+      <itemPath>src/game/ingame/entities/cEntityManager.h</itemPath>
       <itemPath>src/game/scripts/cLuaEngine.h</itemPath>
       <itemPath>src/game/ingame/map/cMapManager.h</itemPath>
       <itemPath>src/game/states/cStAnimGenerator.h</itemPath>
@@ -44,10 +45,13 @@
       <itemPath>src/game/states/cStMainMenu.h</itemPath>
       <itemPath>src/storm/cStormConsole.h</itemPath>
       <itemPath>src/storm/cStormConsoleCommands.h</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysAnimation.h</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysPlayerDriver.h</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSystem.h</itemPath>
       <itemPath>src/storm/cVector2d.h</itemPath>
+      <itemPath>src/game/ingame/entities/components/hComDefines.h</itemPath>
       <itemPath>src/storm/graphics/sAnimFrameGroup.h</itemPath>
       <itemPath>src/game/sCommon.h</itemPath>
-      <itemPath>src/game/ingame/sKeyBinds.h</itemPath>
       <itemPath>src/game/ingame/sStats.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -184,11 +188,12 @@
       <itemPath>src/game/ingame/entities/components/cComAnimation.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComCollision.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComImage.cpp</itemPath>
-      <itemPath>src/game/ingame/entities/components/cComPawnController.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/components/cComPawn.cpp</itemPath>
       <itemPath>src/game/ingame/entities/components/cComPlayerDriver.cpp</itemPath>
       <itemPath>src/game/ingame/map/cDebgMapEditor.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntity.cpp</itemPath>
       <itemPath>src/game/ingame/entities/cEntityFactory.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/cEntityManager.cpp</itemPath>
       <itemPath>src/game/scripts/cLuaEngine.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.cpp</itemPath>
       <itemPath>src/game/ingame/map/cMapChunk.h</itemPath>
@@ -198,6 +203,8 @@
       <itemPath>src/game/states/cStMainMenu.cpp</itemPath>
       <itemPath>src/storm/cStormConsole.cpp</itemPath>
       <itemPath>src/storm/cStormConsoleCommands.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysAnimation.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysPlayerDriver.cpp</itemPath>
       <itemPath>src/storm/cVector2d.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
       <itemPath>src/game/sCommon.cpp</itemPath>
@@ -279,6 +286,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComAnimation.cpp"
             ex="false"
             tool="1"
@@ -309,12 +326,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.cpp"
+      <item path="src/game/ingame/entities/components/cComPawn.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.h"
+      <item path="src/game/ingame/entities/components/cComPawn.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -330,6 +347,36 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/hComDefines.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -354,8 +401,6 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/map/cMapManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/game/ingame/sKeyBinds.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -849,6 +894,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComAnimation.cpp"
             ex="false"
             tool="1"
@@ -879,12 +934,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.cpp"
+      <item path="src/game/ingame/entities/components/cComPawn.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.h"
+      <item path="src/game/ingame/entities/components/cComPawn.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -900,6 +955,36 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/hComDefines.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -924,8 +1009,6 @@
             flavor2="8">
       </item>
       <item path="src/game/ingame/map/cMapManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/game/ingame/sKeyBinds.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/sStats.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1423,6 +1506,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/cEntityManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/cEntityManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/components/cComAnimation.cpp"
             ex="false"
             tool="1"
@@ -1453,12 +1546,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.cpp"
+      <item path="src/game/ingame/entities/components/cComPawn.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="src/game/ingame/entities/components/cComPawnController.h"
+      <item path="src/game/ingame/entities/components/cComPawn.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1474,6 +1567,36 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/components/cComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/components/hComDefines.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysPlayerDriver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1498,8 +1621,6 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/map/cMapManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/game/ingame/sKeyBinds.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/game/ingame/sStats.h" ex="false" tool="3" flavor2="0">
       </item>

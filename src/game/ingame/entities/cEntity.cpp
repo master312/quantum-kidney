@@ -6,6 +6,7 @@
  */
 
 #include "cEntity.h"
+#include "cEntityManager.h"
 
 cEntity::cEntity() {
     id = -1;

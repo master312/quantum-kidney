@@ -20,6 +20,7 @@ sCommon::sCommon() {
     mapChunkTimeout = 5000;
     
     mapManager = NULL;
+    entityManager = NULL;
 }
 
 sCommon::~sCommon() {

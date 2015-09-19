@@ -11,7 +11,7 @@
 #include "../sCommon.h"
 #include "../ingame/map/cMapManager.h"
 #include "../ingame/cCameraManager.h"
-#include "../ingame/entities/cEntityFactory.h"
+#include "../ingame/entities/cEntityManager.h"
 
 class cStInGame : public cStormState {
 public:

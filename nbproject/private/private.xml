@@ -16,11 +16,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/scripts/cLuaScript.h</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/scripts/cLuaScript.cpp</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/main.cpp</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/scripts/cLuaEngine.cpp</file>
-            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/scripts/cLuaEngine.h</file>
+            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/entities/cEntityFactory.h</file>
+            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/entities/components/cComImage.cpp</file>
+            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/entities/components/cComImage.h</file>
+            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/cGame.h</file>
+            <file>file:/home/master312/Documents/NetBeansProjects/quantum-kidney/src/game/ingame/entities/cEntityFactory.cpp</file>
         </group>
     </open-files>
 </project-private>

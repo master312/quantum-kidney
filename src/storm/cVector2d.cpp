@@ -4,6 +4,14 @@ cVector2d::cVector2d(double X, double Y) {
     x = X;
     y = Y;
 }
+void cVector2d::Set(double X, double Y) {
+    x = X;
+    y = Y;
+}
+void cVector2d::Set(const cVector2d &vect) {
+    x = vect.x;
+    y = vect.y;
+}
 
 cVector2d cVector2d::operator*(double scalar) const {
     return cVector2d(x * scalar, y * scalar);
@@ -34,6 +42,10 @@ void cVector2d::Normalise() {
 }
 double cVector2d::DotProduct(const cVector2d &vect) const {
     return (x * vect.x) + (y * vect.y);
+}
+void cVector2d::Add(const cVector2d &vect) {
+    x += vect.x;
+    y += vect.y;
 }
 void cVector2d::Print() {
     cout << "Vector: X=" << x << " Y=" << y << endl;

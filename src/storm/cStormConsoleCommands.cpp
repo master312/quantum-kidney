@@ -1,11 +1,5 @@
-/* 
- * File:   cStormConsoleCommands.cpp
- * Author: master312
- * 
- * Created on August 24, 2015, 5:10 AM
- */
-
 #include "cStormConsoleCommands.h"
+#include "engine.h"
 
 cStormConsoleCommands::cStormConsoleCommands(cStormConsole *_console) {
     console = _console;
@@ -16,6 +10,12 @@ cStormConsoleCommands::cStormConsoleCommands(cStormConsole *_console) {
                         cStormCallbacker(this, 
                             &cStormConsoleCommands::HandleSimpleCommands));
     console->AddCommand("debug", 
+                        cStormCallbacker(this, 
+                            &cStormConsoleCommands::HandleSimpleCommands));
+    console->AddCommand("set_maxfps", 
+                        cStormCallbacker(this, 
+                            &cStormConsoleCommands::HandleSimpleCommands));
+    console->AddCommand("set_maxticks", 
                         cStormCallbacker(this, 
                             &cStormConsoleCommands::HandleSimpleCommands));
     console->AddCommand("help", 
@@ -46,8 +46,45 @@ void cStormConsoleCommands::HandleSimpleCommands(void *data) {
             S_SetDebugMode(true);
             console->PrintLine("Debug mode enabled");
         }
+    }else if(strcmp(tmp[0], "set_maxfps") == 0){
+        if(tmp[1] == NULL){
+            console->PrintLine("Error: You must specify max FPS number");
+            return;
+        }
+        int tmpFps = atoi(tmp[1]);
+        if (tmpFps <= 0){
+            console->PrintLine("Error: Invalid FPS number.");
+            return;
+        }
+        console->PrintLine("Max FPS set to: %d", tmpFps);
+        S_SetMaxFps(tmpFps);
+    }else if(strcmp(tmp[0], "set_maxticks") == 0){
+        if(tmp[1] == NULL){
+            console->PrintLine("Error: You must specify max ticks number");
+            return;
+        }
+        int tmpFps = atoi(tmp[1]);
+        if (tmpFps <= 0){
+            console->PrintLine("Error: Invalid ticks number.");
+            return;
+        }
+        console->PrintLine("Max number of logic ticks/s set to: %d", tmpFps);
+        S_SetMaxLogicTicks(tmpFps);
     }else if(strcmp(tmp[0], "help") == 0){
-        console->PrintLine("Available commands: (all commands may not be displayed)");
-        console->PrintLine("help, quit, print, debug");
+        console->PrintLine("Available commands:");
+        int count = 0;
+        std::stringstream ss;
+        for(auto &c : S_GetConsole()->GetCustomComs()){
+            ss << c.first;
+            count ++;
+            if(count == 8){
+                ss << std::endl;
+                count = 0;
+            }else{
+                ss << ", ";
+            }
+        }
+        ss << std::endl;
+        console->PrintLine(ss.str());
     }
 }

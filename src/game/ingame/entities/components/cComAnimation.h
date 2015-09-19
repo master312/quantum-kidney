@@ -11,10 +11,14 @@
 
 class cComAnimation : public cComponent {
 public:
-    cComAnimation(luabridge::LuaRef &table);
+    cComAnimation(luabridge::LuaRef &table, cEntity *e);
     ~cComAnimation();
+    
+    bool IsInited() { return animId > 0; }
+    uint GetAnimId() { return animId; }
+    void SetAnimId(uint _id) { animId = _id; }
 private:
-
+    uint animId;
 };
 
 #endif	/* CCOMANIMATION_H */

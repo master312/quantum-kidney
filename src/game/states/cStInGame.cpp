@@ -25,10 +25,10 @@ void cStInGame::Init() {
     cCameraManager *cameraManager = new cCameraManager();
     tmpC->cameraManager = cameraManager;
     
-    cEntityFactory *entityFactory = new cEntityFactory();
-    entityFactory->Init();
-    entityFactory->LoadScripts();
-    tmpC->entityFactory = entityFactory;
+    cEntityManager *entityManager = new cEntityManager();
+    tmpC->entityManager = entityManager;
+    
+    entityManager->CreateEntity("player");
     
     InitNewGame();
     
@@ -40,7 +40,8 @@ void cStInGame::InitNewGame() { //Private method...
 void cStInGame::GraphicsTick() {
     sCommon *tmpC = GetCommon();
     
-    tmpC->mapManager->Draw();
+    //tmpC->mapManager->Draw();
+    tmpC->entityManager->Draw();
     
     S_RenderText("State: cStInGame", 1, 1);
 }
@@ -48,6 +49,8 @@ void cStInGame::LogicTick() {
     sCommon *tmpC = GetCommon();
     
     tmpC->cameraManager->Tick();
+    tmpC->entityManager->Tick();
+    
 }
 void cStInGame::HandleEvents(void *data) {
 

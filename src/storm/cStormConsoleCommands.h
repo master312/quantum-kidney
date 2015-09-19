@@ -5,6 +5,7 @@
 #ifndef CSTORMCONSOLECOMMANDS_H
 #define	CSTORMCONSOLECOMMANDS_H
 #include "cStormConsole.h"
+#include <sstream>
 
 class cStormConsoleCommands {
 public:

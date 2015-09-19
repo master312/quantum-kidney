@@ -62,6 +62,14 @@ bool S_IsWindowFullscreen(){
 void S_ResizeWindow(int width, int height){
 	sEngine->ResizeWindow(width, height);
 }
+void S_SetMaxFps(int _fps){
+	sEngine->SetMaxFps(_fps);
+}
+void S_SetMaxLogicTicks(int _mlt){
+	sEngine->SetMaxLogicTicks(_mlt);
+}
+
+
 void S_DrawRect(int x, int y, int width, int height, float red, float green, float blue, float alpha){
 	sEngine->GetGraphicsManager()->DrawRectangle(x, y, width, height, red, green, blue, alpha);
 }

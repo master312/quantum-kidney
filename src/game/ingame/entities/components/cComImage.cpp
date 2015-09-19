@@ -1,16 +1,16 @@
 #include "cComImage.h"
 
-cComImage::cComImage(luabridge::LuaRef &table) {
+cComImage::cComImage(luabridge::LuaRef &table, cEntity *e) {
     isInited = false;
     cropRect = nullptr;
     
-    luabridge::LuaRef tmpReff = table["file_name"];
+    luabridge::LuaRef tmpReff = table["filename"];
     if(tmpReff.isNil() || !tmpReff.isString()){
         StormPrintLog(STORM_LOG_ERROR, "cComImage", 
                 "Could not create Com_Image. Filename invalid");
         return;
     }
-    imgFilename = tmpReff.cast<std::string>();
+    std::string imgFilename = tmpReff.cast<std::string>();
     
     tmpReff = table["crop_rectangle"];
     if(!tmpReff.isNil()){
@@ -38,6 +38,17 @@ cComImage::cComImage(luabridge::LuaRef &table) {
         }
     }
     
+    textureId = S_LoadTexture(imgFilename);
+    if(cropRect != nullptr){
+        //Image is cropped
+        textureId = S_CreateSection(textureId, *cropRect);
+    }
+    
+    if(textureId > 0){
+        isInited = true;
+    }
+    
+    SetEntity(e);
 }
 cComImage::~cComImage() {
     if(cropRect == nullptr){
@@ -48,13 +59,4 @@ cComImage::~cComImage() {
         S_RemoveSection(textureId);
         delete cropRect;
     }
-}
-int cComImage::Init() {
-    textureId = S_LoadTexture(imgFilename);
-    if(cropRect != nullptr){
-        //Image is cropped
-        textureId = S_CreateSection(textureId, *cropRect);
-    }
-    
-    imgFilename.clear();
 }

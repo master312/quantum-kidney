@@ -15,8 +15,8 @@ storm::storm(){
 	lastGraphTick = 0;
 	lastLogicTick = 0;
 	delta = 0;
-	targetGraphics = 60;
-	targetLogic = 30;
+	targetFps = 60;
+	targetLogicTicks = 30;
 	mTexture = NULL;
 	mAnimation = NULL;
 	mEvents = NULL;
@@ -143,7 +143,7 @@ void storm::Tick(){
 	mEvents->Tick();
 
 	delta = SDL_GetTicks() - lastLogicTick;
-	if(delta >= 1000 / targetLogic){
+	if(delta >= 1000 / targetLogicTicks){
 		mState->LogicTick();
 		lastLogicTick = SDL_GetTicks();
 	}
@@ -201,7 +201,7 @@ void storm::ClearScreen(){
 	mGraphics->ClearScreen();
 }
 bool storm::IsGraphicsTick(){
-	return SDL_GetTicks() - lastGraphTick > (uint)1000 / targetGraphics;
+	return SDL_GetTicks() - lastGraphTick > (uint)1000 / targetFps;
 }
 void storm::ResizeWindow(int width, int height){
 	wWidth = width;

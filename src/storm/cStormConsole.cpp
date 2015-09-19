@@ -17,14 +17,22 @@ void cStormConsole::Init() {
     curHistory = 0;
 }
 void cStormConsole::HandleEvents(void *data) {
-    if(!onScreen) {
-        if(S_IsKeyDown(key)){
+    if(S_IsKeyDown(key)){
+        if(IsOnScreen()){
+            Hide();
+        }else{
             Show();
         }
+        S_EatEvent("0001a_cStormConsole");
         return;
     }
-    if(S_IsKeyDown(KEY_ESCAPE)){
+    
+    if(!IsOnScreen())
+        return;
+        
+    if(IsOnScreen() && S_IsKeyDown(KEY_ESCAPE)){
         Hide();
+        S_EatEvent("0001a_cStormConsole");
         return;
     }
     

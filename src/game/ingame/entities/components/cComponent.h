@@ -11,11 +11,18 @@
 #include "../../../scripts/cLuaEngine.h"
 #include "../../../../storm/engine.h"
 
+class cEntity;
+
 class cComponent {
 public:
     virtual ~cComponent() { }
     /* Initialize component. Return < 0 if there was an error */
     virtual int Init() { }
+    
+    virtual void SetEntity(cEntity *e) { entity = e; }
+    virtual cEntity *GetEntity() { return entity; }
+protected:
+    cEntity *entity;
 };
 
 #endif	/* CCOMPONENT_H */

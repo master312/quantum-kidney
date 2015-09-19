@@ -41,6 +41,8 @@ public:
     
     void SetShortkey(eKey _key) { key = _key; }
     bool IsOnScreen() { return onScreen; }
+    
+    std::map<std::string, cStormCallbacker> &GetCustomComs() { return commands; }
 private:
     //This map contains command names and their callback methods
     std::map<std::string, cStormCallbacker> commands;

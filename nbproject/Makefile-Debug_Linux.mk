@@ -39,11 +39,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/ingame/cCameraManager.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntity.o \
 	${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o \
+	${OBJECTDIR}/src/game/ingame/entities/cEntityManager.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComCollision.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o \
-	${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o \
+	${OBJECTDIR}/src/game/ingame/entities/components/cComPawn.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o \
+	${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o \
+	${OBJECTDIR}/src/game/ingame/entities/systems/cSysPlayerDriver.o \
 	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapManager.o \
@@ -146,6 +149,11 @@ ${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o: src/game/ingame/entities
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntityFactory.o src/game/ingame/entities/cEntityFactory.cpp
 
+${OBJECTDIR}/src/game/ingame/entities/cEntityManager.o: src/game/ingame/entities/cEntityManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/cEntityManager.o src/game/ingame/entities/cEntityManager.cpp
+
 ${OBJECTDIR}/src/game/ingame/entities/components/cComAnimation.o: src/game/ingame/entities/components/cComAnimation.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
@@ -161,15 +169,25 @@ ${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o: src/game/ingame/en
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComImage.o src/game/ingame/entities/components/cComImage.cpp
 
-${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o: src/game/ingame/entities/components/cComPawnController.cpp 
+${OBJECTDIR}/src/game/ingame/entities/components/cComPawn.o: src/game/ingame/entities/components/cComPawn.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPawnController.o src/game/ingame/entities/components/cComPawnController.cpp
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPawn.o src/game/ingame/entities/components/cComPawn.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o: src/game/ingame/entities/components/cComPlayerDriver.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/components
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o src/game/ingame/entities/components/cComPlayerDriver.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o: src/game/ingame/entities/systems/cSysAnimation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o src/game/ingame/entities/systems/cSysAnimation.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/systems/cSysPlayerDriver.o: src/game/ingame/entities/systems/cSysPlayerDriver.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/systems/cSysPlayerDriver.o src/game/ingame/entities/systems/cSysPlayerDriver.cpp
 
 ${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o: src/game/ingame/map/cDebgMapEditor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/map

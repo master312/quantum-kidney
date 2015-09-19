@@ -27,6 +27,10 @@ struct sRect{
 	bool IsCollision(int _x, int _y){
 		return _x > x && _x < x + w && _y > y && _y < y + h;
 	}
+        //Returns true if x, y, w and h are zero
+        bool IsZero(){
+            return x == y == w == h == 0;
+        }
 };
 
 struct sRectFloat{

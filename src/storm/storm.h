@@ -86,7 +86,11 @@ public:
 	void SetWindowTitle(std::string title) { wTitle = title; }
 	void SetWindowType(int type) { wType = type; }
 	void ResizeWindow(int width, int height);
-
+        //Sets maximum FPS
+        void SetMaxFps(int _fps) { targetFps = (_fps < 1000) ? _fps : 999; }
+        //Sets maximum logic ticks pre sec
+        void SetMaxLogicTicks(int _tps) { targetLogicTicks = _tps; }
+        
 	//Should draw debug info on screen
 	void SetDebug(bool d) { isDebug = d; }
 
@@ -134,9 +138,9 @@ private:
 	//Time of last logic tick
 	Uint32 lastLogicTick;
 	//Target(maximum) graphics FPS
-	int targetGraphics;
+	int targetFps;
 	//Target logic ticks pre sec
-	int targetLogic;
+	int targetLogicTicks;
 	//How much time has passed since last logic tick (ms)
 	int delta;
         //Current FPS

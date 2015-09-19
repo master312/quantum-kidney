@@ -11,10 +11,15 @@
 
 class cComCollision : public cComponent {
 public:
-    cComCollision(luabridge::LuaRef &table);
+    cComCollision(luabridge::LuaRef &table, cEntity *e);
     ~cComCollision();
+    
+    bool IsInited() { return !rect.IsZero(); }
+    
+    sRect &GetRect() { return rect; }
+    void SetRect(sRect &_rect) { rect = _rect; }
 private:
-
+    sRect rect;
 };
 
 #endif	/* CCOMCOLLISION_H */
