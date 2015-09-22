@@ -38,6 +38,8 @@ bool S_IsGraphicsTick();
 int S_GetDelta();
 //Toggle debug mode
 void S_SetDebugMode(bool b);
+//Return true if debug mode is on
+bool S_IsDebug();
 
 //Set window size; DO NOT USE THIS FOR RESIZE! Use S_ResizeWindow
 //TODO: Check this. This crashes program

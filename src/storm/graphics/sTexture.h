@@ -27,9 +27,30 @@ struct sRect{
 	bool IsCollision(int _x, int _y){
 		return _x > x && _x < x + w && _y > y && _y < y + h;
 	}
+        /* Do not change isRec variable. It will couse error */
+        bool IsCollision(sRect *rect, bool isRec = false){
+            bool tmp = (rect->x > x && rect->x < x + w) && 
+                       (rect->y > y && rect->y < y + h);
+            if(!isRec){
+                tmp = tmp || rect->IsCollision(this, true);            
+            }
+            
+            return tmp;
+        }
         //Returns true if x, y, w and h are zero
         bool IsZero(){
             return x == y == w == h == 0;
+        }
+        
+        void Print(){
+            std::cout << "Rect X: " << x << " Y: " << y << " W: " << w << " H: " << h << std::endl;
+        }
+        
+        bool operator==(const sRect &rect){
+            return this->x == rect.x &&
+                   this->y == rect.y &&
+                   this->w == rect.w &&
+                   this->h == rect.h;
         }
 };
 

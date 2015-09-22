@@ -46,6 +46,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPawn.o \
 	${OBJECTDIR}/src/game/ingame/entities/components/cComPlayerDriver.o \
 	${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o \
+	${OBJECTDIR}/src/game/ingame/entities/systems/cSysCollision.o \
+	${OBJECTDIR}/src/game/ingame/entities/systems/cSysImage.o \
 	${OBJECTDIR}/src/game/ingame/entities/systems/cSysPlayerDriver.o \
 	${OBJECTDIR}/src/game/ingame/map/cDebgMapEditor.o \
 	${OBJECTDIR}/src/game/ingame/map/cMapChunk.o \
@@ -183,6 +185,16 @@ ${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o: src/game/ingame/e
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/systems/cSysAnimation.o src/game/ingame/entities/systems/cSysAnimation.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/systems/cSysCollision.o: src/game/ingame/entities/systems/cSysCollision.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/systems/cSysCollision.o src/game/ingame/entities/systems/cSysCollision.cpp
+
+${OBJECTDIR}/src/game/ingame/entities/systems/cSysImage.o: src/game/ingame/entities/systems/cSysImage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/libs -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/game/ingame/entities/systems/cSysImage.o src/game/ingame/entities/systems/cSysImage.cpp
 
 ${OBJECTDIR}/src/game/ingame/entities/systems/cSysPlayerDriver.o: src/game/ingame/entities/systems/cSysPlayerDriver.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/game/ingame/entities/systems

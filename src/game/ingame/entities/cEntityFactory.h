@@ -35,6 +35,7 @@ public:
     cEntity *CreateEntity(const std::string& type);
 private:
     cLuaEngine *luaEngine;
+    uint entIdCnt;
     
     template <typename T>
     T *AddComponent(cEntity *e, LuaRef &comTable) {

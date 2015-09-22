@@ -16,6 +16,10 @@ cEntity::cEntity(const std::string &_type){
     type = _type;
 }
 cEntity::~cEntity() {
+    for(auto &c : components){
+        GetCommon()->entityManager->GetSystem(c.first)->UnRegister(c.second);
+        delete c.second;
+    }
 }
 void cEntity::AddComponent(std::type_index type, cComponent *component) {
     components[type] = component;

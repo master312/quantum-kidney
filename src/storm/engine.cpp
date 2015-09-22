@@ -36,6 +36,9 @@ int S_GetDelta(){
 void S_SetDebugMode(bool b){
 	sEngine->SetDebug(b);
 }
+bool S_IsDebug(){
+	return sEngine->IsDebug();
+}
 
 void S_SetWindowSize(int width, int height){
 	sEngine->SetWindowSize(width, height);

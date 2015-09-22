@@ -13,5 +13,11 @@ player = {
 			component = "PlayerDriver",
 			dick_parametar_one = "the test parametar"
 		}
+	},
+    Com_Collision = {
+    	x = 2,
+    	y = 2,
+    	width = 30,
+    	height = 40
 	}
 }

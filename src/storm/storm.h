@@ -93,7 +93,8 @@ public:
         
 	//Should draw debug info on screen
 	void SetDebug(bool d) { isDebug = d; }
-
+        bool IsDebug() { return isDebug; }
+        
 	//Return pointer to graphics manager
 	cGraphics *GetGraphicsManager() { return mGraphics; }
 	//Returns pointer to texture manager

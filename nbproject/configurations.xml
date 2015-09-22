@@ -46,6 +46,8 @@
       <itemPath>src/storm/cStormConsole.h</itemPath>
       <itemPath>src/storm/cStormConsoleCommands.h</itemPath>
       <itemPath>src/game/ingame/entities/systems/cSysAnimation.h</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysCollision.h</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysImage.h</itemPath>
       <itemPath>src/game/ingame/entities/systems/cSysPlayerDriver.h</itemPath>
       <itemPath>src/game/ingame/entities/systems/cSystem.h</itemPath>
       <itemPath>src/storm/cVector2d.h</itemPath>
@@ -204,6 +206,8 @@
       <itemPath>src/storm/cStormConsole.cpp</itemPath>
       <itemPath>src/storm/cStormConsoleCommands.cpp</itemPath>
       <itemPath>src/game/ingame/entities/systems/cSysAnimation.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysCollision.cpp</itemPath>
+      <itemPath>src/game/ingame/entities/systems/cSysImage.cpp</itemPath>
       <itemPath>src/game/ingame/entities/systems/cSysPlayerDriver.cpp</itemPath>
       <itemPath>src/storm/cVector2d.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -362,6 +366,26 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/systems/cSysAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -974,6 +998,26 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/game/ingame/entities/systems/cSysPlayerDriver.cpp"
             ex="false"
             tool="1"
@@ -1582,6 +1626,26 @@
             flavor2="0">
       </item>
       <item path="src/game/ingame/entities/systems/cSysAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysCollision.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/game/ingame/entities/systems/cSysImage.h"
             ex="false"
             tool="3"
             flavor2="0">

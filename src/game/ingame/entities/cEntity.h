@@ -39,6 +39,10 @@ public:
         }
         return nullptr;
     }
+    
+    bool operator==(cEntity &entity){
+        return this->GetId() == entity.GetId();
+    }
 protected:
     uint id;
     cVector2d loc;

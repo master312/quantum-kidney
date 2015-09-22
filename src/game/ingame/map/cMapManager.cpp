@@ -152,6 +152,8 @@ int cMapManager::GetTriggerScreen(int x, int y) {
 }
 void cMapManager::SetTriggerScreen(int x, int y, int v) {
     sMapTile *ch = GetTileScreen(x, y);
+    if(ch == NULL)
+        return;
     int tx = ((x + camera.x) / GetCommon()->mapTileWidth) * GetCommon()->mapTileWidth;
     int ty = ((y + camera.y) / GetCommon()->mapTileHeight) * GetCommon()->mapTileHeight;
     x = ((x + camera.x) - tx) / (GetCommon()->mapTileWidth / 2);

@@ -1,12 +1,17 @@
 #include "cEntityManager.h"
 #include "systems/cSysAnimation.h"
 #include "systems/cSysPlayerDriver.h"
+#include "systems/cSysCollision.h"
+#include "systems/cSysImage.h"
 
 cEntityManager::cEntityManager() {
     graphSystems.push_back(new cSysAnimation());
     systems[std::type_index(typeid(cSysAnimation))] = graphSystems.back();
     systems[std::type_index(typeid(cSysPlayerDriver))] = new cSysPlayerDriver();
-    
+    graphSystems.push_back(new cSysImage());
+    systems[std::type_index(typeid(cSysImage))] = graphSystems.back();
+    graphSystems.push_back(new cSysCollision());
+    systems[std::type_index(typeid(cSysCollision))] = graphSystems.back();
     
     entityFactory = new cEntityFactory();
     entityFactory->Init();

@@ -1,11 +1,13 @@
 #include "cComCollision.h"
+#include "../cEntityManager.h"
+#include "../systems/cSysCollision.h"
 
 cComCollision::cComCollision(luabridge::LuaRef &table, cEntity *e) {
     luabridge::LuaRef x = table["x"];
     luabridge::LuaRef y = table["y"];
     luabridge::LuaRef width = table["width"];
     luabridge::LuaRef height = table["height"];
-    luabridge::LuaRef on_intersect = table["on_intersect"];
+    //luaCallback = table["on_intersect"];
     
     if(!x.isNil() && x.isNumber()){
         rect.x = x.cast<int>();
@@ -21,8 +23,26 @@ cComCollision::cComCollision(luabridge::LuaRef &table, cEntity *e) {
     }
     //TODO: on_intersect callback!
     
+    GetCommon()->entityManager->GetSystem<cSysCollision>()->Register(this);
+        
+    collider = rect;
+    collider.x += e->GetLoc()->x;
+    collider.y += e->GetLoc()->y;
+    
     SetEntity(e);
 }
 cComCollision::~cComCollision() {
 }
-
+void cComCollision::HandleCollision(cComCollision *col) {
+//    if(!luaCallback.isNil() && luaCallback.isFunction()){
+//        //luaCallback();
+//    }
+    std::cout << "COLLIDED (c++)" << std::endl;
+}
+sRect &cComCollision::GetCollider() {
+    cVector2d *loc = entity->GetLoc();
+    collider.x = rect.x + loc->x;
+    collider.y = rect.y + loc->y;
+    
+    return collider;
+}

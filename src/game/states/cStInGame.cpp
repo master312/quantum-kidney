@@ -29,6 +29,7 @@ void cStInGame::Init() {
     tmpC->entityManager = entityManager;
     
     entityManager->CreateEntity("player");
+    entityManager->CreateEntity("creep");
     
     InitNewGame();
     

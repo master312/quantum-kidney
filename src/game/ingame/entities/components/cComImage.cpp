@@ -1,4 +1,6 @@
 #include "cComImage.h"
+#include "../cEntityManager.h"
+#include "../systems/cSysImage.h"
 
 cComImage::cComImage(luabridge::LuaRef &table, cEntity *e) {
     isInited = false;
@@ -46,6 +48,7 @@ cComImage::cComImage(luabridge::LuaRef &table, cEntity *e) {
     
     if(textureId > 0){
         isInited = true;
+        GetCommon()->entityManager->GetSystem<cSysImage>()->Register(this);
     }
     
     SetEntity(e);

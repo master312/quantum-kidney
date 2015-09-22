@@ -104,6 +104,10 @@ void cStormConsole::HandleEvents(void *data) {
     if(S_IsKeyDown(KEY_RETURN)){
         S_StartTextInput();
     }
+    
+    if(!S_IsTextInput()){
+        S_GetInputManager()->ResetAll();
+    }
 }
 void cStormConsole::Draw() {
     if(!onScreen){

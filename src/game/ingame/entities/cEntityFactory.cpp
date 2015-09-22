@@ -9,6 +9,7 @@
 
 cEntityFactory::cEntityFactory() {
     luaEngine = nullptr;
+    entIdCnt = 0;
 }
 cEntityFactory::~cEntityFactory() {
     if(luaEngine != nullptr){
@@ -71,6 +72,8 @@ cEntity *cEntityFactory::CreateEntity(const std::string& type) {
     }
 
     cEntity *e = new cEntity(type);
+    entIdCnt ++;
+    e->SetId(entIdCnt);
     std::vector<std::string> vec = luaEngine->GetTableKeys(type);
     LuaRef table = luaEngine->GetTable(type);
     
