@@ -23,10 +23,10 @@ typedef unsigned int uint;
 #include <GL/glu.h>
 #endif
 
-//Version 0.15.2
+//Version 0.15.8
 #define STORM_VERSION_MAJOR 0
 #define STORM_VERSION_MINOR 15
-#define STORM_VERSION_FIX 2
+#define STORM_VERSION_FIX 8
 //Rendering apis
 #define STORM_API_OPENGL 1
 #define STORM_API_SDL 2
